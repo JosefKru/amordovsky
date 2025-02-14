@@ -15,7 +15,7 @@
 
   .project-card {
     text-align: left;
-    flex: 1 1 calc(50% - 40px); // 2 карточки в ряд, но могут уменьшаться
+    flex: 1 1 calc(50% - 40px); 
     max-width: 900px;
 
     img {
@@ -32,10 +32,10 @@
     p {
       font-size: 16px;
       color: #6e6e6e;
+      margin-top: 6px;
     }
   }
 
-  /* Когда ширина экрана 1000px и меньше – делаем одну карточку на всю ширину */
   @media (max-width: 1000px) {
     .container {
       flex-direction: column;
@@ -43,8 +43,8 @@
     }
 
     .project-card {
-      flex: 1 1 100%; // Занимает 100% ширины
-      max-width: 100%; // Без ограничения по ширине
+      flex: 1 1 100%; 
+      max-width: 100%; 
     }
   }
 }
