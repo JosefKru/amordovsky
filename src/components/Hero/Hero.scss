@@ -48,8 +48,8 @@
     }
   }
 }
+
 @media (max-width: 1000px) {
-  
   .hero {
     padding: 0 24px;
     margin: 52px 0 112px;
@@ -63,6 +63,42 @@
       font-size: 40px;
       line-height: 54px;
       font-weight: 400;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 0 16px;
+    margin: 28px 0 68px;
+
+    .hero-title-1920 {
+      display: none;
+    }
+
+    .hero-title-1000 {
+      display: block;
+      font-size: 26px;
+      line-height: 36px;
+      font-weight: 400;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .hero {
+    padding: 0 16px;
+    margin: 28px 0 68px;
+
+    .hero-title-1920 {
+      display: none;
+    }
+
+    .hero-title-1000 {
+      display: block;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 36px;
     }
   }
 }

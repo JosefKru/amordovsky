@@ -1,29 +1,33 @@
-import './Header.scss'
+import React from "react";
+import { Link } from "react-router-dom";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import "./Header.scss";
 
-function Header() {
+const Header: React.FC = () => {
   return (
-    <header className='header'>
-      <div className='container'>
-        <h1 className='logo'>AM.</h1>
-        <nav>
-          <ul>
-            <li>
-              <a href='#projects'>Projects</a>
-            </li>
-            <li>
-              <a href='#about'>About</a>
-            </li>
-            <li>
-              <a href='#contact'>Contact</a>
-            </li>
-            <li>
-              <a href='#lang'>Rus</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  )
-}
+    <header className="header">
+      <div className="logo">AM.</div>
 
-export default Header
+      <nav className="main-menu">
+        <ul>
+          <li>
+            <Link to="/projects">Projects</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/rus">Rus</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <BurgerMenu />
+    </header>
+  );
+};
+
+export default Header;
