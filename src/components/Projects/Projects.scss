@@ -1,11 +1,12 @@
 .projects {
   width: 100%;
-  max-width: 1920px;
   margin: 0 auto;
   padding: 0 48px;
   margin-bottom: 120px;
+  box-sizing: border-box;
 
   .container {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -52,6 +53,7 @@
 
     .container {
       width: 100%;
+      row-gap: 60px;
       flex-direction: column;
       align-items: center;
     }
@@ -59,6 +61,10 @@
     .project-card {
       flex: 1 1 100%;
       max-width: 100%;
+
+      h3 {
+        margin-top: 20px;
+      }
 
       img {
         width: 100vw;
@@ -70,14 +76,26 @@
 
   @media (max-width: 480px) {
     padding: 0 16px;
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 
     .container {
       row-gap: 40px;
     }
 
-    p {
-      margin-top: 4px;
+    .project-card {
+      h3 {
+        margin-top: 12px;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 24px;
+      }
+
+      p {
+        margin-top: 4px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16.98px;
+      }
     }
   }
 }

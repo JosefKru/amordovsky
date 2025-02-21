@@ -31,7 +31,6 @@
     width: 100vw;
     height: 100vh;
     background: white;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -61,47 +60,26 @@
     }
   }
 
-  @media (max-width: 999px) {  /* Для экранов меньше или равно 1000px */
-    display: block;  /* Показываем бургер меню */
+  @media (min-width: 360px) and (max-width: 480px) {
+    .menu {
+      ul {
+        li {
+          a {
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 48px;
+          }
+        }
+      }
+    }
   }
 
-  @media (min-width: 1000px) {  /* Для экранов более 1000px */
-    display: none; /* Прячем бургер меню */
+  @media (max-width: 1000px) {
+    display: block;
+  }
+
+  @media (min-width: 1001px) {
+    display: none;
   }
 }
-
-// @media (min-width: 480px) {
-//   .burger-menu {
-//     top: 24px;
-//     right: 24px;
-//     z-index: 100;
-
-//     .burger-icon {
-//       width: 32px;
-//       height: 32px;
-
-//       .close-icon {
-//         width: 22px;
-//         height: 22px;
-//       }
-//     }
-//   }
-// }
-
-// @media (min-width: 360px) {
-//   .burger-menu {
-//     top: 24px;
-//     right: 24px;
-//     z-index: 100;
-
-//     .burger-icon {
-//       width: 32px;
-//       height: 32px;
-
-//       .close-icon {
-//         width: 22px;
-//         height: 22px;
-//       }
-//     }
-//   }
-// }
