@@ -1,0 +1,54 @@
+.photo {
+  height: 746px;
+  text-align: center;
+  padding-top: 300px;
+  background-color: #dadada;
+  margin-bottom: 72px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 148px;
+  padding: 0 472px 140px 48px;
+  box-sizing: border-box;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 52px;
+
+    .first {
+      width: 200px;
+    }
+
+    .second {
+      width: 580px;
+    }
+  }
+
+//   @media (max-width: 1440px) {
+//     .container {
+//         gap: 550px;
+
+//     }
+//   }
+
+//   @media (max-width: 1200px) {
+//     .container {
+//         gap: 17vw;
+//     }
+//   }
+
+//   @media (max-width: 1000px) {
+//     .container {
+//         padding: 0 24px;
+//         font-weight: 400;
+//         font-size: 28px;
+//         line-height: 44px;
+//     }
+//   }
+}
