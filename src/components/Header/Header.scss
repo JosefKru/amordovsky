@@ -27,6 +27,27 @@
     font-size: 20px;
     line-height: 23px;
     text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transition: width 0.3s ease;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  nav ul li a:hover {
+    color: #000;
   }
 
   @media (max-width: 1000px) {
