@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
@@ -11,8 +11,34 @@ const menuItems = [
 ];
 
 const Header: React.FC = React.memo(() => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsVisible(scrollY < lastScrollY || scrollY < 50);
+          setLastScrollY(scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className="header">
+    <header className={`header ${isVisible ? "visible" : "hidden"}`}>
       <div className="logo">AM.</div>
 
       <nav className="main-menu" role="navigation">

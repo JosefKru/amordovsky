@@ -5,6 +5,20 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 48px;
+  background: white;
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  &.hidden {
+    transform: translateY(-100%);
+  }
+
+  &.visible {
+    transform: translateY(0);
+  }
 
   .logo {
     font-weight: 900;
