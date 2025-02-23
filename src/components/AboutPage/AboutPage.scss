@@ -18,7 +18,7 @@
     flex-direction: row;
     justify-content: space-between;
     // gap: 670px;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 36px;
     line-height: 52px;
 
@@ -32,7 +32,7 @@
   }
 
   @media (max-width: 1420px) {
-  margin: 0 calc(10.5vw) 140px 5vw;
+    margin: 0 calc(10.5vw) 140px 5vw;
 
     .container {
       gap: 35.4vw;
@@ -40,13 +40,11 @@
       .first {
         width: 200px;
       }
-  
+
       .second {
         width: 524px;
       }
     }
-
-    
   }
 
   //   @media (max-width: 1440px) {
@@ -65,7 +63,7 @@
   //   @media (max-width: 1000px) {
   //     .container {
   //         padding: 0 24px;
-  //         font-weight: 400;
+  //         font-weight: 300;
   //         font-size: 28px;
   //         line-height: 44px;
   //     }

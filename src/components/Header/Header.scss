@@ -21,6 +21,14 @@
   }
 
   .logo {
+    // font-family: 'Product Sans Black', sans-serif;
+    // @font-face {
+    //   font-family: "ProductSans";
+    //   src: url("/src/assets/fonts/ProductSans-Black.ttf") format("truetype");
+    //   font-weight: normal;
+    //   font-style: normal;
+    // }
+
     font-weight: 900;
     font-size: 28px;
     line-height: 24px;
@@ -37,7 +45,7 @@
   }
 
   nav ul li a {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 20px;
     line-height: 23px;
     text-decoration: none;
