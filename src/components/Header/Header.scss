@@ -1,3 +1,37 @@
+@keyframes slideInM {
+  0% {
+    transform: translateX(-70%); // Начинаем за границей слева
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0); // Полностью встала на место
+    opacity: 1;
+  }
+}
+
+@keyframes dropDot {
+  0% {
+    top: -20px;
+    opacity: 1;
+  }
+  100% {
+    top: 6px;
+    opacity: 1;
+  }
+}
+
+@keyframes riseA {
+  0% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .header {
   width: 100%;
   height: 120px;
@@ -21,18 +55,51 @@
   }
 
   .logo {
-    // font-family: 'Product Sans Black', sans-serif;
-    // @font-face {
-    //   font-family: "ProductSans";
-    //   src: url("/src/assets/fonts/ProductSans-Black.ttf") format("truetype");
-    //   font-weight: normal;
-    //   font-style: normal;
-    // }
-
+    position: relative;
+    display: inline-block;
     font-weight: 900;
     font-size: 28px;
     line-height: 24px;
     z-index: 101;
+    width: 60px;
+    height: 30px;
+    overflow: hidden;
+
+    .mask {
+      background-color: white;
+      position: absolute;
+      left: -10px;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+      z-index: 101;
+    }
+
+    .letter-m {
+      position: absolute;
+      left: 20px;
+      bottom: 0;
+      opacity: 0;
+      transform: translateX(100%);
+      animation: slideInM 0.4s forwards 0.2s;
+    }
+
+    .dot {
+      position: absolute;
+      left: 45px;
+      opacity: 0;
+      animation: dropDot 0.2s forwards 1s;
+    }
+
+    .letter-a {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+      transform: translateY(100%);
+      animation: riseA 0.4s forwards 1.7s;
+      z-index: 103;
+    }
   }
 
   nav ul {
