@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
 
@@ -13,6 +13,8 @@ const menuItems = [
 const Header: React.FC = React.memo(() => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const location = useLocation(); // Получаем текущий маршрут
+  const isHomePage = location.pathname === "/"; // Проверяем, главная ли страница
 
   useEffect(() => {
     let ticking = false;
@@ -39,12 +41,16 @@ const Header: React.FC = React.memo(() => {
 
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
-      <div className="logo">
-        <span className="mask"></span>
-        <span className="letter-a">A</span>
-        <span className="letter-m">M</span>
-        <span className="dot">.</span>
-      </div>
+      {isHomePage ? (
+        <div className="logo animated">
+          <span className="mask"></span>
+          <span className="letter-a">A</span>
+          <span className="letter-m">M</span>
+          <span className="dot">.</span>
+        </div>
+      ) : (
+        <div className="logo static">AM.</div>
+      )}
 
       <nav className="main-menu" role="navigation">
         <ul role="menu">

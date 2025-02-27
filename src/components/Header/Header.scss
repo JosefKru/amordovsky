@@ -1,11 +1,11 @@
 @keyframes slideInM {
   0% {
-    transform: translateX(-70%); // Начинаем за границей слева
+    transform: translateX(-70%); 
     opacity: 1;
   }
 
   100% {
-    transform: translateX(0); // Полностью встала на место
+    transform: translateX(0); 
     opacity: 1;
   }
 }
@@ -17,6 +17,17 @@
   }
   100% {
     top: 6px;
+    opacity: 1;
+  }
+}
+
+@keyframes dropDotSmall {
+  0% {
+    top: -20px;
+    opacity: 1;
+  }
+  100% {
+    top: 5px; 
     opacity: 1;
   }
 }
@@ -64,43 +75,51 @@
     width: 60px;
     height: 30px;
     overflow: hidden;
-    font-family: 'ProductSans-Bold', sans-serif;
-    src: url("/src/assets/fonts/ProductSans-Bold.ttf") format("truetype");
+    font-family: "ProductSans-Bold", sans-serif;
 
-    .mask {
-      background-color: white;
-      position: absolute;
-      left: -10px;
-      bottom: 0;
-      width: 30px;
-      height: 30px;
-      z-index: 101;
+    &.animated {
+      .mask {
+        background-color: white;
+        position: absolute;
+        left: -10px;
+        bottom: 0;
+        width: 30px;
+        height: 30px;
+        z-index: 101;
+      }
+
+      .letter-m {
+        position: absolute;
+        left: 20px;
+        bottom: 0;
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideInM 0.4s forwards 0.5s;
+      }
+
+      .dot {
+        position: absolute;
+        left: 44px;
+        opacity: 0;
+        animation: dropDot 0.2s forwards 1s;
+      }
+
+      .letter-a {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        transform: translateY(100%);
+        animation: riseA 0.4s forwards 1.5s;
+        z-index: 103;
+      }
     }
 
-    .letter-m {
-      position: absolute;
-      left: 20px;
-      bottom: 0;
-      opacity: 0;
-      transform: translateX(100%);
-      animation: slideInM 0.4s forwards 1.2s;
-    }
-
-    .dot {
-      position: absolute;
-      left: 45px;
-      opacity: 0;
-      animation: dropDot 0.2s forwards 2s;
-    }
-
-    .letter-a {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      opacity: 0;
-      transform: translateY(100%);
-      animation: riseA 0.4s forwards 2.7s;
-      z-index: 103;
+    &.static {
+      display: flex;
+      align-items: flex-end;
+      font-size: 28px;
+      font-weight: bold;
     }
   }
 
@@ -167,6 +186,27 @@
       font-size: 24px;
       line-height: 20px;
       z-index: 101;
+
+      .mask {
+        left: -13px;
+        bottom: 5px;
+        width: 30px;
+        height: 20px;
+      }
+
+      .letter-a {
+        bottom: 5px;
+      }
+
+      .letter-m {
+        left: 18px;
+        bottom: 5px;
+      }
+
+      .dot {
+        left: 40px;
+        animation: dropDotSmall 0.2s forwards 2s;
+      }
     }
   }
 
@@ -183,6 +223,22 @@
       font-size: 24px;
       line-height: 20px;
       z-index: 101;
+      animation: dropDotSmall 0.2s forwards 2s;
+
+      .letter-a {
+        bottom: 5px;
+      }
+
+      .letter-m {
+        left: 18px;
+        bottom: 5px;
+      }
+      
+      .dot {
+        left: 40px;
+        animation: dropDotSmall 0.2s forwards 2s;
+      }
     }
+    
   }
 }
