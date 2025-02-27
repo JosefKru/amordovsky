@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
@@ -7,14 +7,21 @@ const menuItems = [
   { to: "/", label: "Projects" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
-  { to: "/rus", label: "Rus" },
+  { to: "#", label: "Rus" },
 ];
 
 const Header: React.FC = React.memo(() => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const location = useLocation(); // Получаем текущий маршрут
-  const isHomePage = location.pathname === "/"; // Проверяем, главная ли страница
+  const firstLoad = useRef(true);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  useEffect(() => {
+    if (!isHomePage) {
+      firstLoad.current = false;
+    }
+  }, [isHomePage]);
 
   useEffect(() => {
     let ticking = false;
@@ -42,7 +49,7 @@ const Header: React.FC = React.memo(() => {
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
       {isHomePage ? (
-        <div className="logo animated">
+        <div className={`logo ${firstLoad.current ? "animated" : "static"}`}>
           <span className="mask"></span>
           <span className="letter-a">A</span>
           <span className="letter-m">M</span>

@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Header/Header";
 import "./AboutPage.scss";
 
 function AboutPage() {
@@ -23,7 +22,6 @@ function AboutPage() {
 
   return (
     <>
-      <Header />
       <div className="photo">Photo</div>
 
       <div className="about">
