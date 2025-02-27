@@ -1,0 +1,98 @@
+.floating-contact {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  z-index: 40;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .circle-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .avatar-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .contact-me {
+      margin-left: 10px;
+      font-size: 16px;
+    }
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    .contact-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .avatar-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+    }
+
+    .contact-info {
+      margin-top: 1rem;
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+      strong {
+        color: #ccc;
+      }
+    }
+
+    .telegram-btn {
+      margin-top: auto;
+      background-color: #000;
+      text-decoration: none;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+}
