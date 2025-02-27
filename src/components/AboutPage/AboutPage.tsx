@@ -16,7 +16,7 @@ function AboutPage() {
     {
       first: "Focal point",
       second:
-        "In my work, I focus on the goals and objectives of the business, the target audience, research and custdev, resource and technical constraints\n\nI am fond of frontend development and traveling",
+        "In my work, I focus on the goals and objectives of the business, the target audience, research and custdev, resource and technical constraints\nI am fond of frontend development and traveling",
     },
   ];
 
@@ -24,26 +24,28 @@ function AboutPage() {
     <>
       <div className="photo">Photo</div>
 
-      <div className="about">
+      <section className="about">
         {aboutMe.map((item, index) => (
           <div className="container" key={index}>
             <p className="first">{item.first}</p>
-            <p className="second">
-              {item.second.split("\n\n").map((text, i) => (
-                <React.Fragment key={i}>
-                  {text}
-                  {i === 0 && (
-                    <>
-                      <br />
-                      <br />
-                    </>
-                  )}
-                </React.Fragment>
-              ))}
-            </p>
+            <div className="second">
+              <p className="content">
+                {item.second.split("\n").map((textChunk, i, arr) => (
+                  <React.Fragment key={i}>
+                    {textChunk}
+                    {i < arr.length - 1 && (
+                      <>
+                        <br />
+                        <br />
+                      </>
+                    )}
+                  </React.Fragment>
+                ))}
+              </p>
+            </div>
           </div>
         ))}
-      </div>
+      </section>
     </>
   );
 }
