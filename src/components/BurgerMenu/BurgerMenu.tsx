@@ -1,8 +1,15 @@
-import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
+import { NavItem, navItems } from "../../lib/navigationConfig";
 import "./BurgerMenu.scss";
+
+interface BurgerMenuProps {
+  language: "en" | "ru";
+  toggleLanguage: () => void;
+}
 
 const menuVariants = {
   open: { x: "0%", opacity: 1, transition: { duration: 0 } },
@@ -17,17 +24,55 @@ const linkVariants = {
   }),
 };
 
-const BurgerMenu: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const BurgerMenu: React.FC<BurgerMenuProps> = ({ language, toggleLanguage }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
 
-  const menuItems = ["Projects", "About", "Contact", "Rus"];
-
-  useEffect(() => {
+  React.useEffect(() => {
     document.body.classList.toggle("no-scroll", isOpen);
   }, [isOpen]);
 
   const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  const handleLangClick = () => {
+    toggleLanguage();
+    closeMenu();
+  };
+
+  const renderMenuItem = (item: NavItem, i: number) => {
+    if (item.isLangSwitcher) {
+      return (
+        <motion.li key={item.label} custom={i} variants={linkVariants}>
+          <button onClick={handleLangClick}>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={language}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+              >
+                {language === "en" ? "Rus" : "Eng"}
+              </motion.span>
+            </AnimatePresence>
+          </button>
+        </motion.li>
+      );
+    }
+
+    return (
+      <motion.li key={item.label} custom={i} variants={linkVariants}>
+        <Link
+          to={item.to!}
+          onClick={() => {
+            closeMenu();
+          }}
+        >
+          {item.label}
+        </Link>
+      </motion.li>
+    );
   };
 
   return (
@@ -38,9 +83,9 @@ const BurgerMenu: React.FC = () => {
         aria-label="Toggle menu"
       >
         {isOpen ? (
-          <img src={closeIcon} className="closeMenu" alt="Open menu icon" />
+          <img src={closeIcon} className="closeMenu" alt="Close menu icon" />
         ) : (
-          <img src={burgerIcon} className="openMenu" alt="Close menu icon" />
+          <img src={burgerIcon} className="openMenu" alt="Open menu icon" />
         )}
       </button>
 
@@ -51,19 +96,7 @@ const BurgerMenu: React.FC = () => {
         variants={menuVariants}
       >
         <ul>
-          {menuItems.map((item, i) => (
-            <motion.li key={item} custom={i} variants={linkVariants}>
-              <a
-                href={`/${item.toLowerCase()}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  closeMenu();
-                }}
-              >
-                {item}
-              </a>
-            </motion.li>
-          ))}
+          {navItems.map((item, i) => renderMenuItem(item, i))}
         </ul>
       </motion.div>
     </nav>

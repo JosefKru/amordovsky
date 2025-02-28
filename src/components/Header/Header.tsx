@@ -1,18 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import { NavItem, navItems } from "../../lib/navigationConfig";
+import { useHeaderVisibility } from "../../hooks/useHeaderVisibility"; // <-- импорт кастомного хука
 import "./Header.scss";
 
-const menuItems = [
-  { to: "/", label: "Projects" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-  { to: "#", label: "Rus" },
-];
-
 const Header: React.FC = React.memo(() => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const isVisible = useHeaderVisibility();
+
+  const [language, setLanguage] = useState<"en" | "ru">("en");
+
   const firstLoad = useRef(true);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -23,28 +21,31 @@ const Header: React.FC = React.memo(() => {
     }
   }, [isHomePage]);
 
-  useEffect(() => {
-    let ticking = false;
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "en" ? "ru" : "en"));
+  };
 
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
+  const renderMenuItem = (item: NavItem) => {
+    if (item.isLangSwitcher) {
+      return (
+        <button onClick={toggleLanguage}>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={language}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              {language === "en" ? "Rus" : "Eng"}
+            </motion.span>
+          </AnimatePresence>
+        </button>
+      );
+    }
 
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsVisible(scrollY < lastScrollY || scrollY < 50);
-          setLastScrollY(scrollY);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
+    return <Link to={item.to!}>{item.label}</Link>;
+  };
 
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
@@ -61,15 +62,15 @@ const Header: React.FC = React.memo(() => {
 
       <nav className="main-menu" role="navigation">
         <ul role="menu">
-          {menuItems.map((item) => (
-            <li key={item.to} role="menuitem">
-              <Link to={item.to}>{item.label}</Link>
+          {navItems.map((item) => (
+            <li key={item.label} role="menuitem">
+              {renderMenuItem(item)}
             </li>
           ))}
         </ul>
       </nav>
 
-      <BurgerMenu />
+      <BurgerMenu language={language} toggleLanguage={toggleLanguage} />
     </header>
   );
 });
