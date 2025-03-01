@@ -1,11 +1,11 @@
 @keyframes slideInM {
   0% {
-    transform: translateX(-70%); 
+    transform: translateX(-70%);
     opacity: 1;
   }
 
   100% {
-    transform: translateX(0); 
+    transform: translateX(0);
     opacity: 1;
   }
 }
@@ -27,7 +27,7 @@
     opacity: 1;
   }
   100% {
-    top: 5px; 
+    top: 5px;
     opacity: 1;
   }
 }
@@ -56,6 +56,12 @@
   top: 0;
   left: 0;
   z-index: 100;
+
+  .logo-link {
+    text-decoration: none;
+    line-height: 0;
+    user-select: none;
+  }
 
   &.hidden {
     transform: translateY(-100%);
@@ -126,6 +132,7 @@
   nav ul {
     display: flex;
     gap: 48px;
+    user-select: none;
   }
 
   nav ul li {
@@ -158,6 +165,16 @@
     opacity: 1;
   }
 
+  .lang-switcher {
+    text-decoration: none;
+    width: 32px;
+    display: inline-block;
+  }
+  
+  .lang-switcher::after {
+    display: none;
+  }
+
   nav ul li a:hover {
     color: #000;
   }
@@ -187,26 +204,36 @@
       line-height: 20px;
       z-index: 101;
 
-      .mask {
-        left: -13px;
-        bottom: 5px;
-        width: 30px;
-        height: 20px;
+      &.animated {  
+        .mask {
+          left: -13px;
+          bottom: 5px;
+          width: 30px;
+          height: 20px;
+        }
+  
+        .letter-a {
+          bottom: 5px;
+        }
+  
+        .letter-m {
+          left: 17px;
+          bottom: 5px;
+        }
+  
+        .dot {
+          left: 38px;
+          animation: dropDotSmall 0.2s forwards 2s;
+        }
       }
 
-      .letter-a {
-        bottom: 5px;
+      &.static {
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 20px;
+        align-items: center;
       }
 
-      .letter-m {
-        left: 18px;
-        bottom: 5px;
-      }
-
-      .dot {
-        left: 40px;
-        animation: dropDotSmall 0.2s forwards 2s;
-      }
     }
   }
 
@@ -223,22 +250,28 @@
       font-size: 24px;
       line-height: 20px;
       z-index: 101;
-      animation: dropDotSmall 0.2s forwards 2s;
 
-      .letter-a {
-        bottom: 5px;
-      }
+      &.animated {
 
-      .letter-m {
-        left: 18px;
-        bottom: 5px;
-      }
-      
-      .dot {
-        left: 40px;
-        animation: dropDotSmall 0.2s forwards 2s;
+        .mask {
+          left: -13px;
+        }
+        
+        .letter-a {
+          left: 0px;
+          bottom: 5px;
+        }
+  
+        .letter-m {
+          left: 17px;
+          bottom: 5px;
+        }
+  
+        .dot {
+          left: 38px;
+          animation: dropDotSmall 0.2s forwards 2s;
+        }
       }
     }
-    
   }
 }

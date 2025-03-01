@@ -1,5 +1,6 @@
 import React from "react";
 import "./AboutPage.scss";
+import FloatingContact from "../FloatingContact/FloatingContact";
 
 function AboutPage() {
   const aboutMe = [
@@ -22,6 +23,7 @@ function AboutPage() {
 
   return (
     <>
+       <FloatingContact />
       <div className="photo">Photo</div>
 
       <section className="about">

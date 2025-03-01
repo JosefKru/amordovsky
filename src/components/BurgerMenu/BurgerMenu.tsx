@@ -44,7 +44,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ language, toggleLanguage }) => 
     if (item.isLangSwitcher) {
       return (
         <motion.li key={item.label} custom={i} variants={linkVariants}>
-          <button onClick={handleLangClick}>
+          <Link to={"#"} onClick={handleLangClick}>
             <AnimatePresence mode="wait">
               <motion.span
                 key={language}
@@ -56,7 +56,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ language, toggleLanguage }) => 
                 {language === "en" ? "Rus" : "Eng"}
               </motion.span>
             </AnimatePresence>
-          </button>
+          </Link>
         </motion.li>
       );
     }

@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useHeaderVisibility } from "../../hooks/useHeaderVisibility";
 import { NavItem, navItems } from "../../lib/navigationConfig";
-import { useHeaderVisibility } from "../../hooks/useHeaderVisibility"; // <-- импорт кастомного хука
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
 
 const Header: React.FC = React.memo(() => {
@@ -28,7 +28,7 @@ const Header: React.FC = React.memo(() => {
   const renderMenuItem = (item: NavItem) => {
     if (item.isLangSwitcher) {
       return (
-        <button onClick={toggleLanguage}>
+        <Link to={"#"} onClick={toggleLanguage} className="lang-switcher">
           <AnimatePresence mode="wait">
             <motion.span
               key={language}
@@ -40,7 +40,7 @@ const Header: React.FC = React.memo(() => {
               {language === "en" ? "Rus" : "Eng"}
             </motion.span>
           </AnimatePresence>
-        </button>
+        </Link>
       );
     }
 
@@ -49,17 +49,18 @@ const Header: React.FC = React.memo(() => {
 
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
-      {isHomePage ? (
-        <div className={`logo ${firstLoad.current ? "animated" : "static"}`}>
-          <span className="mask"></span>
-          <span className="letter-a">A</span>
-          <span className="letter-m">M</span>
-          <span className="dot">.</span>
-        </div>
-      ) : (
-        <div className="logo static">AM.</div>
-      )}
-
+      <Link to={"/"} className="logo-link" >
+        {isHomePage ? (
+          <div className={`logo ${firstLoad.current ? "animated" : "static"}`}>
+            <span className="mask"></span>
+            <span className="letter-a">A</span>
+            <span className="letter-m">M</span>
+            <span className="dot">.</span>
+          </div>
+        ) : (
+          <div className="logo static">AM.</div>
+        )}
+      </Link>
       <nav className="main-menu" role="navigation">
         <ul role="menu">
           {navItems.map((item) => (
