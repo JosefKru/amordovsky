@@ -123,7 +123,7 @@
 
     &.static {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       font-size: 28px;
       font-weight: bold;
     }
@@ -170,7 +170,7 @@
     width: 32px;
     display: inline-block;
   }
-  
+
   .lang-switcher::after {
     display: none;
   }
@@ -204,26 +204,28 @@
       line-height: 20px;
       z-index: 101;
 
-      &.animated {  
+      &.animated {
         .mask {
           left: -13px;
           bottom: 5px;
           width: 30px;
           height: 20px;
         }
-  
+
         .letter-a {
           bottom: 5px;
+          animation: riseA 0.4s forwards 1.5s;
         }
-  
+
         .letter-m {
           left: 17px;
           bottom: 5px;
+          animation: slideInM 0.4s forwards 0.5s;
         }
-  
+
         .dot {
           left: 38px;
-          animation: dropDotSmall 0.2s forwards 2s;
+          animation: dropDotSmall 0.2s forwards 1s;
         }
       }
 
@@ -233,7 +235,6 @@
         line-height: 20px;
         align-items: center;
       }
-
     }
   }
 
@@ -252,24 +253,22 @@
       z-index: 101;
 
       &.animated {
-
         .mask {
           left: -13px;
         }
-        
+
         .letter-a {
           left: 0px;
           bottom: 5px;
         }
-  
+
         .letter-m {
           left: 17px;
           bottom: 5px;
         }
-  
+
         .dot {
           left: 38px;
-          animation: dropDotSmall 0.2s forwards 2s;
         }
       }
     }
