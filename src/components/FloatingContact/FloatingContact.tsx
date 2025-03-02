@@ -1,12 +1,16 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import avatar from "../../assets/images/avatar.jpg";
 import "./FloatingContact.scss";
 
 const FloatingContact: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const location = useLocation();
+
+  if (location.pathname === "/contact") return null;
+
 
   const variants = {
     circle: {

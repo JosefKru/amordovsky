@@ -12,7 +12,7 @@ interface ProjectCardProps {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: -50 },
+  hidden: { opacity: 0, y: -20 },
   visible: { opacity: 1, y: 0 },
 }
 
@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       variants={cardVariants}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 1, ease: "easeInOut" }} 
     >
       <img src={project.image} alt={project.name} />
       <h3>{project.name}</h3>
