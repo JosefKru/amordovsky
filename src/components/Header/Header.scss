@@ -27,7 +27,7 @@
     opacity: 1;
   }
   100% {
-    top: 5px;
+    top: 1px;
     opacity: 1;
   }
 }
@@ -200,16 +200,16 @@
 
     .logo {
       font-weight: 900;
-      font-size: 24px;
-      line-height: 20px;
+      font-size: 28px;
+      line-height: 24px;
       z-index: 101;
 
       &.animated {
         .mask {
-          left: -13px;
+          left: -12px;
           bottom: 5px;
           width: 30px;
-          height: 20px;
+          height: 25px;
         }
 
         .letter-a {
@@ -218,13 +218,13 @@
         }
 
         .letter-m {
-          left: 17px;
+          left: 20px;
           bottom: 5px;
           animation: slideInM 0.4s forwards 0.5s;
         }
 
         .dot {
-          left: 38px;
+          left: 43px;
           animation: dropDotSmall 0.2s forwards 1s;
         }
       }
@@ -242,14 +242,15 @@
     height: 80px;
     padding: 0 16px;
 
+
     .main-menu {
       display: none;
     }
 
     .logo {
       font-weight: 900;
-      font-size: 24px;
-      line-height: 20px;
+      font-size: 28px;
+      line-height: 24px;
       z-index: 101;
 
       &.animated {
@@ -263,12 +264,13 @@
         }
 
         .letter-m {
-          left: 17px;
+          left: 20px;
           bottom: 5px;
         }
-
+        
         .dot {
-          left: 38px;
+          left: 43px;
+          animation: dropDotSmall 0.2s forwards 1s;
         }
       }
     }
