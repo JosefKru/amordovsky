@@ -53,11 +53,11 @@
           font-size: 40px;
           line-height: 54px;
           position: relative;
-          display: inline-block; 
+          display: inline-block;
           &::after {
             content: none;
           }
-      
+
           &::before {
             content: "";
             display: block;
@@ -66,10 +66,10 @@
             bottom: 0;
             height: 2px;
             width: 0;
-            background: transparent; 
+            background: transparent;
             transition: width 0s ease, background 0.3s ease;
           }
-      
+
           &::after {
             content: "";
             display: block;
@@ -78,14 +78,14 @@
             bottom: 0;
             height: 2px;
             width: 0;
-            background: black; 
+            background: black;
             transition: width 0.3s ease;
           }
-      
+
           &:hover {
             &::before {
               width: 100%;
-              background: black; 
+              background: black;
               transition: width 0.3s ease;
             }
             &::after {
@@ -104,12 +104,13 @@
       padding: 16px;
       ul {
         margin-top: 102px;
+        gap: 0px;
 
         li {
           a {
             text-decoration: none;
             font-weight: 300;
-            font-size: 40px;
+            font-size: 36px;
             line-height: 54px;
           }
         }
@@ -123,7 +124,6 @@
 
       ul {
         margin-top: 96px;
-        gap: 2px;
 
         li {
           a {
