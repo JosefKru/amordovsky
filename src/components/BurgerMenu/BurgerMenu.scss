@@ -121,10 +121,11 @@
   @media (max-width: 360px) {
     .menu {
       padding: 16px;
-
+      
       ul {
         margin-top: 96px;
-
+        gap: 0px;
+        
         li {
           a {
             font-size: 36px;
