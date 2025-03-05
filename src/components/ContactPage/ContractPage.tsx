@@ -4,7 +4,7 @@ import "./ContractPage.scss";
 function ContractPage() {
   const contacts = [
     { value: "Phone", contact: "+7 926 082 53 10", type: "phone" },
-    { value: "E-mail", contact: "mordovskoy.design@gmail.com", type: "mail" },
+    { value: "E-mail", contact: "mordovskoy@gmail.com", type: "mail" },
     { value: "Telegram", contact: "@AndreyUX", type: "link" },
   ];
 
