@@ -1,7 +1,7 @@
 .hero {
   width: 100%;
   max-width: 1920px;
-  margin: 64px 0 176px;
+  margin: 64px 0 156px;
   padding: 0 48px;
 
   .container {
@@ -18,7 +18,7 @@
     display: none;
   }
 
-  @media (min-width: 1200px) and (max-width: 1420px) {
+  @media (min-width: 1200px) and (max-width: 1440px) {
     margin: 64px 0 160px;
 
     .container {
@@ -106,15 +106,15 @@
 
       h1 {
         font-weight: 300;
-        font-size: 26px;
-        line-height: 36px;
+        font-size: 32px;
+        line-height: 40px;
       }
     }
   }
 
   @media (max-width: 360px) {
     padding: 0 16px;
-    margin: 20px 0 52px;
+    margin: 112px 0 64px;
 
     .container {
       display: none;
@@ -127,7 +127,7 @@
 
       h1 {
         font-weight: 300;
-        font-size: 26px;
+        font-size: 28px;
         line-height: 36px;
       }
     }
