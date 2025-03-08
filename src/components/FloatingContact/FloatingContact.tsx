@@ -11,27 +11,32 @@ const FloatingContact: React.FC = () => {
 
   if (location.pathname === "/contact") return null;
 
-
   const variants = {
     circle: {
       width: 80,
       height: 80,
       borderRadius: 100,
       opacity: 1,
-      transition: { type: "spring", stiffness: 400, damping: 30 },
+      transition: { type: "easeInOut", duration: 0.2 },
+      background: "white",
     },
     pill: {
       width: 260,
       height: 80,
       borderRadius: 100,
       opacity: 1,
-      transition: { type: "spring", stiffness: 400, damping: 30 },
+      transition: { type: "easeInOut", duration: 0.2 },
+      background: "black",
+
     },
     expanded: {
-      width: 300,
-      height: 400,
+      width: 260,
+      height: 316,
       borderRadius: 32,
-      transition: { type: "spring", stiffness: 50, damping: 15 },
+      transition: { type: "easeInOut", duration: 0.2 },
+      boxShadow: "0px 2px 20px rgba(0, 0, 0, 0.1)",
+      background: "white",
+      color: "black",
     },
   };
 
@@ -44,7 +49,7 @@ const FloatingContact: React.FC = () => {
       variants={variants}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={() => setIsOpen(true)}
     >
       {isOpen ? (
         <div className="contact-details">
