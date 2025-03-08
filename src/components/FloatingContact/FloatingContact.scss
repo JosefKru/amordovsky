@@ -21,18 +21,23 @@
   .circle-content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 16px;
+    width: 100%;
 
     .avatar-img {
-      width: 50px;
-      height: 50px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
-      object-fit: cover;
+      margin-left: 4px;
     }
 
     .contact-me {
-      margin-left: 10px;
-      font-size: 16px;
+      margin-right: 64px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      white-space: nowrap; 
     }
   }
 

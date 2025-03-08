@@ -14,15 +14,17 @@ const FloatingContact: React.FC = () => {
 
   const variants = {
     circle: {
-      width: 60,
-      height: 60,
-      borderRadius: 60,
+      width: 80,
+      height: 80,
+      borderRadius: 100,
+      opacity: 1,
       transition: { type: "spring", stiffness: 400, damping: 30 },
     },
     pill: {
-      width: 160,
-      height: 60,
-      borderRadius: 30,
+      width: 260,
+      height: 80,
+      borderRadius: 100,
+      opacity: 1,
       transition: { type: "spring", stiffness: 400, damping: 30 },
     },
     expanded: {
