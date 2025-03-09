@@ -1,10 +1,11 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
-import { NavItem, navItems } from "../../lib/navigationConfig";
+import { NavItem, getNavigation } from "../../lib/navigationConfig";
 import "./BurgerMenu.scss";
+import { useTranslation } from "react-i18next";
 
 interface BurgerMenuProps {
   language: "en" | "ru";
@@ -24,12 +25,18 @@ const linkVariants = {
   }),
 };
 
-const BurgerMenu: React.FC<BurgerMenuProps> = ({ language, toggleLanguage }) => {
+const BurgerMenu: React.FC<BurgerMenuProps> = ({
+  language,
+  toggleLanguage,
+}) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   React.useEffect(() => {
     document.body.classList.toggle("no-scroll", isOpen);
   }, [isOpen]);
+
+    const { t } = useTranslation();
+  
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -75,6 +82,8 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ language, toggleLanguage }) => 
     );
   };
 
+  const navigation = getNavigation(t);
+
   return (
     <nav className="burger-menu">
       <button
@@ -95,9 +104,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ language, toggleLanguage }) => 
         animate={isOpen ? "open" : "closed"}
         variants={menuVariants}
       >
-        <ul>
-          {navItems.map((item, i) => renderMenuItem(item, i))}
-        </ul>
+        <ul>{navigation.map((item, i) => renderMenuItem(item, i))}</ul>
       </motion.div>
     </nav>
   );

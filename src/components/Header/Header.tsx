@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { useHeaderVisibility } from "../../hooks/useHeaderVisibility";
-import { NavItem, navItems } from "../../lib/navigationConfig";
+import { NavItem, getNavigation } from "../../lib/navigationConfig";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
 
@@ -49,6 +49,27 @@ const Header: React.FC = React.memo(() => {
     return <Link to={item.to!}>{t(item.label)}</Link>;
   };
 
+  const navigation = getNavigation(t);
+
+
+
+
+
+    const [currentLang, setCurrentLang] = useState(i18n.language);
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [location.pathname]);
+  
+    useEffect(() => {
+      setCurrentLang(i18n.language);
+    }, [i18n.language]);
+
+    const pageVariants = {
+      hidden: { opacity: 0, y: -20 },
+      visible: { opacity: 1, y: 0 },
+    };
+
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
       <Link to={"/"} className="logo-link">
@@ -63,15 +84,29 @@ const Header: React.FC = React.memo(() => {
           <div className="logo static">AM.</div>
         )}
       </Link>
+
+
+      <motion.div
+        key={`${location.pathname}-${currentLang}`}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={pageVariants}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      >
+     
       <nav className="main-menu" role="navigation">
         <ul role="menu">
-          {navItems.map((item) => (
+          {navigation.map((item) => (
             <li key={item.label} role="menuitem">
               {renderMenuItem(item)}
             </li>
           ))}
         </ul>
       </nav>
+      </motion.div>
+
+
 
       <BurgerMenu language={language} toggleLanguage={toggleLanguage} />
     </header>

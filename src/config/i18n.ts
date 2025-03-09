@@ -11,14 +11,18 @@ i18n
         translation: {
           welcome: "Senior product designer helping company communicate with their audience in a meaningful way",
           welcomeMobile: "Senior product designer helping company communicate with their audience in a meaningful way",
-          change_language: "Change Language",
+          projects: "Projects",
+          about: "About",
+          contact: "Contact",
         },
       },
       ru: {
         translation: {
           welcome: "Ведущий продуктовый дизайнер, создающий эффективное взаимодействие компаний с аудиторией",
           welcomeMobile: "Ведущий продуктовый дизайнер, создающий эффективное взаимодействие компаний с аудиторией",
-          change_language: "Сменить язык",
+          projects: "Проекты",
+          about: "Обо мне",
+          contact: "Контакты",
         },
       },
     },

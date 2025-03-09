@@ -4,9 +4,9 @@ export interface NavItem {
   isLangSwitcher?: boolean;
 }
 
-export const navItems: NavItem[] = [
-  { to: "/", label: "Projects" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+export const getNavigation = (t: (string: string) => string): NavItem[] => [
+  { to: "/", label: t("projects") },
+  { to: "/about", label: t("about") },
+  { to: "/contact", label: t("contact") },
   { label: "Rus", isLangSwitcher: true },
 ];
