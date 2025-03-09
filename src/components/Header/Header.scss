@@ -43,6 +43,18 @@
   }
 }
 
+.fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: white; // Светлый экран
+  z-index: 9999;
+  pointer-events: none;
+}
+
+
 .header {
   width: 100%;
   height: 120px;
@@ -100,7 +112,7 @@
         bottom: -3px;
         opacity: 0;
         transform: translateX(100%);
-        animation: slideInM 0.4s forwards 0.5s;
+        animation: slideInM 0.4s forwards 1s;
 
         @media (max-width: 1440px) {
           left: 21px;
@@ -115,7 +127,7 @@
         position: absolute;
         left: 48px;
         opacity: 0;
-        animation: dropDot 0.2s forwards 1s;
+        animation: dropDot 0.2s forwards 1.5s;
 
         @media (max-width: 1440px) {
           left: 47px;
@@ -128,7 +140,7 @@
         bottom: -3px;
         opacity: 0;
         transform: translateY(100%);
-        animation: riseA 0.4s forwards 1.5s;
+        animation: riseA 0.4s forwards 2s;
         z-index: 103;
       }
     }

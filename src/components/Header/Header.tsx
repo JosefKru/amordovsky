@@ -15,16 +15,25 @@ const Header: React.FC = React.memo(() => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
+  const [currentLang, setCurrentLang] = useState(i18n.language);
+  const [isFading, setIsFading] = useState(false); // Управляет затемнением
+
   useEffect(() => {
-    if (!isHomePage) {
-      firstLoad.current = false;
-    }
-  }, [isHomePage]);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    setCurrentLang(i18n.language);
+  }, [i18n.language]);
 
   const toggleLanguage = () => {
-    const newLang = language === "en" ? "ru" : "en";
-    i18n.changeLanguage(newLang);
-    localStorage.setItem("language", newLang);
+    setIsFading(true); // Включаем затемнение
+    setTimeout(() => {
+      const newLang = language === "en" ? "ru" : "en";
+      i18n.changeLanguage(newLang);
+      localStorage.setItem("language", newLang);
+      setIsFading(false); // Отключаем затемнение
+    }, 1000); // Задержка в 1 секунду перед сменой языка
   };
 
   const renderMenuItem = (item: NavItem) => {
@@ -51,65 +60,70 @@ const Header: React.FC = React.memo(() => {
 
   const navigation = getNavigation(t);
 
-
-
-
-
-    const [currentLang, setCurrentLang] = useState(i18n.language);
-  
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [location.pathname]);
-  
-    useEffect(() => {
-      setCurrentLang(i18n.language);
-    }, [i18n.language]);
-
-    const pageVariants = {
-      hidden: { opacity: 0, y: -20 },
-      visible: { opacity: 1, y: 0 },
-    };
+  const pageVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
-    <header className={`header ${isVisible ? "visible" : "hidden"}`}>
-      <Link to={"/"} className="logo-link">
-        {isHomePage ? (
-          <div className={`logo ${firstLoad.current ? "animated" : "static"}`}>
-            <span className="mask"></span>
-            <span className="letter-a">A</span>
-            <span className="letter-m">M</span>
-            <span className="dot">.</span>
-          </div>
-        ) : (
-          <div className="logo static">AM.</div>
-        )}
-      </Link>
+    <>
+      {/* Затемнение экрана */}
+      {isFading && (
+        <motion.div
+          className="fade-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0 }}
+        />
+      )}
 
+      <header className={`header ${isVisible ? "visible" : "hidden"}`}>
+        <Link to={"/"} className="logo-link">
+        <motion.div
+              key={`${location.pathname}-${currentLang}`}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={pageVariants}
+              transition={{ duration: 1, ease: "easeInOut", delay: isFading ? 1 : 0 }} // Задержка анимации
+            >
+          {isHomePage ? (
+            <div className={`logo ${firstLoad.current ? "animated" : "static"}`}>
+              <span className="mask"></span>
+              <span className="letter-a">A</span>
+              <span className="letter-m">M</span>
+              <span className="dot">.</span>
+            </div>
+          ) : (
+            <div className="logo static">AM.</div>
+          )}
+          </motion.div>
+        </Link>
 
-      <motion.div
-        key={`${location.pathname}-${currentLang}`}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-        variants={pageVariants}
-        transition={{ duration: 1, ease: "easeInOut" }}
-      >
-     
-      <nav className="main-menu" role="navigation">
-        <ul role="menu">
-          {navigation.map((item) => (
-            <li key={item.label} role="menuitem">
-              {renderMenuItem(item)}
-            </li>
-          ))}
-        </ul>
-      </nav>
-      </motion.div>
+            {/* Основной контент с задержкой анимации */}
+            <motion.div
+              key={`${location.pathname}-${currentLang}`}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={pageVariants}
+              transition={{ duration: 1, ease: "easeInOut", delay: isFading ? 1 : 0 }} // Задержка анимации
+            >
+          <nav className="main-menu" role="navigation">
+            <ul role="menu">
+              {navigation.map((item) => (
+                <li key={item.label} role="menuitem">
+                  {renderMenuItem(item)}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </motion.div>
 
-
-
-      <BurgerMenu language={language} toggleLanguage={toggleLanguage} />
-    </header>
+        <BurgerMenu language={language} toggleLanguage={toggleLanguage} />
+      </header>
+    </>
   );
 });
 
