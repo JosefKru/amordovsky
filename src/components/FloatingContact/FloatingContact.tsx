@@ -27,13 +27,12 @@ const FloatingContact: React.FC = () => {
       opacity: 1,
       transition: { type: "easeInOut", duration: 0.2 },
       background: "black",
-
     },
     expanded: {
       width: 260,
       height: 316,
       borderRadius: 32,
-      transition: { type: "easeInOut", duration: 0.2 },
+      transition: { type: "easeInOut", duration: 0.3 },
       boxShadow: "0px 2px 20px rgba(0, 0, 0, 0.1)",
       background: "white",
       color: "black",

@@ -1,19 +1,22 @@
 @font-face {
   font-family: "GoogleSans";
   src: url("/src/assets/fonts/GoogleSans-Regular.ttf") format("truetype");
-  // font-weight: normal;
-  // font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "ProductSans-Bold";
   src: url("/src/assets/fonts/ProductSans-Bold.ttf") format("truetype");
-  // font-weight: normal;
-  // font-weight: 900;
   font-weight: 900;
   font-style: normal;
 }
+
+html {
+  scrollbar-width: thin;
+  overflow-y: scroll;
+  // scrollbar-gutter: stable; // подумать как применить правильно
+}
+
 
 body {
   font-family: "GoogleSans", sans-serif;
