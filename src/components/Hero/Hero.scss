@@ -5,7 +5,7 @@
   padding: 0 48px;
 
   .container {
-    width: 1200px;
+    width: 1216px;
 
     h1 {
       font-weight: 300;
@@ -46,12 +46,12 @@
     }
   }
 
-  @media (min-width: 650px) and (max-width: 1000px) {
+  @media (min-width: 680px) and (max-width: 1000px) {
     padding: 0 24px;
     margin: 52px 0 112px;
 
     .container {
-      width: 600px;
+      width: 631px;
 
       h1 {
         font-weight: 300;
@@ -61,12 +61,12 @@
     }
   }
 
-  @media (min-width: 500px) and (max-width: 650px) {
+  @media (min-width: 500px) and (max-width: 680px) {
     padding: 0 24px;
     margin: 52px 0 112px;
 
     .container {
-      width: 80%;
+      width: 446px;
 
       h1 {
         font-weight: 300;
@@ -81,7 +81,7 @@
     margin: 52px 0 112px;
 
     .container {
-      width: 435px;
+      width: 446px;
 
       h1 {
         font-weight: 300;
@@ -91,7 +91,7 @@
     }
   }
 
-  @media (min-width: 360px) and (max-width: 480px) {
+  @media (min-width: 380px) and (max-width: 480px) {
     padding: 0 16px;
     margin: 28px 0 68px;
 
@@ -112,7 +112,7 @@
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 380px) {
     padding: 0 16px;
     margin: 112px 0 64px;
 

@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { useHeaderVisibility } from "../../hooks/useHeaderVisibility";
 import { NavItem, navItems } from "../../lib/navigationConfig";
@@ -8,9 +9,8 @@ import "./Header.scss";
 
 const Header: React.FC = React.memo(() => {
   const isVisible = useHeaderVisibility();
-
-  const [language, setLanguage] = useState<"en" | "ru">("en");
-
+  const { i18n, t } = useTranslation();
+  const language = i18n.language === "ru" ? "ru" : "en";
   const firstLoad = useRef(true);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -22,7 +22,9 @@ const Header: React.FC = React.memo(() => {
   }, [isHomePage]);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "ru" : "en"));
+    const newLang = language === "en" ? "ru" : "en";
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("language", newLang);
   };
 
   const renderMenuItem = (item: NavItem) => {
@@ -44,12 +46,12 @@ const Header: React.FC = React.memo(() => {
       );
     }
 
-    return <Link to={item.to!}>{item.label}</Link>;
+    return <Link to={item.to!}>{t(item.label)}</Link>;
   };
 
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
-      <Link to={"/"} className="logo-link" >
+      <Link to={"/"} className="logo-link">
         {isHomePage ? (
           <div className={`logo ${firstLoad.current ? "animated" : "static"}`}>
             <span className="mask"></span>

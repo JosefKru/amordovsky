@@ -4,6 +4,7 @@ import Home from "./components/Home/Home";
 import "./styles/main.scss";
 import MainLayout from "./components/MainLayout/MainLayout";
 import ContractPage from "./components/ContactPage/ContractPage";
+import "./config/i18n";
 
 function App() {
   return (
