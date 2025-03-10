@@ -6,6 +6,8 @@ import { useHeaderVisibility } from "../../hooks/useHeaderVisibility";
 import { NavItem, getNavigation } from "../../lib/navigationConfig";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
+import useFadeAnimation from "../../hooks/useFadeAnimation";
+import { pageVariants } from "../MainLayout/MainLayout";
 
 const Header: React.FC = React.memo(() => {
   const isVisible = useHeaderVisibility();
@@ -16,7 +18,8 @@ const Header: React.FC = React.memo(() => {
   const isHomePage = location.pathname === "/";
 
   const [currentLang, setCurrentLang] = useState(i18n.language);
-  const [isFading, setIsFading] = useState(false); // Управляет затемнением
+
+  const {isFading, startFade} = useFadeAnimation(800)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,13 +30,11 @@ const Header: React.FC = React.memo(() => {
   }, [i18n.language]);
 
   const toggleLanguage = () => {
-    setIsFading(true); // Включаем затемнение
-    setTimeout(() => {
+    startFade(() => {
       const newLang = language === "en" ? "ru" : "en";
       i18n.changeLanguage(newLang);
       localStorage.setItem("language", newLang);
-      setIsFading(false); // Отключаем затемнение
-    }, 1000); // Задержка в 1 секунду перед сменой языка
+    }); 
   };
 
   const renderMenuItem = (item: NavItem) => {
@@ -55,15 +56,10 @@ const Header: React.FC = React.memo(() => {
       );
     }
 
-    return <Link to={item.to!}>{t(item.label)}</Link>;
+    return <Link to={item.to!} onClick={() => startFade()}>{t(item.label)}</Link>;
   };
 
   const navigation = getNavigation(t);
-
-  const pageVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0 },
-  };
 
   return (
     <>
@@ -86,7 +82,7 @@ const Header: React.FC = React.memo(() => {
               animate="visible"
               exit="hidden"
               variants={pageVariants}
-              transition={{ duration: 1, ease: "easeInOut", delay: isFading ? 1 : 0 }} // Задержка анимации
+              transition={{ duration: 0.5, ease: "easeInOut", delay: isFading ? 0.8 : 0 }} // Задержка анимации
             >
           {isHomePage ? (
             <div className={`logo ${firstLoad.current ? "animated" : "static"}`}>
@@ -108,7 +104,7 @@ const Header: React.FC = React.memo(() => {
               animate="visible"
               exit="hidden"
               variants={pageVariants}
-              transition={{ duration: 1, ease: "easeInOut", delay: isFading ? 1 : 0 }} // Задержка анимации
+              transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8}} // Задержка анимации
             >
           <nav className="main-menu" role="navigation">
             <ul role="menu">

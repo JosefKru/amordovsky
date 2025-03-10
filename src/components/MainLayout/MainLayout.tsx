@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Outlet, useLocation } from "react-router-dom";
 import FloatingContact from "../FloatingContact/FloatingContact";
 import Header from "../Header/Header";
-import { useTranslation } from "react-i18next";
 
-const pageVariants = {
-  hidden: { opacity: 0, y: -20 },
+export const pageVariants = {
+  hidden: { opacity: 0, y: -12 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -29,14 +29,13 @@ function MainLayout() {
 
       <Header />
 
-
       <motion.div
         key={`${location.pathname}-${currentLang}`}
         initial="hidden"
         animate="visible"
         exit="hidden"
         variants={pageVariants}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8 }}
       >
         <Outlet />
       </motion.div>

@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease;
-  z-index: 40;
+  z-index: 10000;
 
   &:hover {
     background-color: #000;
