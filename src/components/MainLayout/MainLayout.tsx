@@ -25,9 +25,8 @@ function MainLayout() {
 
   return (
     <>
-      <FloatingContact />
-
       <Header />
+      <FloatingContact />
 
       <motion.div
         key={`${location.pathname}-${currentLang}`}

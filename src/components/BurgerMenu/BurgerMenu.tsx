@@ -1,14 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
 import { NavItem, getNavigation } from "../../lib/navigationConfig";
 import "./BurgerMenu.scss";
-import { useTranslation } from "react-i18next";
 
 interface BurgerMenuProps {
-  language: "en" | "ru";
+  currentLang: string;
   toggleLanguage: () => void;
 }
 
@@ -26,7 +26,7 @@ const linkVariants = {
 };
 
 const BurgerMenu: React.FC<BurgerMenuProps> = ({
-  language,
+  currentLang: language,
   toggleLanguage,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -35,8 +35,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
     document.body.classList.toggle("no-scroll", isOpen);
   }, [isOpen]);
 
-    const { t } = useTranslation();
-  
+  const { t } = useTranslation();
 
   const closeMenu = () => {
     setIsOpen(false);
