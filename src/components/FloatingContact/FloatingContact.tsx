@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import closeIcon from "../../assets/icons/closeIcon.svg";
 import avatar from "../../assets/images/avatar.jpg";
 import "./FloatingContact.scss";
 
@@ -16,7 +17,6 @@ const FloatingContact: React.FC = () => {
       width: 80,
       height: 80,
       borderRadius: 100,
-      opacity: 1,
       transition: { type: "easeInOut", duration: 0.2 },
       background: "white",
     },
@@ -24,7 +24,6 @@ const FloatingContact: React.FC = () => {
       width: 260,
       height: 80,
       borderRadius: 100,
-      opacity: 1,
       transition: { type: "easeInOut", duration: 0.2 },
       background: "black",
     },
@@ -49,38 +48,42 @@ const FloatingContact: React.FC = () => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => setIsOpen(true)}
+      exit={{ x: 100, y: -100, opacity: 0, transition: { duration: 0.3 } }}
     >
       {isOpen ? (
         <div className="contact-details">
           <div className="contact-header">
             <img src={avatar} alt="Avatar" className="avatar-img" />
             <h2>Contact me</h2>
-            <button
-              className="close-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsOpen(false);
-              }}
-            >
-              ✕
-            </button>
           </div>
 
+          <img
+            src={closeIcon}
+            className="close-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsOpen(false);
+            }}
+            alt="Close menu icon"
+          />
+
           <div className="contact-info">
-            <p>
-              <strong>Phone</strong>
-              <br />
-              +7 926 082 53 10
-            </p>
-            <p>
-              <strong>E-mail</strong>
-              <br />
-              Andrei@gmail.com
-            </p>
+            <div className="contact-item">
+              <p className="contact-type">Phone</p>
+              <p className="contact">+7 926 082 53 10</p>
+            </div>
+
+            <div className="contact-item">
+              <p className="contact-type">E-mail</p>
+              <p className="contact">Andrei@gmail.com</p>              
+            </div>
+
             <Link to="https://t.me/AndreyUX" className="telegram-btn">
               Write to telegram
             </Link>
           </div>
+
+            
         </div>
       ) : (
         <div className="circle-content">

@@ -95,7 +95,6 @@ const Header: React.FC = React.memo(() => {
         </motion.div>
       </Link>
 
-      {/* Основной контент с задержкой анимации */}
       <motion.div
         key={`${location.pathname}-${currentLang}`}
         initial="hidden"
@@ -114,8 +113,8 @@ const Header: React.FC = React.memo(() => {
           </ul>
         </nav>
       </motion.div>
-
       <BurgerMenu currentLang={currentLang} toggleLanguage={toggleLanguage} />
+
     </header>
   );
 });

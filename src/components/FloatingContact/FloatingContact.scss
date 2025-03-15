@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease;
-  z-index: 10000;
+  z-index: 1000;
 
   &:hover {
     background-color: #000;
@@ -45,58 +45,78 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: 1rem;
+    padding: 12px;
     box-sizing: border-box;
 
     .contact-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 16px;
+      justify-content: flex-start;
 
       .avatar-img {
-        width: 60px;
-        height: 60px;
+        width: 72px;
+        height: 72px;
         border-radius: 50%;
         object-fit: cover;
       }
 
       h2 {
         margin: 0;
-        font-size: 1.2rem;
-        flex-grow: 1;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
         text-align: center;
       }
+    }
 
-      .close-btn {
-        background: none;
-        border: none;
-        color: #000;
-        font-size: 1.2rem;
-        cursor: pointer;
-      }
+    .close-btn {
+      position: absolute;
+      top: 40px;
+      right: 16px;
+      width: 16px;
+      cursor: pointer;
     }
 
     .contact-info {
-      margin-top: 1rem;
-      p {
-        margin-bottom: 1rem;
-        line-height: 1.4;
-      }
-      strong {
-        color: #ccc;
-      }
-    }
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 0 4px 4px;
 
-    .telegram-btn {
-      margin-top: auto;
-      background-color: #000;
-      text-decoration: none;
-      color: #fff;
-      border: none;
-      border-radius: 20px;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      cursor: pointer;
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        .contact-type {
+          color: #6e6e6e;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 20px;
+        }
+
+        .contact {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 22px;
+        }
+      }
+
+      .telegram-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 52px;
+        border-radius: 100px;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 20px;
+        background-color: #000;
+        text-decoration: none;
+        color: #fff;
+      }
     }
   }
 
