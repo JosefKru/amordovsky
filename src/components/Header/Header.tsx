@@ -1,12 +1,11 @@
-import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import useFadeAnimation from "../../hooks/useFadeAnimation";
 import { useHeaderVisibility } from "../../hooks/useHeaderVisibility";
 import { NavItem, getNavigation } from "../../lib/navigationConfig";
+import { AnimatedWrapper } from "../AnimatedWrapper/AnimatedWrapper";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import { pageVariants } from "../MainLayout/MainLayout";
 import "./Header.scss";
 
 const Header: React.FC = React.memo(() => {
@@ -16,17 +15,9 @@ const Header: React.FC = React.memo(() => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const [currentLang, setCurrentLang] = useState(i18n.language);
+  const currentLang = i18n.language;
 
   const { startFade } = useFadeAnimation(0);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    setCurrentLang(i18n.language);
-  }, [i18n.language]);
 
   useEffect(() => {
     firstLoad.current = false;
@@ -67,19 +58,8 @@ const Header: React.FC = React.memo(() => {
 
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
-      <Link to={"/"} className="logo-link">
-        <motion.div
-          key={`${location.pathname}-${currentLang}`}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={pageVariants}
-          transition={{
-            duration: 0.5,
-            ease: "easeInOut",
-            delay: 0.8,
-          }}
-        >
+      <AnimatedWrapper>
+        <Link to={"/"} className="logo-link">
           {isHomePage ? (
             <div
               className={`logo ${firstLoad.current ? "animated" : "static"}`}
@@ -92,17 +72,10 @@ const Header: React.FC = React.memo(() => {
           ) : (
             <div className="logo static">AM.</div>
           )}
-        </motion.div>
-      </Link>
+        </Link>
+      </AnimatedWrapper>
 
-      <motion.div
-        key={`${location.pathname}-${currentLang}`}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-        variants={pageVariants}
-        transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8 }}
-      >
+      <AnimatedWrapper>
         <nav className="main-menu" role="navigation">
           <ul role="menu">
             {navigation.map((item) => (
@@ -112,9 +85,8 @@ const Header: React.FC = React.memo(() => {
             ))}
           </ul>
         </nav>
-      </motion.div>
+      </AnimatedWrapper>
       <BurgerMenu currentLang={currentLang} toggleLanguage={toggleLanguage} />
-
     </header>
   );
 });

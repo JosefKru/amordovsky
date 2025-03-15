@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { AnimatedWrapper } from "../AnimatedWrapper/AnimatedWrapper";
 import FloatingContact from "../FloatingContact/FloatingContact";
 import Header from "../Header/Header";
 
@@ -11,33 +9,14 @@ export const pageVariants = {
 };
 
 function MainLayout() {
-  const location = useLocation();
-  const { i18n } = useTranslation();
-  const [currentLang, setCurrentLang] = useState(i18n.language);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    setCurrentLang(i18n.language);
-  }, [i18n.language]);
-
   return (
     <>
       <Header />
       <FloatingContact />
 
-      <motion.div
-        key={`${location.pathname}-${currentLang}`}
-        initial="hidden"
-        animate="visible"
-        exit="hidden"
-        variants={pageVariants}
-        transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8 }}
-      >
+      <AnimatedWrapper>
         <Outlet />
-      </motion.div>
+      </AnimatedWrapper>
     </>
   );
 }

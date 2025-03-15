@@ -1,11 +1,12 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
+import { motion } from "framer-motion";
+import { FC, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
 import { NavItem, getNavigation } from "../../lib/navigationConfig";
 import "./BurgerMenu.scss";
+import useFadeAnimation from "../../hooks/useFadeAnimation";
 
 interface BurgerMenuProps {
   currentLang: string;
@@ -25,25 +26,31 @@ const linkVariants = {
   }),
 };
 
-const BurgerMenu: React.FC<BurgerMenuProps> = ({
+const BurgerMenu: FC<BurgerMenuProps> = ({
   currentLang: language,
   toggleLanguage,
 }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.body.classList.toggle("no-scroll", isOpen);
   }, [isOpen]);
 
   const { t } = useTranslation();
+
+  const { startFade } = useFadeAnimation(0);
+
 
   const closeMenu = () => {
     setIsOpen(false);
   };
 
   const handleLangClick = () => {
-    toggleLanguage();
-    closeMenu();
+    startFade(() => {
+      toggleLanguage();
+      closeMenu();
+    });
+   
   };
 
   const renderMenuItem = (item: NavItem, i: number) => {
@@ -51,17 +58,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
       return (
         <motion.li key={item.label} custom={i} variants={linkVariants}>
           <Link to={"#"} onClick={handleLangClick}>
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={language}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-              >
-                {language === "en" ? "Rus" : "Eng"}
-              </motion.span>
-            </AnimatePresence>
+            {language === "en" ? "Rus" : "Eng"}
           </Link>
         </motion.li>
       );
