@@ -14,6 +14,9 @@ i18n
           projects: "Projects",
           about: "About",
           contact: "Contact",
+          phone: "Phone",
+          hello1: "My name is Andrei Mordovski. I am a senior product designer with over 10 years of experience in digital product development. I went from a freelancer to the lead of the design team.",
+          hello2: "I have collaborated with companies such as Leroy Merlin, Sberbank, Yakitoria and others",
         },
       },
       ru: {
@@ -23,6 +26,7 @@ i18n
           projects: "Проекты",
           about: "Обо мне",
           contact: "Контакты",
+          phone: "Телефон",
         },
       },
     },
