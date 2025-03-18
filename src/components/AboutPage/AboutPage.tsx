@@ -1,11 +1,10 @@
+import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import goToProjectIcon from "../../assets/icons/goToProjectIcon.svg";
 import "./AboutPage.scss";
-import { useTranslation } from "react-i18next";
 
 function AboutPage() {
-
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <>
@@ -15,10 +14,25 @@ function AboutPage() {
         <div className="container">
           <p className="first">Hello!</p>
           <div className="second">
-            <p className="content">
+            <p className="content desctop">
+              {t("myName")}
+              <br />
               {t("hello1")}
               <br />
               {t("hello2")}
+              {/* My name is Andrei Mordovski. I am a senior product designer with
+              over 10 years of experience in digital product development. I went
+              from a freelancer to the lead of the design team. I have
+              collaborated with companies such as Leroy Merlin, Sberbank,
+              Yakitoria and others */}
+            </p>
+            <p className="content mobile">
+              {t("myName")}
+              <br />
+              <Trans i18nKey="helloMobile" />
+              {/* <br /> */}
+              {/* {t("helloMobile2")} */}
+              {/* {t("hello2")} */}
               {/* My name is Andrei Mordovski. I am a senior product designer with
               over 10 years of experience in digital product development. I went
               from a freelancer to the lead of the design team. I have
@@ -29,12 +43,10 @@ function AboutPage() {
         </div>
 
         <div className="container">
-          <p className="first">Experience</p>
+          <p className="first">{t("experience.title")}</p>
           <div className="second">
-            <p className="content">
-              I have extensive experience in creating design systems, fintech,
-              e-commerce products, BI, b2b, Saas and others
-            </p>
+            <p className="content desctop">{t("experience.description")}</p>
+            <p className="content mobile">{t("mobile.experience.description")}</p>
           </div>
         </div>
 

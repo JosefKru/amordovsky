@@ -51,6 +51,10 @@
         column-gap: 70px;
         row-gap: 56px;
 
+        &.mobile {
+          display: none;
+        }
+
         div {
           width: 200px;
           height: 170px;
@@ -151,17 +155,51 @@
     .container {
       font-size: 30px;
       line-height: 44px;
-      
+
       .first {
         width: 332px;
       }
 
       .second {
         width: 470px;
+
         .content {
           width: 430px;
           column-gap: 30px;
           row-gap: 40px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 760px) {
+    padding: 60px 24px 112px;
+    gap: 112px;
+
+    .container {
+      font-size: 34px;
+      line-height: 44px;
+      flex-direction: column;
+      gap: 20px;
+
+      .second {
+        width: 700px;
+
+        .desctop {
+          display: none;
+        }
+
+        .content {
+          width: 700px;
+          column-gap: 24px;
+
+          div {
+            height: auto;
+          }
+
+          &.mobile {
+            display: block;
+          }
         }
       }
     }
@@ -222,6 +260,17 @@
   flex-direction: column;
   gap: 226px;
 
+  @media (max-width: 1000px) {
+    padding: 60px 24px 24px;
+  }
+  @media (max-width: 840px) {
+    padding: 48px 24px 24px;
+  }
+  @media (max-width: 760px) {
+    gap: 120px;
+
+  }
+
   .container {
     width: 100%;
     display: flex;
@@ -246,16 +295,75 @@
     }
 
     .content {
-      width: 508px;
+      width: 525px;
+    }
+
+    @media (max-width: 1440px) {
+      .first {
+        width: 710px;
+      }
+
+      .second {
+        width: 634px;
+      }
     }
 
     @media (max-width: 1200px) {
       line-height: 50px;
+
+      .first {
+        width: 524px;
+      }
+
+      .second {
+        width: 580px;
+      }
     }
 
     @media (max-width: 1000px) {
       line-height: 46px;
       font-size: 32px;
+
+      .first {
+        width: 434px;
+      }
+
+      .content {
+        width: 484px;
+      }
+    }
+
+    @media (max-width: 840px) {
+      line-height: 44px;
+      font-size: 30px;
+
+      .first {
+        width: 400px;
+      }
+
+      .content {
+        width: 448px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      font-size: 34px;
+      flex-direction: column;
+      gap: 20px;
+
+      .first {
+        width: 400px;
+      }
+
+      .second {
+        width: 645px;
+
+        .content {
+          width: auto;
+        }
+      }
+
+  
     }
   }
 }

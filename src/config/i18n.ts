@@ -9,20 +9,34 @@ i18n
     resources: {
       en: {
         translation: {
-          welcome: "Senior product designer helping company communicate with their audience in a meaningful way",
-          welcomeMobile: "Senior product designer helping company communicate with their audience in a meaningful way",
+          welcome:
+            "Senior product designer helping company communicate with their audience in a meaningful way",
+          welcomeMobile:
+            "Senior product designer helping company communicate with their audience in a meaningful way",
           projects: "Projects",
           about: "About",
           contact: "Contact",
           phone: "Phone",
-          hello1: "My name is Andrei Mordovski. I am a senior product designer with over 10 years of experience in digital product development. I went from a freelancer to the lead of the design team.",
-          hello2: "I have collaborated with companies such as Leroy Merlin, Sberbank, Yakitoria and others",
+          myName: "My name is Andrei Mordovski.",
+          hello1:
+            "I am a senior product designer with over 10 years of experience in digital product development. I went from a freelancer to the lead of the design team.",
+          hello2:
+            "I have collaborated with companies such as Leroy Merlin, Sberbank, Yakitoria and others",
+          helloMobile:
+            "I am a senior product designer with<br />over 10 years of experience in digital product development. I went from a freelancer to the lead of the design team. I have collaborated with companies such as Leroy Merlin, Sberbank, Yakitoria and others",
+          "experience.title": "Experience",
+          "experience.description":
+            "I have extensive experience in creating design systems, fintech, e-commerce products, BI, b2b, Saas and others",
+          "mobile.experience.description":
+            "I have extensive experience in creating design systems, fintech, e-commerce products, BI, b2b, Saas and others",
         },
       },
       ru: {
         translation: {
-          welcome: "Ведущий продуктовый дизайнер, создающий эффективное взаимодействие компаний с аудиторией",
-          welcomeMobile: "Ведущий продуктовый дизайнер, создающий эффективное взаимодействие компаний с аудиторией",
+          welcome:
+            "Ведущий продуктовый дизайнер, создающий эффективное взаимодействие компаний с аудиторией",
+          welcomeMobile:
+            "Ведущий продуктовый дизайнер, создающий эффективное взаимодействие компаний с аудиторией",
           projects: "Проекты",
           about: "Обо мне",
           contact: "Контакты",
