@@ -31,7 +31,7 @@ export const AnimatedWrapper: React.FC<{
       animate="visible"
       exit="hidden"
       variants={pageVariants}
-      transition={{ duration: 0.5, ease: "easeInOut", delay: 0.8 }}
+      transition={{ duration: 0.8, ease: "easeInOut", delay: 1 }}
       className={className}
     >
       {children}
