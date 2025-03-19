@@ -15,29 +15,26 @@ function AboutPage() {
           <p className="first">Hello!</p>
           <div className="second">
             <p className="content desctop">
-              {t("myName")}
+              {t("bioName")}
               <br />
-              {t("hello1")}
+              {t("bioIntro")}
               <br />
-              {t("hello2")}
-              {/* My name is Andrei Mordovski. I am a senior product designer with
-              over 10 years of experience in digital product development. I went
-              from a freelancer to the lead of the design team. I have
-              collaborated with companies such as Leroy Merlin, Sberbank,
-              Yakitoria and others */}
+              {t("bioCompanies")}
             </p>
-            <p className="content mobile">
-              {t("myName")}
+            <p className="content tablet">
+              {t("bioName")}
               <br />
-              <Trans i18nKey="helloMobile" />
-              {/* <br /> */}
-              {/* {t("helloMobile2")} */}
-              {/* {t("hello2")} */}
-              {/* My name is Andrei Mordovski. I am a senior product designer with
-              over 10 years of experience in digital product development. I went
-              from a freelancer to the lead of the design team. I have
-              collaborated with companies such as Leroy Merlin, Sberbank,
-              Yakitoria and others */}
+              <Trans i18nKey="bioIntroShort" />
+              <br />
+              <Trans i18nKey="bioExperienceSummary" />
+            </p>
+
+            <p className="content mobile">
+              {t("bioName")}
+              <br />
+              {t("bioIntro")}
+              <br />
+              {t("bioCompanies")}
             </p>
           </div>
         </div>
@@ -46,7 +43,10 @@ function AboutPage() {
           <p className="first">{t("experience.title")}</p>
           <div className="second">
             <p className="content desctop">{t("experience.description")}</p>
-            <p className="content mobile">{t("mobile.experience.description")}</p>
+            <p className="content tablet">
+              {t("tablet.experience.description")}
+            </p>
+            <p className="content mobile">{t("experience.description")}</p>
           </div>
         </div>
 
