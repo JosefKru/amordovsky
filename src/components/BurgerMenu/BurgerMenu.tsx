@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
+import useFadeAnimation from "../../hooks/useFadeAnimation";
 import { NavItem, getNavigation } from "../../lib/navigationConfig";
 import "./BurgerMenu.scss";
-import useFadeAnimation from "../../hooks/useFadeAnimation";
 
 interface BurgerMenuProps {
   currentLang: string;
@@ -33,13 +33,16 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    document.body.classList.toggle("no-scroll", isOpen);
+    const toggleScroll = setTimeout(() => {
+      document.body.classList.toggle("no-scroll", isOpen);
+    }, 300);
+
+    return () => clearTimeout(toggleScroll);
   }, [isOpen]);
 
   const { t } = useTranslation();
 
   const { startFade } = useFadeAnimation(0);
-
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -50,14 +53,13 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
       toggleLanguage();
       closeMenu();
     });
-   
   };
 
   const renderMenuItem = (item: NavItem, i: number) => {
     if (item.isLangSwitcher) {
       return (
         <motion.li key={item.label} custom={i} variants={linkVariants}>
-          <Link to={"#"} onClick={handleLangClick}>
+          <Link to="" onClick={handleLangClick}>
             {language === "en" ? "Rus" : "Eng"}
           </Link>
         </motion.li>
@@ -65,16 +67,11 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
     }
 
     return (
-      <motion.li key={item.label} custom={i} variants={linkVariants}>
-        <Link
-          to={item.to!}
-          onClick={() => {
-            closeMenu();
-          }}
-        >
+      <li key={item.label}>
+        <Link to={item.to!} onClick={closeMenu}>
           {item.label}
         </Link>
-      </motion.li>
+      </li>
     );
   };
 
@@ -93,7 +90,6 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
           <img src={burgerIcon} className="openMenu" alt="Open menu icon" />
         )}
       </button>
-
       <motion.div
         className="menu"
         initial="closed"
