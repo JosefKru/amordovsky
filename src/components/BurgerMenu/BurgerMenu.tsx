@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
@@ -31,14 +31,6 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
   toggleLanguage,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const toggleScroll = setTimeout(() => {
-      document.body.classList.toggle("no-scroll", isOpen);
-    }, 300);
-
-    return () => clearTimeout(toggleScroll);
-  }, [isOpen]);
 
   const { t } = useTranslation();
 
