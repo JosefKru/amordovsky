@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
-import useFadeAnimation from "../../hooks/useFadeAnimation";
 import { NavItem, getNavigation } from "../../lib/navigationConfig";
 import { AnimatedWrapper } from "../AnimatedWrapper/AnimatedWrapper";
 import "./BurgerMenu.scss";
@@ -25,8 +24,6 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { startFade } = useFadeAnimation(0);
-
   const { t } = useTranslation();
   const navigation = getNavigation(t);
 
@@ -34,18 +31,16 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
     setIsOpen(false);
   };
 
-  const handleLangClick = () => {
-    startFade(() => {
+  const handleChangeLanguage = () => {
       toggleLanguage();
       closeMenu();
-    });
   };
 
   const renderMenuItem = (item: NavItem) => {
     if (item.isLangSwitcher) {
       return (
         <li key={item.label}>
-          <Link to="" onClick={handleLangClick}>
+          <Link to="#" onClick={handleChangeLanguage}>
             {language === "en" ? "Rus" : "Eng"}
           </Link>
         </li>
@@ -60,17 +55,6 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
       </li>
     );
   };
-
-  useEffect(() => {
-    const toggleScroll = setTimeout(() => {
-      const menuElement = document.querySelector(".menu");
-      console.log(menuElement, "menuElement");
-
-      menuElement?.classList.toggle("no-scroll", isOpen);
-    }, 300);
-
-    return () => clearTimeout(toggleScroll);
-  }, [isOpen]);
 
   return (
     <nav className="burger-menu">
