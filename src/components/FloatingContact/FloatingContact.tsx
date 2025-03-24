@@ -62,6 +62,7 @@ const FloatingContact: React.FC = () => {
           circle: {
             width: 80,
             height: 80,
+            padding: 4,
             borderRadius: 100,
             transition: { type: "easeInOut", duration: 0.3 },
             background: "white",
@@ -70,6 +71,7 @@ const FloatingContact: React.FC = () => {
             width: 260,
             height: 80,
             borderRadius: 100,
+            padding: 4,
             transition: { type: "easeInOut", duration: 0.3 },
             background: isClosing ? "white" : "black",
             color: "white",
@@ -77,6 +79,7 @@ const FloatingContact: React.FC = () => {
           expanded: {
             width: 260,
             height: 316,
+            padding: 12,
             borderRadius: 32,
             transition: { type: "easeInOut", duration: 0.3 },
             boxShadow: "0px 2px 20px rgba(0, 0, 0, 0.1)",
@@ -90,8 +93,10 @@ const FloatingContact: React.FC = () => {
           setTimeout(() => setIsClosing(false), 300);
         }}
       >
-        <div
-          className={`contact-details ${isOpen || isClosing ? "open " : ""}`}
+        <motion.div
+          className={`contact-details`}
+          layout
+          transition={{ duration: 0.6, ease: "easeInOut" }}
           ref={ref}
         >
           <div className="contact-header">
@@ -162,7 +167,7 @@ const FloatingContact: React.FC = () => {
               Write to telegram
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
       </motion.div>
     </motion.div>
   );
