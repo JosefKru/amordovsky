@@ -18,11 +18,13 @@ const FloatingContact: React.FC = () => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape" && isOpen) {
         setIsOpen(false);
+        setIsClosing(true);
       }
     };
     const handleClickOutside = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         setIsOpen(false);
+        setIsClosing(true);
       }
     };
 
@@ -101,46 +103,33 @@ const FloatingContact: React.FC = () => {
         >
           <div className="contact-header">
             <img src={avatar} alt="Avatar" className="avatar-img" />
+            <motion.div
+              initial={{ opacity: 1 }}
+              animate={!isClosing ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: animationDuration, ease: "easeInOut" }}
+              onAnimationComplete={() => {
+                setTimeout(() => setIsClosing(false), 300);
+              }}
+            >
+              <h2>Contact&nbsp;me</h2>
+            </motion.div>
 
-            {!isOpen && !isClosing && (
-              <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-                Contact&nbsp;me
-              </motion.h2>
-            )}
-
-            {(isOpen || isClosing) && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: animationDuration,
-                  ease: "easeOutCirc",
-                }}
-              >
-                <h2>Contact&nbsp;me</h2>
-              </motion.div>
-            )}
-            {(isOpen || isClosing) && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: animationDuration,
-                  ease: "easeOutCirc",
-                }}
-              >
-                <img
-                  src={closeIcon}
-                  className="close-btn"
-                  onClick={handleClose}
-                  alt="Close menu icon"
-                />
-              </motion.div>
-            )}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={
+                isOpen
+                  ? { opacity: 1, pointerEvents: "auto" }
+                  : { opacity: 0, pointerEvents: "none" }
+              }
+              transition={{ duration: animationDuration, ease: "easeInOut" }}
+            >
+              <img
+                src={closeIcon}
+                className="close-btn"
+                onClick={handleClose}
+                alt="Close menu icon"
+              />
+            </motion.div>
           </div>
 
           <motion.div
