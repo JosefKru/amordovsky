@@ -14,15 +14,18 @@ const FloatingContact: React.FC = () => {
   const location = useLocation();
 
   const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape" && isOpen) {
         setIsOpen(false);
+        setIsClosing(true);
       }
     };
     const handleClickOutside = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         setIsOpen(false);
+        setIsClosing(true);
       }
     };
 
@@ -37,7 +40,7 @@ const FloatingContact: React.FC = () => {
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsClosing(true);
-    setIsOpen(false);
+    setTimeout(() => setIsOpen(false), 0);
   };
 
   if (location.pathname === "/contact") return null;
@@ -51,7 +54,7 @@ const FloatingContact: React.FC = () => {
         hidden: { opacity: 0 },
         visible: { opacity: 1 },
       }}
-      transition={{ duration: 0.3, ease: "easeInOut", delay: 1 }}
+      transition={{ duration: 0.2, ease: "easeInOut", delay: 1 }}
     >
       <motion.div
         className="floating-contact"
@@ -62,80 +65,69 @@ const FloatingContact: React.FC = () => {
           circle: {
             width: 80,
             height: 80,
+            padding: 4,
             borderRadius: 100,
-            transition: { type: "easeInOut", duration: 0.3 },
-            background: "white",
+            transition: { type: "easeInOut", duration: 0.2 },
+            background: "rgb(255, 255, 255)",
           },
           pill: {
             width: 260,
             height: 80,
             borderRadius: 100,
-            transition: { type: "easeInOut", duration: 0.3 },
-            background: isClosing ? "white" : "black",
-            color: "white",
+            padding: 4,
+            transition: { type: "easeInOut", duration: 0.2 },
+            background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
+            color: "rgb(255, 255, 255)",
           },
           expanded: {
             width: 260,
             height: 316,
+            padding: 12,
             borderRadius: 32,
-            transition: { type: "easeInOut", duration: 0.3 },
+            transition: { type: "easeInOut", duration: 0.2 },
             boxShadow: "0px 2px 20px rgba(0, 0, 0, 0.1)",
-            background: "white",
-            color: "black",
+            background: "rgb(255, 255, 255)",
+            color: "rgb(0, 0, 0)",
           },
         }}
         onClick={() => setIsOpen(true)}
-        exit={{ x: 100, y: -100, opacity: 0, transition: { duration: 0.3 } }}
+        exit={{ x: 100, y: -100, opacity: 0, transition: { duration: 0.2 } }}
         onAnimationComplete={() => {
           setTimeout(() => setIsClosing(false), 300);
         }}
       >
-        <div
-          className={`contact-details ${isOpen || isClosing ? "open " : ""}`}
+        <motion.div
+          className={`contact-details`}
+          layout
+          transition={{ duration: 0.2, ease: "easeInOut" }}
           ref={ref}
         >
           <div className="contact-header">
             <img src={avatar} alt="Avatar" className="avatar-img" />
+            <motion.div
+              initial={{ opacity: 1 }}
+              animate={isClosing ? { opacity: 0 } : { opacity: 1 }}
+              transition={{ duration: animationDuration, ease: "easeInOut" }}
+            >
+              <h2>Contact&nbsp;me</h2>
+            </motion.div>
 
-            {!isOpen && !isClosing && (
-              <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, ease: "easeInOut" }}
-              >
-                Contact&nbsp;me
-              </motion.h2>
-            )}
-
-            {(isOpen || isClosing) && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: animationDuration,
-                  ease: "easeOutCirc",
-                }}
-              >
-                <h2>Contact&nbsp;me</h2>
-              </motion.div>
-            )}
-            {(isOpen || isClosing) && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: animationDuration,
-                  ease: "easeOutCirc",
-                }}
-              >
-                <img
-                  src={closeIcon}
-                  className="close-btn"
-                  onClick={handleClose}
-                  alt="Close menu icon"
-                />
-              </motion.div>
-            )}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={
+                isOpen
+                  ? { opacity: 1, pointerEvents: "auto" }
+                  : { opacity: 0, pointerEvents: "none" }
+              }
+              transition={{ duration: animationDuration, ease: "easeInOut" }}
+            >
+              <img
+                src={closeIcon}
+                className="close-btn"
+                onClick={handleClose}
+                alt="Close menu icon"
+              />
+            </motion.div>
           </div>
 
           <motion.div
@@ -162,7 +154,7 @@ const FloatingContact: React.FC = () => {
               Write to telegram
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

@@ -29,7 +29,7 @@ function ContractPage() {
         return (
           <div key={value} className="contact-item">
             <div className="type">{value}</div>
-            <Link to={href} className="contact">
+            <Link to={href} className="contact" target="_blank">
               {contact}
             </Link>
           </div>
