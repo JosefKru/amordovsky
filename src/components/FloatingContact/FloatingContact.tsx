@@ -14,6 +14,7 @@ const FloatingContact: React.FC = () => {
   const location = useLocation();
 
   const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape" && isOpen) {
@@ -67,7 +68,7 @@ const FloatingContact: React.FC = () => {
             padding: 4,
             borderRadius: 100,
             transition: { type: "easeInOut", duration: 0.3 },
-            background: "white",
+            background: "rgb(255, 255, 255)",
           },
           pill: {
             width: 260,
@@ -75,8 +76,8 @@ const FloatingContact: React.FC = () => {
             borderRadius: 100,
             padding: 4,
             transition: { type: "easeInOut", duration: 0.3 },
-            background: isClosing ? "white" : "black",
-            color: "white",
+            background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
+            color: "rgb(255, 255, 255)",
           },
           expanded: {
             width: 260,
@@ -85,8 +86,8 @@ const FloatingContact: React.FC = () => {
             borderRadius: 32,
             transition: { type: "easeInOut", duration: 0.3 },
             boxShadow: "0px 2px 20px rgba(0, 0, 0, 0.1)",
-            background: "white",
-            color: "black",
+            background: "rgb(255, 255, 255)",
+            color: "rgb(0, 0, 0)",
           },
         }}
         onClick={() => setIsOpen(true)}
@@ -105,11 +106,8 @@ const FloatingContact: React.FC = () => {
             <img src={avatar} alt="Avatar" className="avatar-img" />
             <motion.div
               initial={{ opacity: 1 }}
-              animate={!isClosing ? { opacity: 1 } : { opacity: 0 }}
+              animate={isClosing ? { opacity: 0 } : { opacity: 1 }}
               transition={{ duration: animationDuration, ease: "easeInOut" }}
-              onAnimationComplete={() => {
-                setTimeout(() => setIsClosing(false), 300);
-              }}
             >
               <h2>Contact&nbsp;me</h2>
             </motion.div>
