@@ -21,6 +21,7 @@ function AboutPage() {
               <br />
               {t("bioCompanies")}
             </p>
+
             <p className="content tablet">
               {t("bioName")}
               <br />
@@ -43,9 +44,11 @@ function AboutPage() {
           <p className="first">{t("experience.title")}</p>
           <div className="second">
             <p className="content desctop">{t("experience.description")}</p>
+
             <p className="content tablet">
               {t("tablet.experience.description")}
             </p>
+
             <p className="content mobile">{t("experience.description")}</p>
           </div>
         </div>

@@ -9,7 +9,7 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
 
 const Header: React.FC = React.memo(() => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const isVisible = useHeaderVisibility();
   const { i18n, t } = useTranslation();
   const firstLoad = useRef(true);
@@ -17,22 +17,26 @@ const Header: React.FC = React.memo(() => {
   const isHomePage = location.pathname === "/";
   const navigation = getNavigation(t);
 
-
   const currentLang = i18n.language;
 
   const { startFade } = useFadeAnimation(0);
 
-  const [shouldAnimateLogo, setShouldAnimateLogo] = useState(true);
+  const [shouldAnimateLogo, setShouldAnimateLogo] = useState(false);
 
   const toggleLanguage = () => {
     setShouldAnimateLogo(true);
-    
+
     startFade(() => {
       const newLang = currentLang === "en" ? "ru" : "en";
       i18n.changeLanguage(newLang);
       localStorage.setItem("language", newLang);
-      navigate("/")
+      navigate("/");
     });
+  };
+
+  const handleClick = (isActive: boolean) => {
+    if (!isActive) startFade();
+    setShouldAnimateLogo(false);
   };
 
   const renderMenuItem = (item: NavItem) => {
@@ -47,12 +51,7 @@ const Header: React.FC = React.memo(() => {
     }
 
     return (
-      <Link
-        to={item.to!}
-        onClick={() => {
-          if (!isActive) startFade();
-        }}
-      >
+      <Link to={item.to!} onClick={() => handleClick(isActive)}>
         {t(item.label)}
       </Link>
     );
@@ -60,7 +59,6 @@ const Header: React.FC = React.memo(() => {
 
   useEffect(() => {
     if (firstLoad.current) {
-      setShouldAnimateLogo(true);
       firstLoad.current = false;
     }
   }, []);
@@ -71,7 +69,9 @@ const Header: React.FC = React.memo(() => {
         <Link to={"/"} className="logo-link">
           {isHomePage ? (
             <div
-            className={`logo ${shouldAnimateLogo ? "animated" : "static"}`}
+              className={`logo ${
+                firstLoad.current || shouldAnimateLogo ? "animated" : "static"
+              }`}
             >
               <span className="mask"></span>
               <span className="letter-a">A</span>
@@ -96,7 +96,6 @@ const Header: React.FC = React.memo(() => {
         </nav>
       </AnimatedWrapper>
 
-      
       <BurgerMenu currentLang={currentLang} toggleLanguage={toggleLanguage} />
     </header>
   );

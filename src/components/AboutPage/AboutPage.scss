@@ -177,7 +177,7 @@
     gap: 112px;
 
     .container {
-      font-size: 34px;
+      font-size: 4vw;
       line-height: 44px;
       flex-direction: column;
       gap: 20px;
@@ -245,10 +245,11 @@
       gap: 12px;
 
       .second {
-        width: auto;
+        width: 462px;
 
         .content {
-          width: auto;
+          width: 462px;
+          row-gap: 32px;
 
           &.tablet {
             display: none;
@@ -328,7 +329,7 @@
     padding: 60px 24px 24px;
   }
   @media (max-width: 560px) {
-    gap: 120px;
+    gap: 132px;
     padding: 52px 24px 24px;
   }
 
@@ -512,5 +513,21 @@
 
   @media (max-width: 1000px) {
     font-size: 32px;
+  }
+}
+
+
+
+.first {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .icon {
+    transition: transform 0.3s ease;
+  }
+
+  .link:hover + .icon {
+    transform: translateX(6px);
   }
 }
