@@ -40,7 +40,7 @@ const FloatingContact: React.FC = () => {
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsClosing(true);
-    setIsOpen(false);
+    setTimeout(() => setIsOpen(false), 0);
   };
 
   if (location.pathname === "/contact") return null;
@@ -54,7 +54,7 @@ const FloatingContact: React.FC = () => {
         hidden: { opacity: 0 },
         visible: { opacity: 1 },
       }}
-      transition={{ duration: 0.3, ease: "easeInOut", delay: 1 }}
+      transition={{ duration: 0.2, ease: "easeInOut", delay: 1 }}
     >
       <motion.div
         className="floating-contact"
@@ -67,7 +67,7 @@ const FloatingContact: React.FC = () => {
             height: 80,
             padding: 4,
             borderRadius: 100,
-            transition: { type: "easeInOut", duration: 0.3 },
+            transition: { type: "easeInOut", duration: 0.2 },
             background: "rgb(255, 255, 255)",
           },
           pill: {
@@ -75,7 +75,7 @@ const FloatingContact: React.FC = () => {
             height: 80,
             borderRadius: 100,
             padding: 4,
-            transition: { type: "easeInOut", duration: 0.3 },
+            transition: { type: "easeInOut", duration: 0.2 },
             background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
             color: "rgb(255, 255, 255)",
           },
@@ -84,14 +84,14 @@ const FloatingContact: React.FC = () => {
             height: 316,
             padding: 12,
             borderRadius: 32,
-            transition: { type: "easeInOut", duration: 0.3 },
+            transition: { type: "easeInOut", duration: 0.2 },
             boxShadow: "0px 2px 20px rgba(0, 0, 0, 0.1)",
             background: "rgb(255, 255, 255)",
             color: "rgb(0, 0, 0)",
           },
         }}
         onClick={() => setIsOpen(true)}
-        exit={{ x: 100, y: -100, opacity: 0, transition: { duration: 0.3 } }}
+        exit={{ x: 100, y: -100, opacity: 0, transition: { duration: 0.2 } }}
         onAnimationComplete={() => {
           setTimeout(() => setIsClosing(false), 300);
         }}
@@ -99,7 +99,7 @@ const FloatingContact: React.FC = () => {
         <motion.div
           className={`contact-details`}
           layout
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
           ref={ref}
         >
           <div className="contact-header">
