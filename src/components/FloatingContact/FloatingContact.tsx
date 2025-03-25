@@ -54,7 +54,7 @@ const FloatingContact: React.FC = () => {
         hidden: { opacity: 0 },
         visible: { opacity: 1 },
       }}
-      transition={{ duration: 0.2, ease: "easeInOut", delay: 1 }}
+      transition={{ duration: animationDuration, ease: "easeInOut", delay: 1 }}
     >
       <motion.div
         className="floating-contact"
@@ -67,15 +67,16 @@ const FloatingContact: React.FC = () => {
             height: 80,
             padding: 4,
             borderRadius: 100,
-            transition: { type: "easeInOut", duration: 0.2 },
+            transition: { type: "easeInOut", duration: animationDuration },
             background: "rgb(255, 255, 255)",
+            color: "rgb(255, 255, 255)",
           },
           pill: {
             width: 260,
             height: 80,
             borderRadius: 100,
             padding: 4,
-            transition: { type: "easeInOut", duration: 0.2 },
+            transition: { type: "easeInOut", duration: animationDuration },
             background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
             color: "rgb(255, 255, 255)",
           },
@@ -84,14 +85,19 @@ const FloatingContact: React.FC = () => {
             height: 316,
             padding: 12,
             borderRadius: 32,
-            transition: { type: "easeInOut", duration: 0.2 },
+            transition: { type: "easeInOut", duration: animationDuration },
             boxShadow: "0px 2px 20px rgba(0, 0, 0, 0.1)",
             background: "rgb(255, 255, 255)",
             color: "rgb(0, 0, 0)",
           },
         }}
         onClick={() => setIsOpen(true)}
-        exit={{ x: 100, y: -100, opacity: 0, transition: { duration: 0.2 } }}
+        exit={{
+          x: 100,
+          y: -100,
+          opacity: 0,
+          transition: { duration: animationDuration },
+        }}
         onAnimationComplete={() => {
           setTimeout(() => setIsClosing(false), 300);
         }}
@@ -99,7 +105,7 @@ const FloatingContact: React.FC = () => {
         <motion.div
           className={`contact-details`}
           layout
-          transition={{ duration: 0.2, ease: "easeInOut" }}
+          transition={{ duration: animationDuration, ease: "easeInOut" }}
           ref={ref}
         >
           <div className="contact-header">
