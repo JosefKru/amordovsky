@@ -11,7 +11,7 @@ const pageVariants = {
 export const AnimatedWrapper: React.FC<{
   children: React.ReactNode;
   className?: string;
-}> = ({ children, className = '' }) => {
+}> = ({ children, className = "" }) => {
   const location = useLocation();
   const { i18n } = useTranslation();
   const [currentLang, setCurrentLang] = useState(i18n.language);

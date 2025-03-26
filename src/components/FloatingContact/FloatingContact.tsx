@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import closeIcon from "../../assets/icons/closeIcon.svg";
 import avatar from "../../assets/images/avatar.jpg";
@@ -13,7 +13,15 @@ const FloatingContact: React.FC = () => {
 
   const location = useLocation();
 
-  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const warn = console.warn;
+    console.warn = (...args) => {
+      if (args[0] && args[0].includes("You are trying to animate background")) {
+        return;
+      }
+      warn(...args);
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -22,18 +30,10 @@ const FloatingContact: React.FC = () => {
         setIsClosing(true);
       }
     };
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        setIsOpen(false);
-        setIsClosing(true);
-      }
-    };
 
     window.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
 
@@ -54,7 +54,7 @@ const FloatingContact: React.FC = () => {
         hidden: { opacity: 0 },
         visible: { opacity: 1 },
       }}
-      transition={{ duration: animationDuration, ease: "easeInOut", delay: 1 }}
+      transition={{ duration: 0.2, ease: "easeInOut", delay: 1 }}
     >
       <motion.div
         className="floating-contact"
@@ -76,8 +76,9 @@ const FloatingContact: React.FC = () => {
             height: 80,
             borderRadius: 100,
             padding: 4,
-            transition: { type: "easeInOut", duration: animationDuration },
-            background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
+            transition: { type: "easeInOut", duration: 0.2 },
+            // background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
+            background: isClosing ? "rgb(255, 255, 255)" : "black",
             color: "rgb(255, 255, 255)",
           },
           expanded: {
@@ -106,7 +107,6 @@ const FloatingContact: React.FC = () => {
           className={`contact-details`}
           layout
           transition={{ duration: animationDuration, ease: "easeInOut" }}
-          ref={ref}
         >
           <div className="contact-header">
             <img src={avatar} alt="Avatar" className="avatar-img" />
