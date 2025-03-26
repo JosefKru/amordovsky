@@ -54,7 +54,7 @@ const FloatingContact: React.FC = () => {
         hidden: { opacity: 0 },
         visible: { opacity: 1 },
       }}
-      transition={{ duration: 0.2, ease: "easeInOut", delay: 1 }}
+      transition={{ duration: animationDuration, ease: "easeInOut", delay: 1 }}
     >
       <motion.div
         className="floating-contact"
@@ -76,7 +76,7 @@ const FloatingContact: React.FC = () => {
             height: 80,
             borderRadius: 100,
             padding: 4,
-            transition: { type: "easeInOut", duration: 0.2 },
+            transition: { type: "easeInOut", duration: animationDuration },
             // background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
             background: isClosing ? "rgb(255, 255, 255)" : "black",
             color: "rgb(255, 255, 255)",
