@@ -68,7 +68,7 @@ const FloatingContact: React.FC = () => {
             padding: 4,
             borderRadius: 100,
             transition: { type: "easeInOut", duration: animationDuration },
-            background: "rgb(255, 255, 255, 0)",
+            background: "rgb(255, 255, 255, 1)",
             color: "rgb(255, 255, 255)",
           },
           pill: {
