@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import closeIcon from "../../assets/icons/closeIcon.svg";
 import avatar from "../../assets/images/avatar.jpg";
 import "./FloatingContact.scss";
+import { useTranslation } from "react-i18next";
 
 const animationDuration = 0.2;
 
@@ -11,7 +12,11 @@ const FloatingContact: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
+  const { i18n } = useTranslation();
+
   const location = useLocation();
+
+  const language = i18n.language;
 
   useEffect(() => {
     const warn = console.warn;
@@ -47,7 +52,7 @@ const FloatingContact: React.FC = () => {
 
   return (
     <motion.div
-      key={location.pathname}
+      key={`${location.pathname}-${language}`}
       initial="hidden"
       animate="visible"
       exit="hidden"
