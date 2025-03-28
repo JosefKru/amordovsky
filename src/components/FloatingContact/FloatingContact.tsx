@@ -47,6 +47,7 @@ const FloatingContact: React.FC = () => {
 
   return (
     <motion.div
+      key={location.pathname}
       initial="hidden"
       animate="visible"
       exit="hidden"
