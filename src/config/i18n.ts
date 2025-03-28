@@ -17,21 +17,6 @@ i18n
           about: "About",
           contact: "Contact",
           phone: "Phone",
-          bioName: "My name is Andrei Mordovski.",
-          bioIntro:
-            "I am a senior product designer with over 10 years of experience in digital product development. I went from a freelancer to the lead of the design team.",
-          bioCompanies:
-            "I have collaborated with companies such as Leroy Merlin, Sberbank, Yakitoria and others",
-          bioIntroShort: "I am a senior product designer with",
-          bioExperienceSummary:
-            "over 10 years of experience in digital product development. I went from a freelancer to the lead of the design team. I have collaborated with companies such as Leroy Merlin, Sberbank, Yakitoria and others",
-          bioExperienceMobile:
-            "I am a senior product designer with over 10 years of experience in digital product development. I went from a freelancer to the lead of the design team. I have collaborated with companies such as Leroy Merlin, Sberbank, Yakitoria and others",
-          "experience.title": "Experience",
-          "experience.description":
-            "I have extensive experience in creating design systems, fintech, e-commerce products, BI, b2b, Saas and others",
-          "tablet.experience.description":
-            "I have extensive experience in creating design systems, fintech, e-commerce products, BI, b2b, Saas and others",
         },
       },
       ru: {
