@@ -40,6 +40,9 @@
     line-height: 50px;
 
     .about-section {
+      display: flex;
+      flex-direction: column;
+      gap: 148px;
       background-color: white;
       color: black;
     }
@@ -62,11 +65,44 @@
 
         a {
           text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          transition: color 0.3s ease;
         }
+
+        img {
+          transition: transform 0.3s ease;
+        }
+      }
+
+      .section-title a:hover img {
+        transform: translateX(6px);
       }
 
       .section-content {
         flex: 0 1 600px;
+      }
+
+      .numbers {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 56px;
+        column-gap: 60px;
+        .number {
+          width: 210px;
+          height: 170px;
+
+          span {
+            font-size: 80px;
+            line-height: 98px;
+          }
+
+          p {
+            font-size: 28px;
+            line-height: 36px;
+          }
+        }
       }
     }
   }
