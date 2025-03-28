@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
-import { NavItem, getNavigation } from "../../lib/navigationConfig";
+import { NavItem, getNavigation } from "../../config/navigationConfig";
 import { AnimatedWrapper } from "../AnimatedWrapper/AnimatedWrapper";
 import "./BurgerMenu.scss";
 
@@ -32,8 +32,8 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
   };
 
   const handleChangeLanguage = () => {
-      toggleLanguage();
-      closeMenu();
+    toggleLanguage();
+    closeMenu();
   };
 
   const renderMenuItem = (item: NavItem) => {

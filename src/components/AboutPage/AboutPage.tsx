@@ -1,6 +1,4 @@
 import { Trans, useTranslation } from "react-i18next";
-// import { Link } from "react-router-dom";
-// import goToProjectIcon from "../../assets/icons/goToProjectIcon.svg";
 import { Link } from "react-router-dom";
 import goToProjectIcon from "../../assets/icons/goToProjectIcon.svg";
 import "./AboutPage.scss";
@@ -30,7 +28,6 @@ function AboutPage() {
           <div className="info-conteiner">
             <div className="section-title">{t("aboutSectionNumbers")}</div>
             <div className="section-content numbers">
-              {/* <Trans i18nKey="aboutSectionExperienceContent" /> */}
               <div className="number">
                 <span>15+</span>
                 <p>{t("aboutSectionNumbersImplemented")}</p>

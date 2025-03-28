@@ -14,13 +14,11 @@
 
   @media (max-width: 480px) {
     height: 480px;
-    margin-bottom: 60px;
     margin-top: 80px;
   }
 
   @media (max-width: 360px) {
     height: 360px;
-    margin-bottom: 40px;
   }
 }
 
@@ -61,7 +59,7 @@
       display: flex;
 
       .section-title {
-        flex: 0 0 870px;
+        flex: 0 1 870px;
 
         a {
           text-decoration: none;
@@ -81,7 +79,7 @@
       }
 
       .section-content {
-        flex: 0 1 600px;
+        flex: 0 0 600px;
       }
 
       .numbers {
@@ -89,6 +87,7 @@
         flex-wrap: wrap;
         row-gap: 56px;
         column-gap: 60px;
+
         .number {
           width: 210px;
           height: 170px;
@@ -102,6 +101,126 @@
             font-size: 28px;
             line-height: 36px;
           }
+        }
+      }
+    }
+
+    @media (max-width: 1440px) {
+      .info-section {
+        gap: 238px;
+      }
+
+      .info-conteiner {
+        .section-title {
+          flex: 0 1 710px;
+        }
+
+        .section-content {
+          flex: 0 0 600px;
+        }
+      }
+    }
+
+    @media (max-width: 1200px) {
+      gap: 138px;
+
+      .info-section {
+        gap: 218px;
+      }
+
+      .about-section {
+        gap: 138px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-section {
+        
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .container {
+      padding: 6vw 2.4vw 0 2.4vw;
+      gap: 12.8vw;
+      font-size: 3.5vw;
+      line-height: 4.6vw;
+
+      .about-section {
+        gap: 12.8vw;
+      }
+
+      .info-section {
+        gap: 18vw;
+        margin: 0 -2.4vw;
+        padding: 6vw 2.4vw 2.4vw 2.4vw;
+      }
+
+      .info-conteiner {
+        .section-title {
+          flex: 0 1 40.4vw;
+
+          img {
+            width: 3.6vw;
+          }
+        }
+
+        .section-content {
+          flex: 1 0 56.8vw;
+        }
+
+        .numbers {
+          column-gap: 3.8vw;
+          row-gap: 5.6vw;
+
+          .number {
+            width: 21vw;
+            height: 14vw;
+
+            span {
+              font-size: 7.6vw;
+              line-height: 8vw;
+            }
+
+            p {
+              font-size: 3.4vw;
+              line-height: 3vw;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+
+
+
+  
+      .info-section {
+        display: flex;
+        flex-direction: column;
+        gap: 228px;
+        background-color: black;
+        // color: white;
+        // margin: 0 -48px;
+        // padding: 72px 48px 48px 48px;
+      }
+
+
+
+      .info-conteiner {
+        flex-direction: column;
+        gap: 1.2vw;
+
+        .section-title {
+          flex: 0;
+        }
+
+        .section-content {
+          flex: 0;
         }
       }
     }

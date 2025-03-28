@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { NavItem, getNavigation } from "../../config/navigationConfig";
 import useFadeAnimation from "../../hooks/useFadeAnimation";
 import { useHeaderVisibility } from "../../hooks/useHeaderVisibility";
-import { NavItem, getNavigation } from "../../lib/navigationConfig";
 import { AnimatedWrapper } from "../AnimatedWrapper/AnimatedWrapper";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";

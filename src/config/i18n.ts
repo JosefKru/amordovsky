@@ -18,9 +18,11 @@ i18n
           contact: "Contact",
           phone: "Phone",
           aboutSectionHello: "Hello",
-          aboutSectionHelloContent: "My name is Andrei Mordovski.<br />I am a senior product designer<br />with over 10 years of experience<br />in digital product development.<br />I went from a freelancer to<br />the lead of the design team.<br />I have collaborated with<br />companies such as Leroy Merlin, Sberbank, Yakitoria and other ",
+          aboutSectionHelloContent:
+            "My name is Andrei Mordovski.<br />I am a senior product designer<br />with over 10 years of experience<br />in digital product development.<br />I went from a freelancer to<br />the lead of the design team.<br />I have collaborated with<br />companies such as Leroy Merlin,<br />Sberbank, Yakitoria and other ",
           aboutSectionExperience: "Experience",
-          aboutSectionExperienceContent: "I have extensive experience<br />in creating design systems,<br />fintech, e-commerce products,<br />BI, b2b, Saas and others",
+          aboutSectionExperienceContent:
+            "I have extensive experience<br />in creating design systems,<br />fintech, e-commerce products,<br />BI, b2b, Saas and others",
           infoSectionTitle: "Focal point",
           infoSectionContent:
             "In my work, I focus on the goals<br/>and objectives of the business,<br/>the target audience, research<br/>and custdev, resource and<br/>technical constraints",
@@ -42,17 +44,19 @@ i18n
           contact: "Контакты",
           phone: "Телефон",
           aboutSectionHello: "Привет",
-          aboutSectionHelloContent: "Меня зовут Мордовской Андрей.<br />Я старший продуктовый дизайнер<br />с более чем 12-летним опытом работы в разработке цифровых продуктов. За это время я<br />прошел путь от фрилансера<br />до лида команды дизайна. Сотрудничал с такими<br />компаниями как Leroy Merlin, Сбербанк, Якитория и другими",
+          aboutSectionHelloContent:
+            "Меня зовут Мордовской Андрей.<br />Я старший продуктовый дизайнер<br />с более чем 12-летним опытом работы в разработке цифровых продуктов. За это время я<br />прошел путь от фрилансера<br />до лида команды дизайна. Сотрудничал с такими<br />компаниями как Leroy Merlin, Сбербанк, Якитория и другими",
           aboutSectionExperience: "Опыт",
-          aboutSectionExperienceContent: "У меня большой опыт в создании дизайн-систем, разработке продуктов для e-commerce,<br />fintech, BI, b2b, Saas и других",
+          aboutSectionExperienceContent:
+            "У меня большой опыт в создании дизайн-систем, разработке продуктов для e-commerce,<br />fintech, BI, b2b, Saas и других",
           infoSectionTitle: "Фокус",
           infoSectionContent:
             "В своей работе я уделяю особое внимание целям и задачам<br/>бизнеса, анализу целевой аудитории, исследованиям и custdev. Учитываю технические ограничения и другие ресурсы",
-            aboutSectionNumbers: "В цифрах",
-            aboutSectionNumbersImplemented: "реализованных проектов",
-            aboutSectionNumbersCommercial: "коммерческого опыта",
-            aboutSectionNumbersLeading: "лидирование дизайнеров",
-            goToProjects: "К проектам",
+          aboutSectionNumbers: "В цифрах",
+          aboutSectionNumbersImplemented: "реализованных проектов",
+          aboutSectionNumbersCommercial: "коммерческого опыта",
+          aboutSectionNumbersLeading: "руководство дизайнерами",
+          goToProjects: "К проектам",
         },
       },
     },
