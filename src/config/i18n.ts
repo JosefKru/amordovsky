@@ -17,6 +17,9 @@ i18n
           about: "About",
           contact: "Contact",
           phone: "Phone",
+          infoSectionTitle: "Focal point",
+          infoSectionContent:
+            "In my work, I focus on the goals<br/>and objectives of the business,<br/>the target audience, research<br/>and custdev, resource and<br/>technical constraints",
         },
       },
       ru: {
@@ -29,6 +32,9 @@ i18n
           about: "Обо мне",
           contact: "Контакты",
           phone: "Телефон",
+          infoSectionTitle: "Фокус",
+          infoSectionContent:
+            "В своей работе я уделяю особое внимание целям и задачам<br/>бизнеса, анализу целевой аудитории, исследованиям и custdev. Учитываю технические ограничения и другие ресурсы",
         },
       },
     },
