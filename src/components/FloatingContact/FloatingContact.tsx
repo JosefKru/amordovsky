@@ -157,12 +157,12 @@ const FloatingContact: React.FC = () => {
           >
             <div className="contact-item">
               <p className="contact-type">{t("phone")}</p>
-              <p className="contact">+7 926 082 53 10</p>
+              <Link to="tel:+79361996669" className="contact">+7 936 199 66 69</Link>
             </div>
 
             <div className="contact-item">
               <p className="contact-type">{t("email")}</p>
-              <p className="contact">hello@amordovski.com</p>
+              <Link to="mailto:hello@amordovski.com" className="contact">hello@amordovski.com</Link>
             </div>
 
             <Link

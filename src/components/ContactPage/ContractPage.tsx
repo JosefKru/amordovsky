@@ -6,7 +6,7 @@ function ContractPage() {
   const { t } = useTranslation();
 
   const contacts = [
-    { value: t("phone"), contact: "+7 926 082 53 10", type: "phone" },
+    { value: t("phone"), contact: "+7 936 199 66 69", type: "phone" },
     { value: t("email"), contact: "hello@amordovski.com", type: "mail" },
     { value: t("tg"), contact: "amordovskoi", type: "link" },
   ];
