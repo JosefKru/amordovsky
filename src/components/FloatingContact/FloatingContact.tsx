@@ -13,10 +13,10 @@ const FloatingContact: React.FC = () => {
   const [isClosing, setIsClosing] = useState(false);
 
   const { i18n, t } = useTranslation();
-
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   const language = i18n.language;
+  const resetKey = `${pathname}-${language}`;
 
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -48,11 +48,16 @@ const FloatingContact: React.FC = () => {
     };
   }, [isOpen]);
 
-  if (location.pathname === "/contact") return null;
+  useEffect(() => {
+    setIsOpen(false);
+    setIsClosing(false);
+  }, [resetKey]);
+
+  if (pathname === "/contact") return null;
 
   return (
     <motion.div
-      key={`${location.pathname}-${language}`}
+      key={resetKey}
       initial="hidden"
       animate="visible"
       exit="hidden"
@@ -116,6 +121,7 @@ const FloatingContact: React.FC = () => {
         >
           <div className="contact-header">
             <img src={avatar} alt="Avatar" className="avatar-img" />
+
             <motion.div
               initial={{ opacity: 1 }}
               animate={isClosing ? { opacity: 0 } : { opacity: 1 }}
@@ -124,6 +130,7 @@ const FloatingContact: React.FC = () => {
               <h2>{t("contactMe")}</h2>
             </motion.div>
 
+          </div>
             <motion.div
               initial={{ opacity: 0 }}
               animate={
@@ -132,15 +139,15 @@ const FloatingContact: React.FC = () => {
                   : { opacity: 0, pointerEvents: "none" }
               }
               transition={{ duration: ANIMATION_DURATION, ease: "easeInOut" }}
+              className="close-btn"
+
             >
               <img
                 src={closeIcon}
-                className="close-btn"
                 onClick={handleClose}
                 alt="Close menu icon"
               />
             </motion.div>
-          </div>
 
           <motion.div
             className="contact-info"
@@ -163,7 +170,7 @@ const FloatingContact: React.FC = () => {
               className="telegram-btn"
               target="_blank"
             >
-             {t("telegram")}
+              {t("telegram")}
             </Link>
           </motion.div>
         </motion.div>

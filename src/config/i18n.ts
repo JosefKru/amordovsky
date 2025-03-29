@@ -61,7 +61,7 @@ i18n
           aboutSectionNumbersLeading: "руководство дизайнерами",
           goToProjects: "К проектам",
           contactMe: "Связаться",
-          email: "E-mail",
+          email: "Почта",
           telegram: "Написать в телеграм",
         },
       },
