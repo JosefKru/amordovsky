@@ -166,7 +166,7 @@ const FloatingContact: React.FC = () => {
             </div>
 
             <Link
-              to="https://t.me/AndreyUX"
+              to="https://t.me/amordovskoi"
               className="telegram-btn"
               target="_blank"
             >
