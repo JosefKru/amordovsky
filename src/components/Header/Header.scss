@@ -16,7 +16,7 @@
     opacity: 1;
   }
   100% {
-    top: -3px;
+    top: -2px;
     opacity: 1;
   }
 }
@@ -107,30 +107,18 @@
 
       .letter-m {
         position: absolute;
-        left: 22px;
+        left: 23px;
         bottom: -3px;
         opacity: 0;
         transform: translateX(100%);
         animation: slideInM 0.4s forwards 1.5s;
-
-        @media (max-width: 1440px) {
-          left: 21px;
-        }
-
-        @media (max-width: 1200px) {
-          left: 21.5px;
-        }
       }
 
       .dot {
         position: absolute;
-        left: 48px;
+        left: 50px;
         opacity: 0;
         animation: dropDot 0.2s forwards 2s;
-
-        @media (max-width: 1440px) {
-          left: 47px;
-        }
       }
 
       .letter-a {
