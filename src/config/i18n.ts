@@ -34,6 +34,7 @@ i18n
           contactMe: "Contact me",
           email: "E-mail",
           telegram: "Write to Telegram",
+          tg: "Telegram",
         },
       },
       ru: {
@@ -63,6 +64,7 @@ i18n
           contactMe: "Связаться",
           email: "Почта",
           telegram: "Написать в телеграм",
+          tg: "Телеграм",
         },
       },
     },

@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import "./ContractPage.scss";
+import { useTranslation } from "react-i18next";
 
 function ContractPage() {
+  const { t } = useTranslation();
+
   const contacts = [
-    { value: "Phone", contact: "+7 926 082 53 10", type: "phone" },
-    { value: "E-mail", contact: "mordovskoy@gmail.com", type: "mail" },
-    { value: "Telegram", contact: "@AndreyUX", type: "link" },
+    { value: t("phone"), contact: "+7 926 082 53 10", type: "phone" },
+    { value: t("email"), contact: "mordovskoy@gmail.com", type: "mail" },
+    { value: t("tg"), contact: "@AndreyUX", type: "link" },
   ];
 
   const getHref = (type: string, contact: string) => {
