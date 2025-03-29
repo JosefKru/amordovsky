@@ -91,6 +91,7 @@ const FloatingContact: React.FC = () => {
             // background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
             background: isClosing ? "rgb(255, 255, 255)" : "black",
             color: "rgb(255, 255, 255)",
+            cursor: "pointer",
           },
           expanded: {
             width: 260,
