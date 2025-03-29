@@ -1,22 +1,28 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import closeIcon from "../../assets/icons/closeIcon.svg";
 import avatar from "../../assets/images/avatar.jpg";
 import "./FloatingContact.scss";
-import { useTranslation } from "react-i18next";
 
-const animationDuration = 0.2;
+const ANIMATION_DURATION = 0.2;
 
 const FloatingContact: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
 
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const location = useLocation();
 
   const language = i18n.language;
+
+  const handleClose = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsClosing(true);
+    setTimeout(() => setIsOpen(false), 0);
+  };
 
   useEffect(() => {
     const warn = console.warn;
@@ -42,12 +48,6 @@ const FloatingContact: React.FC = () => {
     };
   }, [isOpen]);
 
-  const handleClose = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsClosing(true);
-    setTimeout(() => setIsOpen(false), 0);
-  };
-
   if (location.pathname === "/contact") return null;
 
   return (
@@ -60,7 +60,7 @@ const FloatingContact: React.FC = () => {
         hidden: { opacity: 0 },
         visible: { opacity: 1 },
       }}
-      transition={{ duration: animationDuration, ease: "easeInOut", delay: 1 }}
+      transition={{ duration: ANIMATION_DURATION, ease: "easeInOut", delay: 1 }}
     >
       <motion.div
         className="floating-contact"
@@ -73,7 +73,7 @@ const FloatingContact: React.FC = () => {
             height: 80,
             padding: 4,
             borderRadius: 100,
-            transition: { type: "easeInOut", duration: animationDuration },
+            transition: { type: "easeInOut", duration: ANIMATION_DURATION },
             background: "rgb(255, 255, 255, 1)",
             color: "rgb(255, 255, 255)",
           },
@@ -82,7 +82,7 @@ const FloatingContact: React.FC = () => {
             height: 80,
             borderRadius: 100,
             padding: 4,
-            transition: { type: "easeInOut", duration: animationDuration },
+            transition: { type: "easeInOut", duration: ANIMATION_DURATION },
             // background: isClosing ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
             background: isClosing ? "rgb(255, 255, 255)" : "black",
             color: "rgb(255, 255, 255)",
@@ -92,7 +92,7 @@ const FloatingContact: React.FC = () => {
             height: 316,
             padding: 12,
             borderRadius: 32,
-            transition: { type: "easeInOut", duration: animationDuration },
+            transition: { type: "easeInOut", duration: ANIMATION_DURATION },
             boxShadow: "0px 2px 20px rgba(0, 0, 0, 0.1)",
             background: "rgb(255, 255, 255)",
             color: "rgb(0, 0, 0)",
@@ -103,7 +103,7 @@ const FloatingContact: React.FC = () => {
           x: 100,
           y: -100,
           opacity: 0,
-          transition: { duration: animationDuration },
+          transition: { duration: ANIMATION_DURATION },
         }}
         onAnimationComplete={() => {
           setTimeout(() => setIsClosing(false), 300);
@@ -112,16 +112,16 @@ const FloatingContact: React.FC = () => {
         <motion.div
           className={`contact-details`}
           layout
-          transition={{ duration: animationDuration, ease: "easeInOut" }}
+          transition={{ duration: ANIMATION_DURATION, ease: "easeInOut" }}
         >
           <div className="contact-header">
             <img src={avatar} alt="Avatar" className="avatar-img" />
             <motion.div
               initial={{ opacity: 1 }}
               animate={isClosing ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: animationDuration, ease: "easeInOut" }}
+              transition={{ duration: ANIMATION_DURATION, ease: "easeInOut" }}
             >
-              <h2>Contact&nbsp;me</h2>
+              <h2>{t("contactMe")}</h2>
             </motion.div>
 
             <motion.div
@@ -131,7 +131,7 @@ const FloatingContact: React.FC = () => {
                   ? { opacity: 1, pointerEvents: "auto" }
                   : { opacity: 0, pointerEvents: "none" }
               }
-              transition={{ duration: animationDuration, ease: "easeInOut" }}
+              transition={{ duration: ANIMATION_DURATION, ease: "easeInOut" }}
             >
               <img
                 src={closeIcon}
@@ -146,15 +146,15 @@ const FloatingContact: React.FC = () => {
             className="contact-info"
             initial={{ opacity: 0 }}
             animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: animationDuration, ease: "easeInOut" }}
+            transition={{ duration: ANIMATION_DURATION, ease: "easeInOut" }}
           >
             <div className="contact-item">
-              <p className="contact-type">Phone</p>
+              <p className="contact-type">{t("phone")}</p>
               <p className="contact">+7 926 082 53 10</p>
             </div>
 
             <div className="contact-item">
-              <p className="contact-type">E-mail</p>
+              <p className="contact-type">{t("email")}</p>
               <p className="contact">Andrei@gmail.com</p>
             </div>
 
@@ -163,7 +163,7 @@ const FloatingContact: React.FC = () => {
               className="telegram-btn"
               target="_blank"
             >
-              Write to telegram
+             {t("telegram")}
             </Link>
           </motion.div>
         </motion.div>
