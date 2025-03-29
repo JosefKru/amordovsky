@@ -11,6 +11,7 @@ const ANIMATION_DURATION = 0.2;
 const FloatingContact: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [disableHover, setDisableHover] = useState(false);
 
   const { i18n, t } = useTranslation();
   const { pathname } = useLocation();
@@ -20,8 +21,13 @@ const FloatingContact: React.FC = () => {
 
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
+    setDisableHover(true);
     setIsClosing(true);
-    setTimeout(() => setIsOpen(false), 0);
+
+    setTimeout(() => {
+      setIsOpen(false);
+      setTimeout(() => setDisableHover(false), 300);
+    }, 0);
   };
 
   useEffect(() => {
@@ -71,7 +77,7 @@ const FloatingContact: React.FC = () => {
         className="floating-contact"
         initial="circle"
         animate={isOpen ? "expanded" : "circle"}
-        whileHover={isOpen ? "expanded" : "pill"}
+        whileHover={!disableHover && !isOpen ? "pill" : "open"}
         variants={{
           circle: {
             width: 80,
@@ -130,25 +136,19 @@ const FloatingContact: React.FC = () => {
             >
               <h2>{t("contactMe")}</h2>
             </motion.div>
-
           </div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={
-                isOpen
-                  ? { opacity: 1, pointerEvents: "auto" }
-                  : { opacity: 0, pointerEvents: "none" }
-              }
-              transition={{ duration: ANIMATION_DURATION, ease: "easeInOut" }}
-              className="close-btn"
-
-            >
-              <img
-                src={closeIcon}
-                onClick={handleClose}
-                alt="Close menu icon"
-              />
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={
+              isOpen
+                ? { opacity: 1, pointerEvents: "auto" }
+                : { opacity: 0, pointerEvents: "none" }
+            }
+            transition={{ duration: ANIMATION_DURATION, ease: "easeInOut" }}
+            className="close-btn"
+          >
+            <img src={closeIcon} onClick={handleClose} alt="Close menu icon" />
+          </motion.div>
 
           <motion.div
             className="contact-info"
@@ -158,12 +158,16 @@ const FloatingContact: React.FC = () => {
           >
             <div className="contact-item">
               <p className="contact-type">{t("phone")}</p>
-              <Link to="tel:+79361996669" className="contact">+7 936 199 66 69</Link>
+              <Link to="tel:+79361996669" className="contact">
+                +7 936 199 66 69
+              </Link>
             </div>
 
             <div className="contact-item">
               <p className="contact-type">{t("email")}</p>
-              <Link to="mailto:hello@amordovski.com" className="contact">hello@amordovski.com</Link>
+              <Link to="mailto:hello@amordovski.com" className="contact">
+                hello@amordovski.com
+              </Link>
             </div>
 
             <Link
