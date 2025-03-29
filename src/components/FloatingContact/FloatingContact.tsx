@@ -162,7 +162,7 @@ const FloatingContact: React.FC = () => {
 
             <div className="contact-item">
               <p className="contact-type">{t("email")}</p>
-              <p className="contact">Andrei@gmail.com</p>
+              <p className="contact">hello@amordovski.com</p>
             </div>
 
             <Link
