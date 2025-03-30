@@ -23,12 +23,8 @@ const FloatingContact: React.FC = () => {
     e.stopPropagation();
     setDisableHover(true);
     setIsClosing(true);
-
-    setTimeout(() => {
-      setIsOpen(false);
-      setTimeout(() => setDisableHover(false), 300);
-    }, 0);
-  };
+    setIsOpen(false); // можно без таймера
+  };;
 
   useEffect(() => {
     const warn = console.warn;
@@ -77,6 +73,14 @@ const FloatingContact: React.FC = () => {
         className="floating-contact"
         initial="circle"
         animate={isOpen ? "expanded" : "circle"}
+        onMouseEnter={() => {
+          return;
+        }}
+        
+        onMouseLeave={() => {
+          setDisableHover(false);
+        }}
+        
         whileHover={!disableHover && !isOpen ? "pill" : "open"}
         variants={{
           circle: {
