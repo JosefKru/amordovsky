@@ -1,24 +1,25 @@
 .photo {
-  height: 732px;
-  text-align: center;
-  padding-top: 300px;
-  background-color: #dadada;
   margin-top: 120px;
+  height: 732px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dadada;
 
   @media (max-width: 1000px) {
     margin-top: 100px;
   }
-  @media (max-width: 560px) {
+
+  @media (max-width: 480px) {
     height: 560px;
   }
 
   @media (max-width: 480px) {
-    height: 480px;
     margin-top: 80px;
   }
 
   @media (max-width: 360px) {
-    height: 360px;
+    height: 345px;
   }
 }
 
@@ -132,20 +133,14 @@
         gap: 138px;
       }
     }
-
-    @media (max-width: 480px) {
-      .about-section {
-        
-      }
-    }
   }
 
   @media (max-width: 1000px) {
     .container {
       padding: 6vw 2.4vw 0 2.4vw;
       gap: 12.8vw;
-      font-size: 3.5vw;
-      line-height: 4.6vw;
+      font-size: 3.21vw;
+      line-height: 4.7vw;
 
       .about-section {
         gap: 12.8vw;
@@ -184,7 +179,7 @@
             }
 
             p {
-              font-size: 3.4vw;
+              font-size: 2.4vw;
               line-height: 3vw;
             }
           }
@@ -195,32 +190,106 @@
 
   @media (max-width: 480px) {
     .container {
+      gap: 18.4vw;
+      font-size: 5.6vw;
+      line-height: 8vw;
+      padding: 40px 16px 0 16px;
 
-
-
-  
-      .info-section {
-        display: flex;
-        flex-direction: column;
-        gap: 228px;
-        background-color: black;
-        // color: white;
-        // margin: 0 -48px;
-        // padding: 72px 48px 48px 48px;
+      .about-section {
+        gap: 18.4vw;
       }
 
-
+      .info-section {
+        margin: 0 -16px;
+        gap: 25vw;
+        padding: 40px 16px 16px 16px;
+      }
 
       .info-conteiner {
         flex-direction: column;
-        gap: 1.2vw;
+        gap: 2.5vw;
 
         .section-title {
           flex: 0;
+
+          img {
+            width: 6.7vw;
+          }
         }
 
         .section-content {
           flex: 0;
+        }
+
+        .numbers {
+          column-gap: 12.5vw;
+          row-gap: 5.85vw;
+
+          .number {
+            width: 33.4vw;
+            height: 26.66vw;
+
+            span {
+              font-size: 15vw;
+              line-height: 15.85vw;
+            }
+
+            p {
+              font-size: 4.39vw;
+              line-height: 5vw;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    .container {
+      gap: 18.4vw;
+      font-size: 5.6vw;
+      line-height: 8vw;
+      padding: 32px 16px 0 16px;
+
+      .about-section {
+        gap: 18.4vw;
+      }
+
+      .info-section {
+        gap: 25.55vw;
+        padding: 32px 16px 16px 16px;
+      }
+
+      .info-conteiner {
+        flex-direction: column;
+        gap: 2.5vw;
+
+        .section-title {
+          flex: 0;
+
+          img {
+            width: 6.7vw;
+          }
+        }
+
+        .numbers {
+          column-gap: 12.5vw;
+          row-gap: 5.85vw;
+
+          .number {
+            width: 33.4vw;
+            height: 26.66vw;
+
+            span {
+              font-size: 15vw;
+              line-height: 15.85vw;
+            }
+
+            p {
+              font-size: 4.39vw;
+              line-height: 5vw;
+            }
+          }
         }
       }
     }
