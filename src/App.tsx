@@ -5,6 +5,7 @@ import "./styles/main.scss";
 import MainLayout from "./components/MainLayout/MainLayout";
 import ContractPage from "./components/ContactPage/ContractPage";
 import "./config/i18n";
+import { ProjectDetail } from "./components/ProjectDetail";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContractPage />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
         </Route>
       </Routes>
     </Router>
