@@ -6,6 +6,7 @@
 
   video {
     width: 100%;
+    will-change: transform;
   }
 
   @media (max-width: 1000px) {

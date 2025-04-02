@@ -10,7 +10,7 @@ function AboutPage() {
     <div className="main-container">
       <div className="video-container">
         <video
-          src="/assets/videos/about-video.mp4"
+          src="/assets/videos/about-video.MP4"
           autoPlay
           muted
           loop
