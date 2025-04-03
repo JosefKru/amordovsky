@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   project: {
@@ -23,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     triggerOnce: true,
   });
 
-  // const projectName = project.name.replace(/\s+/g, "").toLocaleLowerCase();
+  // const projectName = project.name.replace(/\s+/g, '').toLocaleLowerCase()
 
   return (
     <motion.div
