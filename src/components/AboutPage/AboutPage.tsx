@@ -8,7 +8,16 @@ function AboutPage() {
 
   return (
     <div className="main-container">
-      <div className="photo">Photo</div>
+      <div className="video-container">
+        <video
+          src="/assets/videos/about-video.MP4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      </div>
+
       <div className="container">
         <section className="about-section">
           <div className="info-conteiner">
