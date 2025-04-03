@@ -52,14 +52,13 @@ export const Case: React.FC = () => {
           {project.meta?.features.map((feature) => (
             <>
               <img
-                src={feature[0]}
+                src={feature[0] as string}
                 alt="project.meta?.src"
                 className="main-pic"
               />
 
-              {feature[1].map((item) => (
-                <Feachure feature={item} />
-              ))}
+              {Array.isArray(feature[1]) &&
+                feature[1].map((item) => <Feature feature={item} />)}
             </>
           ))}
         </div>
@@ -68,9 +67,9 @@ export const Case: React.FC = () => {
   );
 };
 
-function Feachure({ feature }) {
-  const includes = feature[1].includes`</br>`;
-  const copy = feature[1].split`</br>`;
+function Feature({ feature }: { feature: string[] }) {
+  const includes = feature[1].includes("</br>");
+  const copy = feature[1].split("</br>");
 
   return (
     <div className="feature">
@@ -79,7 +78,7 @@ function Feachure({ feature }) {
       </div>
       <div className="body">
         {includes ? (
-          copy.map((br, index) =>
+          copy.map((br: string, index: number) =>
             copy.length - 1 > index ? (
               <>
                 <p> {br} </p>

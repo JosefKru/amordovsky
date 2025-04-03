@@ -23,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     triggerOnce: true,
   });
 
-  const projectName = project.name.replace(/\s+/g, '').toLocaleLowerCase()
+  // const projectName = project.name.replace(/\s+/g, "").toLocaleLowerCase();
 
   return (
     <motion.div
@@ -34,11 +34,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       animate={inView ? "visible" : "hidden"}
       transition={{ duration: 1, ease: "easeInOut" }}
     >
-      <Link to={`/projects/${projectName}`}>
-        <img src={project.image} alt={project.name} />
-        <h3>{project.name}</h3>
-        <p>{project.category}</p>
-      </Link>
+      <img src={project.image} alt={project.name} />
+      <h3>{project.name}</h3>
+      <p>{project.category}</p>
     </motion.div>
   );
 };
