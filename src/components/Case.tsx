@@ -23,8 +23,8 @@ export const Case: React.FC = () => {
 
         <div className="case-description">
           {project.meta?.title &&
-            project.meta?.title.map((meta) => (
-              <div className="head-section">
+            project.meta?.title.map((meta, index) => (
+              <div key={index} className="head-section">
                 <div className="head">
                   <p>{meta[0]}</p>
                 </div>
@@ -58,18 +58,46 @@ export const Case: React.FC = () => {
               />
 
               {Array.isArray(feature[1]) &&
-                feature[1].map((item) => <Feature feature={item} />)}
+                feature[1].map((item, index) => (
+                  <Feature feature={item} key={index} />
+                ))}
             </>
           ))}
+
+          {/* remove later */}
+          {Array.isArray(project.meta?.score[1]) && (
+            <div className="sections">
+              <div className="head">
+                <p>{project.meta?.score[0]}</p>
+              </div>
+              <div className="body">
+                <div className="numbers">
+                  {project.meta?.score[1].map((item, index) => (
+                    <div className="number" key={index}>
+                      <span>{item[0]}</span>
+                      <p>{item[1]}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </>
     </div>
   );
 };
 
-function Feature({ feature }: { feature: string[] }) {
+function Feature({ feature }: { feature: string | string[] | string[][] }) {
   const includes = feature[1].includes("</br>");
-  const copy = feature[1].split("</br>");
+  const copy = (feature[1] as string).split("</br>");
+
+  const scores = feature?.[2];
+
+  // const scoreHead = feature[2][0];
+  // const storeNums = feature[2][1] as string;
+
+  console.log(scores);
 
   return (
     <div className="feature">
@@ -80,14 +108,12 @@ function Feature({ feature }: { feature: string[] }) {
         {includes ? (
           copy.map((br: string, index: number) =>
             copy.length - 1 > index ? (
-              <>
+              <div key={index}>
                 <p> {br} </p>
                 <br />
-              </>
+              </div>
             ) : (
-              <>
-                <p> {br} </p>
-              </>
+              <div key={index}> {br} </div>
             )
           )
         ) : (

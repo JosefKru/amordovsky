@@ -93,3 +93,24 @@
     flex: 0 0 1000px;
   }
 }
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 56px;
+  column-gap: 60px;
+
+  .number {
+    width: 300px;
+
+    span {
+      font-size: 80px;
+      line-height: 98px;
+    }
+
+    p {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+}
