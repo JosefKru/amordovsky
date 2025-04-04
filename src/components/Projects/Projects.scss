@@ -12,6 +12,10 @@
     justify-content: space-between;
     row-gap: 80px;
     column-gap: 48px;
+
+    a {
+      flex: 1 1 calc(50% - 40px);
+    }
   }
 
   .project-card {
@@ -100,11 +104,9 @@
 
   @media (max-width: 360px) {
     .project-card {
-
       h3 {
         margin-top: 4px;
-  
       }
-     }
+    }
   }
 }

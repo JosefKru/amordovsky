@@ -38,8 +38,8 @@ export const Case: React.FC = () => {
             ))}
 
           {project.meta &&
-            project.meta.meta.map((meta) => (
-              <div className="feature">
+            project.meta.meta.map((meta, index) => (
+              <div className="feature" key={index}>
                 <div className="head">
                   <p>{meta[0]}</p>
                 </div>
@@ -77,12 +77,12 @@ export const Case: React.FC = () => {
                   <Feature feature={item} key={index} />
                 ))}
 
-              {Array.isArray(feature[2][1]) && feature[2][1].map((i) => i)}
+              {/* {Array.isArray(feature[2][1]) && feature[2][1].map((i) => i)} */}
             </>
           ))}
 
           {/* remove later */}
-          {/* {Array.isArray(project.meta?.score[1]) && (
+          {Array.isArray(project.meta?.score[1]) && (
             <div className="sections">
               <div className="head">
                 <p>{project.meta?.score[0]}</p>
@@ -98,7 +98,7 @@ export const Case: React.FC = () => {
                 </div>
               </div>
             </div>
-          )} */}
+          )}
         </div>
       </>
     </div>
@@ -108,13 +108,6 @@ export const Case: React.FC = () => {
 function Feature({ feature }: { feature: string | string[] | string[][] }) {
   const includes = feature[1].includes("</br>");
   const copy = (feature[1] as string).split("</br>");
-
-  const scores = feature?.[2];
-
-  // const scoreHead = feature[2][0];
-  // const storeNums = feature[2][1] as string;
-
-  console.log(scores);
 
   return (
     <div className="feature">

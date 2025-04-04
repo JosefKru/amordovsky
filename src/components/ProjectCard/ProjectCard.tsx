@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { useInView } from "react-intersection-observer";
-// import { Link } from "react-router-dom";
+import "../Projects/Projects.scss";
 
 interface ProjectCardProps {
   project: {
