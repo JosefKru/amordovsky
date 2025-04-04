@@ -39,12 +39,27 @@ export const Case: React.FC = () => {
 
           {project.meta &&
             project.meta.meta.map((meta) => (
-              <div className="sections">
+              <div className="feature">
                 <div className="head">
                   <p>{meta[0]}</p>
                 </div>
                 <div className="body">
-                  <p>{meta[1]}</p>
+                  {meta[1].includes("</br>") ? (
+                    (meta[1].split("</br>") as string[]).map(
+                      (br: string, index: number) =>
+                        meta.length - 1 > index ? (
+                          <div key={index}>
+                            <p> {br} </p>
+                            <br />
+                            <br />
+                          </div>
+                        ) : (
+                          <p key={index}> {br} </p>
+                        )
+                    )
+                  ) : (
+                    <p> {meta[1]} </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -61,11 +76,13 @@ export const Case: React.FC = () => {
                 feature[1].map((item, index) => (
                   <Feature feature={item} key={index} />
                 ))}
+
+              {Array.isArray(feature[2][1]) && feature[2][1].map((i) => i)}
             </>
           ))}
 
           {/* remove later */}
-          {Array.isArray(project.meta?.score[1]) && (
+          {/* {Array.isArray(project.meta?.score[1]) && (
             <div className="sections">
               <div className="head">
                 <p>{project.meta?.score[0]}</p>
@@ -81,7 +98,7 @@ export const Case: React.FC = () => {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </>
     </div>
@@ -113,7 +130,7 @@ function Feature({ feature }: { feature: string | string[] | string[][] }) {
                 <br />
               </div>
             ) : (
-              <div key={index}> {br} </div>
+              <p key={index}> {br} </p>
             )
           )
         ) : (
