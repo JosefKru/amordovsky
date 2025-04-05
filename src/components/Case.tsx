@@ -12,124 +12,154 @@ export const Case: React.FC = () => {
 
   return (
     <div className="container">
-      <>
-        <h1 className="title">{project.name}</h1>
+      <h1 className="title">{project.name}</h1>
 
-        <img
-          src={project.meta?.src}
-          alt="project.meta?.src"
-          className="main-pic"
-        />
+      <img
+        src={project.meta?.src}
+        alt="project.meta?.src"
+        className="main-pic"
+      />
 
-        <div className="case-description">
-          {project.meta?.title &&
-            project.meta?.title.map((meta, index) => (
-              <div key={index} className="head-section">
-                <div className="head">
-                  <p>{meta[0]}</p>
-                </div>
-
-                <div className="body">
-                  <p>{meta[1]}</p>
-                  <span>{project.category}</span>
-                </div>
-                <div />
-              </div>
-            ))}
-
-          {project.meta &&
-            project.meta.meta.map((meta, index) => (
-              <div className="feature" key={index}>
-                <div className="head">
-                  <p>{meta[0]}</p>
-                </div>
-                <div className="body">
-                  {meta[1].includes("</br>") ? (
-                    (meta[1].split("</br>") as string[]).map(
-                      (br: string, index: number) =>
-                        meta.length - 1 > index ? (
-                          <div key={index}>
-                            <p> {br} </p>
-                            <br />
-                            <br />
-                          </div>
-                        ) : (
-                          <p key={index}> {br} </p>
-                        )
-                    )
-                  ) : (
-                    <p> {meta[1]} </p>
-                  )}
-                </div>
-              </div>
-            ))}
-
-          {project.meta?.features.map((feature) => (
-            <>
-              <img
-                src={feature[0] as string}
-                alt="project.meta?.src"
-                className="main-pic"
-              />
-
-              {Array.isArray(feature[1]) &&
-                feature[1].map((item, index) => (
-                  <Feature feature={item} key={index} />
-                ))}
-
-              {/* {Array.isArray(feature[2][1]) && feature[2][1].map((i) => i)} */}
-            </>
-          ))}
-
-          {/* remove later */}
-          {Array.isArray(project.meta?.score[1]) && (
-            <div className="sections">
-              <div className="head">
-                <p>{project.meta?.score[0]}</p>
-              </div>
-              <div className="body">
-                <div className="numbers">
-                  {project.meta?.score[1].map((item, index) => (
-                    <div className="number" key={index}>
-                      <span>{item[0]}</span>
-                      <p>{item[1]}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+      {project.meta?.title &&
+        project.meta?.title.map((meta, index) => (
+          <div key={index} className="head-section">
+            <div className="head">
+              <p>{meta[0]}</p>
             </div>
+
+            <div className="body">
+              <p>{meta[1]}</p>
+              <span>{project.category}</span>
+            </div>
+            <div />
+          </div>
+        ))}
+
+      <div className="case-description">
+        {project.meta &&
+          project.meta.meta.map(
+            (meta) => Array.isArray(meta) && <Feature feature={[meta]} />
           )}
-        </div>
-      </>
+
+        {project.meta?.features.map((feature, index) => (
+          <div key={index}>
+            <img
+              src={feature[0] as string}
+              alt="project.meta?.src"
+              className="feature-pic"
+            />
+            {Array.isArray(feature) &&
+              feature.map((item, index) => (
+                <Feature feature={item} key={index} />
+              ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-function Feature({ feature }: { feature: string | string[] | string[][] }) {
-  const includes = feature[1].includes("</br>");
-  const copy = (feature[1] as string).split("</br>");
+function Feature({ feature }: { feature: string | (string | string[][])[][] }) {
+  if (typeof feature === "string") {
+    return null;
+  }
 
+  const hasNestedStringArray = feature.some(
+    (item) =>
+      Array.isArray(item) &&
+      item.every((subItem) => typeof subItem === "string")
+  );
+
+  if (hasNestedStringArray && feature[1]) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: "72px" }}>
+        <div className="feature">
+          <div className="head">
+            <p>{feature[0][0]}</p>
+          </div>
+          <div className="body">
+            <Paragraph feature={feature} />
+          </div>
+        </div>
+        <div className="feature">
+          <div className="head">
+            <p>{feature[1][0]}</p>
+          </div>
+          <div className="body">
+            <div className="numbers">
+              {Array.isArray(feature[1][1]) &&
+                feature[1][1].map((item, index) => (
+                  <div className="number" key={index}>
+                    <span>{item[0]}</span>
+                    <p>{item[1]}</p>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="feature">
       <div className="head">
-        <p>{feature[0]}</p>
+        <p>{feature[0][0]}</p>
       </div>
       <div className="body">
-        {includes ? (
-          copy.map((br: string, index: number) =>
-            copy.length - 1 > index ? (
-              <div key={index}>
-                <p> {br} </p>
-                <br />
-              </div>
-            ) : (
-              <p key={index}> {br} </p>
-            )
-          )
-        ) : (
-          <p> {feature[1]} </p>
-        )}
+        <Paragraph feature={feature} />
       </div>
     </div>
+  );
+}
+
+function Row({ row }: { row: string }) {
+  const included = row.includes("<br/>");
+  const copy = row.split("<br/>");
+
+  console.log(copy);
+  return (
+    <>
+      {included ? (
+        copy.map((row: string, index: number) =>
+          copy.length - 1 > index ? (
+            <div key={index}>
+              <p>
+                {row} <br />
+              </p>
+            </div>
+          ) : (
+            <div key={index}>
+              <p> {row} </p>
+            </div>
+          )
+        )
+      ) : (
+        <div>
+          <p> {copy} </p>
+        </div>
+      )}
+    </>
+  );
+}
+
+function Paragraph({ feature }: { feature: (string | string[][])[][] }) {
+  const includes =
+    typeof feature[0][1] === "string" && feature[0][1].includes("<br/br/>");
+  const copy =
+    typeof feature[0][1] === "string" ? feature[0][1].split("<br/br/>") : [];
+
+  return (
+    <>
+      {copy.map((row: string, index: number) =>
+        includes && copy.length - 1 > index ? (
+          <div key={index}>
+            <Row row={row} />
+            <br />
+          </div>
+        ) : (
+          <Row row={row} key={index} />
+        )
+      )}
+    </>
   );
 }
