@@ -87,13 +87,7 @@ function Feature({ feature }: { feature: string | (string | string[][])[][] }) {
           </div>
           <div className="body">
             <div className="numbers">
-              {Array.isArray(feature[1][1]) &&
-                feature[1][1].map((item, index) => (
-                  <div className="number" key={index}>
-                    <span>{item[0]}</span>
-                    <p>{item[1]}</p>
-                  </div>
-                ))}
+              {Array.isArray(feature[1][1]) && <Score score={feature[1][1]} />}
             </div>
           </div>
         </div>
@@ -112,11 +106,23 @@ function Feature({ feature }: { feature: string | (string | string[][])[][] }) {
   );
 }
 
+function Score({ score }: { score: (string | string[][])[][] }) {
+  return (
+    <>
+      {score.map((item, index) => (
+        <div className="number" key={index}>
+          <span>{item[0]}</span>
+          <p>{item[1]}</p>
+        </div>
+      ))}
+    </>
+  );
+}
+
 function Row({ row }: { row: string }) {
   const included = row.includes("<br/>");
   const copy = row.split("<br/>");
 
-  console.log(copy);
   return (
     <>
       {included ? (
