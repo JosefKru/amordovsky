@@ -10,11 +10,12 @@ function AboutPage() {
     <div className="main-container">
       <div className="video-container">
         <video
-          src="/assets/videos/about-video.MP4"
+          src="/assets/videos/about.mp4"
+          preload="none"
+          playsInline
           autoPlay
           muted
           loop
-          playsInline
         />
       </div>
 
