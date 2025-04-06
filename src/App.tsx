@@ -5,7 +5,7 @@ import "./styles/main.scss";
 import MainLayout from "./components/MainLayout/MainLayout";
 import ContractPage from "./components/ContactPage/ContractPage";
 import "./config/i18n";
-import { Case } from "./components/Case";
+import { Case } from "./components/Case/Case";
 
 function App() {
   return (

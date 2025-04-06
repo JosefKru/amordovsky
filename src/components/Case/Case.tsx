@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { projects } from "../assets/projects";
+import { projects } from "../../assets/projects";
 import "./Case.scss";
 
 export const Case: React.FC = () => {

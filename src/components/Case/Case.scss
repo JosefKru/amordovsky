@@ -17,6 +17,17 @@ $lxx: 1920px;
     font-size: 60px;
     line-height: 80px;
     padding: 64px 48px 48px 48px;
+
+    @media (max-width: $lx) {
+      font-size: 54px;
+      line-height: 68px;
+    }
+
+    @media (max-width: $lg) {
+      font-size: 50px;
+      line-height: 64px;
+      padding: 64px 48px 40px 48px;
+    }
   }
 
   .main-pic {
@@ -53,6 +64,13 @@ $lxx: 1920px;
 
     .head {
       flex: 0 1 684px;
+
+      @media (max-width: $lx) {
+        flex: 0 1 504px;
+      }
+      @media (max-width: $lg) {
+        flex: 0 1 383px;
+      }
     }
 
     .body {
@@ -60,6 +78,18 @@ $lxx: 1920px;
       display: flex;
       flex-direction: column;
       gap: 16px;
+
+      @media (max-width: $lx) {
+        flex: 0 1 840px;
+      }
+
+      @media (max-width: $lg) {
+        flex: 0 1 721px;
+      }
+    }
+
+    @media (max-width: $lg) {
+      padding: 60px 48px 0px 48px;
     }
   }
 
@@ -88,16 +118,34 @@ $lxx: 1920px;
       width: 100%;
       height: 100%;
       object-fit: cover;
+
+      @media (max-width: $lg) {
+        margin-bottom: 60px;
+      }
     }
 
     .feature {
       display: flex;
       .head {
         flex: 0 1 684px;
+
+        @media (max-width: $lx) {
+          flex: 0 1 504px;
+        }
+
+        @media (max-width: $lg) {
+          flex: 0 1 383px;
+        }
       }
 
       .body {
         flex: 0 0 1000px;
+        @media (max-width: $lx) {
+          flex: 0 1 840px;
+        }
+        @media (max-width: $lg) {
+          flex: 0 1 721px;
+        }
       }
 
       .numbers {
@@ -121,9 +169,14 @@ $lxx: 1920px;
         }
       }
     }
+
+    @media (max-width: $lg) {
+      padding: 60px 48px 136px 48px;
+      gap: 148px;
+    }
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: $lg) {
   }
 
   @media (max-width: 1000px) {
