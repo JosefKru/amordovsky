@@ -9,14 +9,11 @@ function AboutPage() {
   return (
     <div className="main-container">
       <div className="video-container">
-        <video
-          src="/assets/videos/about.mp4"
-          preload="none"
-          playsInline
-          autoPlay
-          muted
-          loop
-        />
+        <video preload="none" playsInline autoPlay muted loop>
+          <source src="/assets/videos/about.mp4" type="video/mp4" />
+          <source src="/assets/videos/about-clone.MP4" type="video/mp4" />
+          <source src="/assets/videos/about.webm" type="video/webm" />
+        </video>
       </div>
 
       <div className="container">
