@@ -19,7 +19,7 @@ i18n
           phone: "Phone",
           aboutSectionHello: "Hello",
           aboutSectionHelloContent:
-            "My name is Andrei Mordovski.<br />I am a senior product designer<br />with over 10 years of experience<br />in digital product development.<br />I went from a freelancer to<br />the lead of the design team.<br />I have collaborated with<br />companies such as Leroy Merlin,<br />Sberbank, Yakitoria and other ",
+            "My name is Andrei Mordovski.<br />I am a senior product designer<br />with over 12 years of experience<br />in digital product development.<br />I went from a freelancer to<br />the lead of the design team.<br />I have collaborated with<br />companies such as Leroy Merlin,<br />Sberbank, Yakitoria and other ",
           aboutSectionExperience: "Experience",
           aboutSectionExperienceContent:
             "I have extensive experience<br />in creating design systems,<br />fintech, e-commerce products,<br />BI, b2b, Saas and others",
