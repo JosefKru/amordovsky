@@ -41,6 +41,7 @@ $lxx: 1920px;
       margin-top: 16.67vw;
       font-size: 6.67vw;
       line-height: 8.33vw;
+      width: 66.66vw; // костыль, для переноса строки заголовка
 
       padding: 7.92vw 3.33vw 4.17vw 3.33vw;
     }
@@ -299,6 +300,7 @@ $lxx: 1920px;
           }
 
           @media (max-width: $lg) {
+            width: 25vw;
             column-gap: p {
               font-size: 24px;
               line-height: 32px;
