@@ -283,7 +283,7 @@ $lxx: 1920px;
         display: flex;
         flex-wrap: wrap;
         row-gap: 56px;
-        column-gap: 60px;
+        column-gap: 72px;
 
         .number {
           width: 300px;
@@ -299,13 +299,14 @@ $lxx: 1920px;
           }
 
           @media (max-width: $lg) {
-            p {
+            column-gap: p {
               font-size: 24px;
               line-height: 32px;
             }
           }
 
           @media (max-width: $md) {
+            width: 30vw;
             span {
               font-size: 7.6vw;
               line-height: 8vw;
@@ -374,17 +375,17 @@ $lxx: 1920px;
     }
 
     @media (max-width: $lx) {
-      padding: 60px 48px 260px 48px;
+      padding: 60px 48px 130px 48px;
       gap: 140px;
     }
 
     @media (max-width: $lg) {
-      padding: 58px 48px 260px 48px;
+      padding: 58px 48px 130px 48px;
       gap: 128px;
     }
 
     @media (max-width: $md) {
-      padding: 4.8vw 2.4vw 26vw 2.4vw;
+      padding: 4.8vw 2.4vw 10vw 2.4vw;
       gap: 11.2vw;
 
       p,
@@ -397,7 +398,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $sm) {
-      padding: 6.67vw 3.33vw 25vw 3.33vw;
+      padding: 6.67vw 3.33vw 12.5vw 3.33vw;
       gap: 12.5vw;
 
       p,
@@ -416,7 +417,21 @@ $lxx: 1920px;
     }
 
     @media (max-width: $xs) {
-      padding: 6.67vw 4.44vw 25.55vw 4.44vw;
+      padding: 6.67vw 4.44vw 12.77vw 4.44vw;
+
+      p,
+      div {
+        font-weight: 400;
+        font-size: 5.28vw;
+        line-height: 6.67vw;
+        letter-spacing: 0%;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 4.44vw;
+        line-height: 6.67vw;
+      }
 
       gap: 11.11vw;
     }
