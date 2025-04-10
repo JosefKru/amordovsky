@@ -12,6 +12,7 @@ interface ProjectCardProps {
     category: string;
     image: string;
     imageRu: string;
+    isStub?: boolean;
   };
 }
 

@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
     <section className="projects">
       <div className="container">
         {projects.map((project) => (
-          <Link to={`/project/${project.id}`} key={project.id}>
+          <Link to={project.isStub ? "#" : `/project/${project.id}`} key={project.id}>
             <ProjectCard project={project} />
           </Link>
         ))}
