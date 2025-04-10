@@ -21,12 +21,34 @@ $lxx: 1920px;
     @media (max-width: $lx) {
       font-size: 54px;
       line-height: 68px;
+      padding: 60px 48px 48px 32px;
     }
 
     @media (max-width: $lg) {
       font-size: 50px;
       line-height: 64px;
-      padding: 64px 48px 40px 48px;
+      padding: 64px 48px 28px 48px;
+    }
+
+    @media (max-width: $md) {
+      margin-top: 10vw;
+      font-size: 4vw;
+      line-height: 5.4vw;
+      padding: 5.2vw 2.4vw 3.2vw 2.4vw;
+    }
+
+    @media (max-width: $sm) {
+      margin-top: 16.67vw;
+      font-size: 6.67vw;
+      line-height: 8.33vw;
+
+      padding: 7.92vw 3.33vw 4.17vw 3.33vw;
+    }
+    @media (max-width: $xs) {
+      margin-top: 22.22vw;
+      font-size: 7.78vw;
+      line-height: 10vw;
+      padding: 8.89vw 4.44vw 4.44vw 4.44vw;
     }
   }
 
@@ -41,13 +63,7 @@ $lxx: 1920px;
 
     padding: 72px 48px 0px 48px;
 
-    p {
-      font-weight: 400;
-      font-size: 32px;
-      line-height: 42px;
-      letter-spacing: 0%;
-    }
-
+    p,
     div {
       font-weight: 400;
       font-size: 32px;
@@ -57,7 +73,7 @@ $lxx: 1920px;
 
     span {
       font-weight: 400;
-      font-size: 24px;
+      font-size: 22px;
       line-height: 28px;
       color: rgba(110, 110, 110, 1);
     }
@@ -70,6 +86,18 @@ $lxx: 1920px;
       }
       @media (max-width: $lg) {
         flex: 0 1 383px;
+      }
+      @media (max-width: $md) {
+        flex: 0 1 34vw;
+      }
+
+      @media (max-width: $sm) {
+        display: block;
+        padding-bottom: 2.5vw;
+      }
+      @media (max-width: $xs) {
+        display: block;
+        padding-bottom: 2.2vw;
       }
     }
 
@@ -86,10 +114,77 @@ $lxx: 1920px;
       @media (max-width: $lg) {
         flex: 0 1 721px;
       }
+      @media (max-width: $md) {
+        flex: 0 1 61.2vw;
+        gap: 1.67vw;
+      }
+      @media (max-width: $sm) {
+        flex: 0;
+        gap: 2.22vw;
+      }
     }
 
-    @media (max-width: $lg) {
+    @media (max-width: $lx) {
       padding: 60px 48px 0px 48px;
+    }
+    @media (max-width: $lg) {
+      padding: 52px 48px 0px 48px;
+    }
+    @media (max-width: $md) {
+      padding: 4.8vw 2.4vw 0vw 2.4vw;
+
+      p,
+      div {
+        font-weight: 400;
+        font-size: 2.9vw;
+        line-height: 3.8vw;
+        letter-spacing: 0%;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 2vw;
+        line-height: 2.4vw;
+        color: rgba(110, 110, 110, 1);
+      }
+    }
+    @media (max-width: $sm) {
+      display: block;
+      padding: 6.67vw 3.33vw 0vw 3.33vw;
+
+      p,
+      div {
+        font-weight: 400;
+        font-size: 5vw;
+        line-height: 6.25vw;
+        letter-spacing: 0%;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 3.75vw;
+        line-height: 5vw;
+        color: rgba(110, 110, 110, 1);
+      }
+    }
+    @media (max-width: $xs) {
+      display: block;
+      padding: 6.67vw 4.44vw 0vw 4.44vw;
+
+      p,
+      div {
+        font-weight: 400;
+        font-size: 5.28vw;
+        line-height: 6.67vw;
+        letter-spacing: 0%;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 4.44vw;
+        line-height: 6.67vw;
+        color: rgba(110, 110, 110, 1);
+      }
     }
   }
 
@@ -99,13 +194,7 @@ $lxx: 1920px;
     flex-direction: column;
     gap: 160px;
 
-    p {
-      font-weight: 400;
-      font-size: 32px;
-      line-height: 42px;
-      letter-spacing: 0%;
-    }
-
+    p,
     div {
       font-weight: 400;
       font-size: 32px;
@@ -119,22 +208,61 @@ $lxx: 1920px;
       height: 100%;
       object-fit: cover;
 
-      @media (max-width: $lg) {
+      @media (max-width: $lx) {
         margin-bottom: 60px;
+      }
+      @media (max-width: $lg) {
+        margin-bottom: 52px;
+      }
+      @media (max-width: $md) {
+        margin-bottom: 4.8vw;
+      }
+      @media (max-width: $sm) {
+        margin-bottom: 6.67vw;
+      }
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+
+      @media (max-width: $md) {
+        gap: 4.8vw;
+      }
+      @media (max-width: $sm) {
+        gap: 6.67vw;
+      }
+      @media (max-width: $xs) {
+        // gap: 16.66vw;
       }
     }
 
     .feature {
       display: flex;
+
       .head {
         flex: 0 1 684px;
-
         @media (max-width: $lx) {
           flex: 0 1 504px;
         }
 
         @media (max-width: $lg) {
           flex: 0 1 383px;
+        }
+
+        @media (max-width: $md) {
+          flex: 0 1 34vw;
+        }
+        @media (max-width: $sm) {
+          p {
+            padding-bottom: 2.5vw;
+          }
+        }
+        @media (max-width: $xs) {
+          p {
+            padding-bottom: 2.22vw;
+          }
         }
       }
 
@@ -145,6 +273,9 @@ $lxx: 1920px;
         }
         @media (max-width: $lg) {
           flex: 0 1 721px;
+        }
+        @media (max-width: $md) {
+          flex: 0 1 61.2vw;
         }
       }
 
@@ -166,24 +297,128 @@ $lxx: 1920px;
             font-size: 28px;
             line-height: 36px;
           }
+
+          @media (max-width: $lg) {
+            p {
+              font-size: 24px;
+              line-height: 32px;
+            }
+          }
+
+          @media (max-width: $md) {
+            span {
+              font-size: 7.6vw;
+              line-height: 8vw;
+            }
+            p {
+              font-size: 2.2vw;
+              line-height: 2.8vw;
+            }
+          }
+
+          @media (max-width: $sm) {
+            width: 45.84vw;
+            span {
+              display: block;
+              font-size: 15vw;
+              line-height: 16.25vw;
+              padding-bottom: 0.83vw;
+            }
+
+            p {
+              display: block;
+              font-size: 3.96vw;
+              line-height: 5vw;
+            }
+          }
+
+          @media (max-width: $xs) {
+            width: 45vw;
+
+            span {
+              display: block;
+              font-size: 17.22vw;
+              line-height: 18.89vw;
+              padding-bottom: 1.11vw;
+            }
+
+            p {
+              display: block;
+              font-size: 5vw;
+              line-height: 6.11vw;
+            }
+          }
         }
+
+        @media (max-width: $md) {
+          column-gap: 1.2vw;
+          row-gap: 4.8vw;
+        }
+        @media (max-width: $sm) {
+          column-gap: 1.11vw;
+          row-gap: 5.83vw;
+        }
+        @media (max-width: $xs) {
+          column-gap: 1.11vw;
+          row-gap: 7.22vw;
+        }
+      }
+
+      @media (max-width: $sm) {
+        display: block;
+      }
+
+      @media (max-width: $xs) {
+        display: block;
       }
     }
 
-    @media (max-width: $lg) {
-      padding: 60px 48px 136px 48px;
-      gap: 148px;
+    @media (max-width: $lx) {
+      padding: 60px 48px 260px 48px;
+      gap: 140px;
     }
-  }
 
-  @media (max-width: $lg) {
-  }
+    @media (max-width: $lg) {
+      padding: 58px 48px 260px 48px;
+      gap: 128px;
+    }
 
-  @media (max-width: 1000px) {
-    margin-top: 100px;
-  }
+    @media (max-width: $md) {
+      padding: 4.8vw 2.4vw 26vw 2.4vw;
+      gap: 11.2vw;
 
-  @media (max-width: 480px) {
-    margin-top: 80px;
+      p,
+      div {
+        font-weight: 400;
+        font-size: 2.9vw;
+        line-height: 3.8vw;
+        letter-spacing: 0%;
+      }
+    }
+
+    @media (max-width: $sm) {
+      padding: 6.67vw 3.33vw 25vw 3.33vw;
+      gap: 12.5vw;
+
+      p,
+      div {
+        font-weight: 400;
+        font-size: 5vw;
+        line-height: 6.25vw;
+        letter-spacing: 0%;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 3.75vw;
+        line-height: 5vw;
+      }
+    }
+
+    @media (max-width: $xs) {
+      padding: 6.67vw 4.44vw 25.55vw 4.44vw;
+
+      gap: 11.11vw;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { projects } from "../../assets/projects";
 import "./Case.scss";
+import { useEffect, useState } from "react";
 
 export const Case: React.FC = () => {
   const { id } = useParams();
@@ -72,7 +73,7 @@ function Feature({ feature }: { feature: string | (string | string[][])[][] }) {
 
   if (hasNestedStringArray && feature[1]) {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "72px" }}>
+      <div className="features">
         <div className="feature">
           <div className="head">
             <p>{feature[0][0]}</p>
@@ -81,23 +82,25 @@ function Feature({ feature }: { feature: string | (string | string[][])[][] }) {
             <Paragraph feature={feature} />
           </div>
         </div>
-        <div className="feature">
-          <div className="head">
-            <p>{feature[1][0]}</p>
-          </div>
-          <div className="body">
-            <div className="numbers">
-              {Array.isArray(feature[1][1]) && <Score score={feature[1][1]} />}
+        {Array.isArray(feature[1][1]) && (
+          <div className="feature">
+            <div className="head">
+              {feature[1][0] == "" ? null : <p>{feature[1][0]}</p>}
+            </div>
+            <div className="body">
+              <div className="numbers">
+                <Score score={feature[1][1]} />
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
   return (
     <div className="feature">
       <div className="head">
-        <p>{feature[0][0]}</p>
+        {feature[0][0] == "" ? null : <p>{feature[0][0]}</p>}
       </div>
       <div className="body">
         <Paragraph feature={feature} />
@@ -112,6 +115,7 @@ function Score({ score }: { score: (string | string[][])[][] }) {
       {score.map((item, index) => (
         <div className="number" key={index}>
           <span>{item[0]}</span>
+
           <p>{item[1]}</p>
         </div>
       ))}
@@ -120,30 +124,33 @@ function Score({ score }: { score: (string | string[][])[][] }) {
 }
 
 function Row({ row }: { row: string }) {
-  const included = row.includes("<br/>");
-  const copy = row.split("<br/>");
+  const [isLargeScreen, setIsLargeScreen] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth === 1440);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isLargeScreen]);
+
+  const processedRow = isLargeScreen
+    ? row.split("<br/>")
+    : [row.replace(/<br\/>/g, " ")];
 
   return (
     <>
-      {included ? (
-        copy.map((row: string, index: number) =>
-          copy.length - 1 > index ? (
-            <div key={index}>
-              <p>
-                {row} <br />
-              </p>
-            </div>
-          ) : (
-            <div key={index}>
-              <p> {row} </p>
-            </div>
-          )
-        )
-      ) : (
-        <div>
-          <p> {copy} </p>
+      {processedRow.map((text, index) => (
+        <div key={index}>
+          <p>
+            {text}
+            {isLargeScreen && index < processedRow.length - 1 && <br />}
+          </p>
         </div>
-      )}
+      ))}
     </>
   );
 }
