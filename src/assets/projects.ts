@@ -11,14 +11,14 @@ import inDevelop from "./images/In_develop.png";
 // import project8 from "./images/project_8.jpg";
 // import project9 from "./images/project_9.jpg";
 // import project10 from "./images/project_10.jpg";
-import p1_main_pic from "./images/p1_main_pic.jpg";
-import p1_feature1 from "./images/p1_feature1.jpg";
-import p1_feature2 from "./images/p1_feature2.jpg";
-import p1_feature3 from "./images/p1_feature3.jpg";
-import p1_feature4 from "./images/p1_feature4.jpg";
-import p1_feature5 from "./images/p1_feature5.jpg";
-import p1_feature6 from "./images/p1_feature6.jpg";
-import p1_feature7 from "./images/p1_feature7.jpg";
+import p1_main_pic from "./images/p1_main_pic.png";
+import p1_feature1 from "./images/p1_feature1.png";
+import p1_feature2 from "./images/p1_feature2.png";
+import p1_feature3 from "./images/p1_feature3.png";
+import p1_feature4 from "./images/p1_feature4.png";
+import p1_feature5 from "./images/p1_feature5.png";
+import p1_feature6 from "./images/p1_feature6.png";
+import p1_feature7 from "./images/p1_feature7.png";
 
 export const projects = [
   {
