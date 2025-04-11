@@ -1,3 +1,7 @@
+$anim-delay-a: 2.5s;
+$anim-delay-m: 1.5s;
+$anim-delay-dot: 2s;
+
 @keyframes slideInM {
   0% {
     transform: translateX(-70%);
@@ -17,6 +21,17 @@
   }
   100% {
     top: -2px;
+    opacity: 1;
+  }
+}
+
+@keyframes dropDotTiny {
+  0% {
+    top: -20px;
+    opacity: 1;
+  }
+  100% {
+    top: 4px;
     opacity: 1;
   }
 }
@@ -105,30 +120,30 @@
         z-index: 101;
       }
 
-      .letter-m {
-        position: absolute;
-        left: 23px;
-        bottom: -3px;
-        opacity: 0;
-        transform: translateX(100%);
-        animation: slideInM 0.4s forwards 1.5s;
-      }
-
-      .dot {
-        position: absolute;
-        left: 50px;
-        opacity: 0;
-        animation: dropDot 0.2s forwards 2s;
-      }
-
       .letter-a {
         position: absolute;
         left: 0px;
         bottom: -3px;
         opacity: 0;
         transform: translateY(100%);
-        animation: riseA 0.4s forwards 2.5s;
+        animation: riseA 0.4s forwards $anim-delay-a;
         z-index: 103;
+      }
+
+      .letter-m {
+        position: absolute;
+        left: 23px;
+        bottom: -3px;
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideInM 0.4s forwards $anim-delay-m;
+      }
+
+      .dot {
+        position: absolute;
+        left: 50px;
+        opacity: 0;
+        animation: dropDot 0.2s forwards $anim-delay-dot;
       }
     }
 
@@ -267,18 +282,18 @@
 
         .letter-a {
           bottom: 3px;
-          animation: riseA 0.4s forwards 1.5s;
+          animation: riseA 0.4s forwards $anim-delay-a;
         }
 
         .letter-m {
           left: 23px;
           bottom: 3px;
-          animation: slideInM 0.4s forwards 0.5s;
+          animation: slideInM 0.4s forwards $anim-delay-m;
         }
 
         .dot {
           left: 50px;
-          animation: dropDotSmall 0.2s forwards 1s;
+          animation: dropDotSmall 0.2s forwards $anim-delay-dot;
         }
       }
 
@@ -321,7 +336,7 @@
 
         .dot {
           left: 50.5px;
-          animation: dropDotSmall 0.2s forwards 1s;
+          animation: dropDotTiny 0.2s forwards $anim-delay-dot;
         }
       }
     }
