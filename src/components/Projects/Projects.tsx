@@ -1,18 +1,22 @@
 import React from "react";
-import "./Projects.scss";
+import { Link } from "react-router-dom";
 import { projects } from "../../assets/projects";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import { Link } from "react-router-dom";
+import "./Projects.scss";
 
 const Projects: React.FC = () => {
   return (
     <section className="projects">
       <div className="container">
-        {projects.map((project) => (
-          <Link to={project.isStub ? "#" : `/project/${project.id}`} key={project.id}>
+        {projects.map((project) =>
+          project.isStub ? (
             <ProjectCard project={project} />
-          </Link>
-        ))}
+          ) : (
+            <Link key={project.id} to={`/project/${project.id}`}>
+              <ProjectCard project={project} />
+            </Link>
+          )
+        )}
       </div>
     </section>
   );
