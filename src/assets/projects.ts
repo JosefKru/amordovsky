@@ -130,7 +130,7 @@ export const projects = [
   {
     id: 2,
     name: "Project name",
-    nameRu: "Назване проекта",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,
@@ -139,7 +139,7 @@ export const projects = [
   {
     id: 3,
     name: "Project name",
-    nameRu: "Назване проекта",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,
@@ -148,7 +148,7 @@ export const projects = [
   {
     id: 4,
     name: "Project name",
-    nameRu: "Назване проекта",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,
@@ -157,7 +157,7 @@ export const projects = [
   {
     id: 5,
     name: "Project name",
-    nameRu: "Назване проекта",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,
@@ -166,7 +166,7 @@ export const projects = [
   {
     id: 6,
     name: "Project name",
-    nameRu: "Назване проекта",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,
