@@ -106,7 +106,9 @@ $lxx: 1920px;
       flex: 0 0 1000px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      span {
+        margin-top: 16px;
+      }
 
       @media (max-width: $lx) {
         flex: 0 1 840px;
@@ -117,11 +119,15 @@ $lxx: 1920px;
       }
       @media (max-width: $md) {
         flex: 0 1 61.2vw;
-        gap: 1.67vw;
+        span {
+          margin-top: 1.67vw;
+        }
       }
       @media (max-width: $sm) {
         flex: 0;
-        gap: 2.22vw;
+        span {
+          margin-top: 2.22vw;
+        }
       }
     }
 
