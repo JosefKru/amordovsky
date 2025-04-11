@@ -8,7 +8,6 @@ interface ProjectCardProps {
   project: {
     id: number;
     name: string;
-    nameRu: string;
     category: string;
     image: string;
     imageRu: string;
