@@ -23,7 +23,8 @@ import p1_feature7 from "./images/p1_feature7.png";
 export const projects = [
   {
     id: 1,
-    name: "cases.case1.title",
+    name: "Leroy Merlin. Search and catalog",
+    nameRu: "Леруа Мерлен. Поиск и каталог",
     category: "E-commerce • B2C • App • Desktop",
     image: leroyMerlin,
     imageRu: leroyMerlin,
@@ -99,6 +100,7 @@ export const projects = [
   {
     id: 3,
     name: "Project name",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,
@@ -107,6 +109,7 @@ export const projects = [
   {
     id: 4,
     name: "Project name",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,
@@ -115,6 +118,7 @@ export const projects = [
   {
     id: 5,
     name: "Project name",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,
@@ -123,6 +127,7 @@ export const projects = [
   {
     id: 6,
     name: "Project name",
+    nameRu: "Название проекта",
     category: "App • Desktop",
     image: commingSoon,
     imageRu: inDevelop,

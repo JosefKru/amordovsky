@@ -37,7 +37,6 @@ i18n
           tg: "Telegram",
           cases: {
             case1: {
-              title: "Leroy Merlin. Search and catalog",
               metaTitle: "About the company",
               metaDescription:
                 "Leroy Merlin is an international retail chain specializing <br/> in products for construction, renovation, and home improvement. The company offers a wide range<br/>of goods for both the home and garden",
@@ -85,7 +84,6 @@ i18n
         translation: {
           cases: {
             case1: {
-              title: "Леруа Мерлен. Поиск и каталог",
               metaTitle: "О компании",
               metaDescription:
                 "Леруа Мерлен - международная розничная сеть, специализирующаяся на продаже товаров для строительства, ремонта и обустройства дома. Компания предлагает широкий ассортимент продукции для дома и сада.",
