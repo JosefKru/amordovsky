@@ -54,7 +54,7 @@ export const projects = [
               "",
               [
                 ["8%", "cases.case1.score1Feature4"],
-                ["5%", "cases.case1.score2Feature4"],
+                ["5%", "cases.case1.score2Feature4", "cases.case1.score2Feature4_2"],
                 ["10%", "cases.case1.score3Feature4"],
                 ["6.5%", "cases.case1.score4Feature4"],
               ],
@@ -76,8 +76,8 @@ export const projects = [
             [
               "",
               [
-                ["11%", "cases.case1.score1Feature7"],
-                ["15%", "cases.case1.score2Feature7"],
+                ["11%", "cases.case1.score1Feature7", 'cases.case1.score1Feature7_2'],
+                ["15%", "cases.case1.score2Feature7", 'cases.case1.score2Feature7_2'],
                 ["12%", "cases.case1.score3Feature7"],
                 ["7%", "cases.case1.score4Feature7"],
               ],

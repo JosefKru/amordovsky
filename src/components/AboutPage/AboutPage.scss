@@ -82,15 +82,15 @@
         display: flex;
         flex-wrap: wrap;
         row-gap: 56px;
-        column-gap: 60px;
+        column-gap: 72px;
 
         .number {
           width: 210px;
           height: 170px;
 
           span {
-            font-size: 80px;
-            line-height: 98px;
+            font-size: 86px;
+            line-height: 106px;
           }
 
           p {
@@ -102,10 +102,6 @@
     }
 
     @media (max-width: 1440px) {
-      .info-section {
-        gap: 238px;
-      }
-
       .info-conteiner {
         .section-title {
           flex: 0 1 710px;
@@ -169,7 +165,7 @@
             height: 14vw;
 
             span {
-              font-size: 7.6vw;
+              font-size: 7.4vw;
               line-height: 8vw;
             }
 

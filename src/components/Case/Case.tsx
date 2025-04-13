@@ -19,7 +19,6 @@ export const Case: React.FC = () => {
 
       <img
         src={project.meta?.src}
-        alt="project.meta?.src"
         className="main-pic"
       />
 
@@ -123,6 +122,7 @@ function Score({ score }: { score: (string | string[][])[][] }) {
           <span>{item[0]}</span>
 
           <p>{t(item[1] as string)}</p>
+          {item[2] && <p>{t(item[2] as string)}</p>}
         </div>
       ))}
     </>

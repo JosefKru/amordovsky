@@ -54,13 +54,15 @@ i18n
               titleFeature3: "",
               descFeature3:
                 "Additionally, I reworked the logic behind search results display, allowing the product list to dynamically adapt<br/>to user preferences. This improved navigation and reduced the time customers spend searching for<br/>the right products.",
-              titleFeature4: "Product Metrics",
+              titleFeature4: "Metrics",
               descFeature4:
                 "Following the search improvements, users were able to find relevant products more quickly, leading to increased engagement. The time spent on search decreased, while the share of successful queries went up. Fewer users exited the site immediately after searching, indicating<br/>that the results were more relevant and helpful.<br/br/>The conversion rate from search to product detail views grew significantly, as users clicked more often on the suggested items. Additionally, the average number<br/>of products viewed after a search increased — <br/>pointing to greater trust in the search results<br/>and smoother navigation.",
               scoreHeadFeature4: "",
-              score1Feature4: "higher search-to-product detail page conversion",
+              score1Feature4: "increased search conversion to cards",
               score2Feature4:
-                "increased average order value (recommendations in search)",
+                "increased average",
+                score2Feature4_2:
+                "order value",
               score3Feature4: "lower bounce rate",
               score4Feature4: "growth in MAU",
               titleFeature5: "Catalog",
@@ -69,12 +71,14 @@ i18n
               titleFeature6: "",
               descFeature6:
                 "An important change was the implementation of individual filters for different types of products. Now, for construction materials, you can choose parameters related to their durability and intended use, while for finishing materials, compatibility with specific surfaces can be considered.",
-              titleFeature7: "Product Metrics",
+              titleFeature7: "Metrics",
               descFeature7:
                 "The updated catalog structure has had a positive impact on the user experience. Bounce rates on category pages have decreased, indicating clearer and more intuitive navigation. Conversion rates to product detail views have increased, as users are now able to find relevant items more quickly.<br/br/>Although time spent on catalog pages has grown, the average number of clicks needed to reach the desired product has dropped—signaling more efficient filtering tools. The share of users who proceed to purchase after browsing the catalog has also risen, confirming that the new interface is more user-friendly and accessible.",
               scoreHeadFeature7: "",
-              score1Feature7: "page depth has increased",
-              score2Feature7: "higher conversion to product detail pages",
+              score1Feature7: "page depth",
+              score1Feature7_2: "has increased",
+              score2Feature7: "increased conversion",
+              score2Feature7_2: "per card",
               score3Feature7: "fewer bounces",
               score4Feature7: "growth in MAU",
             },
@@ -107,8 +111,9 @@ i18n
               descFeature4:
                 "После изменений в поиске пользователи стали<br/> быстрее находить нужные товары, что отразилось<br/>на показателях вовлеченности. Время, затраченное <br/>на поиск, уменьшилось, а доля успешных запросов<br/>увеличилась. Количество пользователей, покидающих<br/>сайт сразу после попытки поиска, снизилось,<br/>что говорит о том, что система стала лучше<br/>подбирать релевантные товары.<br/br/>Конверсия из поиска в просмотр карточек товаров<br/>значительно выросла, так как пользователи стали<br/>чаще кликать на предложенные результаты.<br/>Дополнительно увеличилось среднее число<br/>товаров, просматриваемых после поиска,<br/>что говорит о большем доверии к выдаче<br/>удобстве навигации по результатам.",
               scoreHeadFeature4: "",
-              score1Feature4: "повысилась конверсию поиска в просмотр карточки",
-              score2Feature4: "увеличился средний чек (рекомендации в поиске)",
+              score1Feature4: "повысилась конверсия поиска в карточки",
+              score2Feature4: "увеличился",
+              score2Feature4_2: "средний чек",
               score3Feature4: "уменьшились отказы",
               score4Feature4: "увеличился MAU",
               titleFeature5: "Каталог",
@@ -121,8 +126,10 @@ i18n
               descFeature7:
                 "Обновление структуры каталога положительно повлияло на пользовательский опыт. Количество отказов на страницах категорий сократилось,<br/>что говорит о более понятной навигации. Конверсия<br/>в просмотры карточек товаров увеличилась, так как пользователи стали быстрее находить нужные товары.<br/><br/>Время, проведенное на страницах каталога, возросло, но при этом среднее число кликов до нужного товара сократилось, что указывает на более эффективную работу фильтров. Доля пользователей, совершающих покупки после просмотра каталога, также выросла, подтверждая, что обновленный интерфейс стал удобнее и понятнее.",
               scoreHeadFeature7: "",
-              score1Feature7: "увеличилась глубина просмотра",
-              score2Feature7: "увеличилась конверсия в карточку",
+              score1Feature7: "увеличилась глубина",
+              score1Feature7_2: "просмотра",
+              score2Feature7: "увеличилась конверсия",
+              score2Feature7_2: "в карточку",
               score3Feature7: "уменьшились отказы",
               score4Feature7: "увеличился MAU",
             },
