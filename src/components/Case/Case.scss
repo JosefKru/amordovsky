@@ -48,8 +48,8 @@ $lxx: 1920px;
       margin-top: 22.22vw;
       font-size: 7.78vw;
       line-height: 10vw;
-      padding: 8.89vw 4.44vw 4.44vw 4.44vw;
-      width: 78vw; // костыль, для переноса строки заголовка
+      padding: 8.89vw 5.56vw 4.44vw 5.56vw;
+      width: 81vw; // костыль, для переноса строки заголовка
     }
   }
 
@@ -176,13 +176,13 @@ $lxx: 1920px;
     }
     @media (max-width: $xs) {
       display: block;
-      padding: 6.67vw 4.44vw 0vw 4.44vw;
+      padding: 6.67vw 5.56vw 0vw 5.56vw;
 
       p,
       div {
         font-weight: 400;
-        font-size: 5.28vw;
-        line-height: 6.67vw;
+        font-size: 5vw;
+        line-height: 6.94vw;
         letter-spacing: 0%;
       }
 
@@ -342,19 +342,19 @@ $lxx: 1920px;
           }
 
           @media (max-width: $xs) {
-            width: 45vw;
+            width: 43vw;
 
             span {
               display: block;
-              font-size: 17.22vw;
-              line-height: 18.89vw;
+              font-size: 13.89vw;
+              line-height: 15.56vw;
               padding-bottom: 1.11vw;
             }
 
             p {
               display: block;
-              font-size: 5vw;
-              line-height: 6.11vw;
+              font-size: 4.44vw;
+              line-height: 5.56vw;
             }
           }
         }
@@ -425,13 +425,13 @@ $lxx: 1920px;
     }
 
     @media (max-width: $xs) {
-      padding: 6.67vw 4.44vw 12.77vw 4.44vw;
+      padding: 6.67vw 5.56vw 12.77vw 5.56vw;
 
       p,
       div {
         font-weight: 400;
-        font-size: 5.28vw;
-        line-height: 6.67vw;
+        font-size: 5vw;
+        line-height: 6.94vw;
         letter-spacing: 0%;
       }
 
