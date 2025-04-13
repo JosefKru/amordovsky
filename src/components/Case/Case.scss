@@ -158,13 +158,13 @@ $lxx: 1920px;
     }
     @media (max-width: $sm) {
       display: block;
-      padding: 6.67vw 5vw 0vw 5vw;
+      padding: 6.67vw 5.83vw 0vw 5.83vw;
 
       p,
       div {
         font-weight: 400;
         font-size: 4.16vw;
-        line-height: 5.63vw;
+        line-height: 5.83vw;
         letter-spacing: 0%;
       }
 
@@ -327,10 +327,10 @@ $lxx: 1920px;
           }
 
           @media (max-width: $sm) {
-            width: 43.75vw;
+            width: 41.67vw;
             span {
               display: block;
-              font-size: 12.5vw;
+              font-size: 11.67vw;
               line-height: 14.16vw;
               padding-bottom: 0.83vw;
             }
@@ -407,7 +407,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $sm) {
-      padding: 12.5vw 5vw 12.5vw 5vw;
+      padding: 12.5vw 5.83vw 12.5vw 5.83vw;
       gap: 12.5vw;
 
       p,
