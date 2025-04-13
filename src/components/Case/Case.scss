@@ -21,13 +21,13 @@ $lxx: 1920px;
     @media (max-width: $lx) {
       font-size: 54px;
       line-height: 68px;
-      padding: 60px 48px 48px 32px;
+      padding: 60px 48px 48px 48px;
     }
 
     @media (max-width: $lg) {
       font-size: 50px;
       line-height: 64px;
-      padding: 64px 48px 28px 48px;
+      padding: 46px 48px;
     }
 
     @media (max-width: $md) {
@@ -50,6 +50,7 @@ $lxx: 1920px;
       font-size: 7.78vw;
       line-height: 10vw;
       padding: 8.89vw 4.44vw 4.44vw 4.44vw;
+      width: 67.66vw; // костыль, для переноса строки заголовка
     }
   }
 
@@ -126,7 +127,7 @@ $lxx: 1920px;
       @media (max-width: $sm) {
         flex: 0;
         span {
-          margin-top: 2.22vw;
+          margin-top: 2.25vw;
         }
       }
     }
@@ -388,7 +389,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $lg) {
-      padding: 58px 48px 130px 48px;
+      padding: 52px 48px 130px 48px;
       gap: 128px;
     }
 

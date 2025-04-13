@@ -33,7 +33,7 @@ i18n
           goToProjects: "Go to projects",
           contactMe: "Contact me",
           email: "E-mail",
-          telegram: "Write to Telegram",
+          telegram: "Write to telegram",
           tg: "Telegram",
           cases: {
             case1: {
@@ -79,7 +79,7 @@ i18n
               score4Feature7: "growth in MAU",
             },
           },
-          commingSoon: "Comming soon",
+          commingSoon: "Project name",
         },
       },
       ru: {
@@ -153,7 +153,7 @@ i18n
           email: "Почта",
           telegram: "Написать в телеграм",
           tg: "Телеграм",
-          commingSoon: "В разработке",
+          commingSoon: "Название проекта",
         },
       },
     },

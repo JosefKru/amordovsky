@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
@@ -14,8 +14,8 @@ interface BurgerMenuProps {
 }
 
 const menuVariants = {
-  open: { x: "0%", opacity: 1, transition: { duration: 0 } },
-  closed: { x: "-100%", opacity: 1, transition: { duration: 0 } },
+  open: { x: "0%", opacity: 1, transition: { duration: 0.1 } },
+  closed: { x: "-100%", opacity: 1, transition: { duration: 0.1 } },
 };
 
 const BurgerMenu: FC<BurgerMenuProps> = ({
@@ -35,6 +35,18 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
     toggleLanguage();
     closeMenu();
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isOpen]);
 
   const renderMenuItem = (item: NavItem) => {
     if (item.isLangSwitcher) {
@@ -78,7 +90,7 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
         variants={menuVariants}
       >
         <AnimatedWrapper>
-          <ul>{navigation.map((item) => renderMenuItem(item))}</ul>{" "}
+          <ul>{navigation.map((item) => renderMenuItem(item))}</ul>
         </AnimatedWrapper>
       </motion.div>
     </nav>

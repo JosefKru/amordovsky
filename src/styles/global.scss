@@ -25,3 +25,7 @@ html {
 body {
   font-family: "GoogleSans", sans-serif;
 }
+
+body.no-scroll {
+  overflow: hidden;
+}
