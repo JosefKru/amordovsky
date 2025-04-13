@@ -8,7 +8,6 @@ interface ProjectCardProps {
   project: {
     id: number;
     name: string;
-    nameRu: string;
     category: string;
     image: string;
     imageRu: string;
@@ -23,7 +22,7 @@ const cardVariants = {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const {
-    i18n: { language },
+    i18n: { language, t },
   } = useTranslation();
 
   const { ref, inView } = useInView({
@@ -44,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         src={language === "ru" ? project.imageRu : project.image}
         alt={project.name}
       />
-      <h3>{language === "ru" ? project.nameRu : project.name}</h3>
+      <h3>{t(project.name)}</h3>
       <p>{project.category}</p>
     </motion.div>
   );
