@@ -50,7 +50,7 @@ $lxx: 1920px;
       font-size: 7.78vw;
       line-height: 10vw;
       padding: 8.89vw 4.44vw 4.44vw 4.44vw;
-      width: 67.66vw; // костыль, для переноса строки заголовка
+      width: 78vw; // костыль, для переноса строки заголовка
     }
   }
 
@@ -158,7 +158,7 @@ $lxx: 1920px;
     }
     @media (max-width: $sm) {
       display: block;
-      padding: 6.67vw 4.16vw 0vw 4.16vw;
+      padding: 6.67vw 5vw 0vw 5vw;
 
       p,
       div {
@@ -407,7 +407,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $sm) {
-      padding: 12.5vw 4.16vw 12.5vw 4.16vw;
+      padding: 12.5vw 5vw 12.5vw 5vw;
       gap: 12.5vw;
 
       p,
