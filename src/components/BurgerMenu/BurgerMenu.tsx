@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
