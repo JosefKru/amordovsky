@@ -36,18 +36,6 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
     closeMenu();
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
-  
-    return () => {
-      document.body.classList.remove("no-scroll");
-    };
-  }, [isOpen]);
-
   const renderMenuItem = (item: NavItem) => {
     if (item.isLangSwitcher) {
       return (
