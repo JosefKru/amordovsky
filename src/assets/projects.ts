@@ -24,7 +24,7 @@ export const projects = [
   {
     id: 1,
     name: "cases.case1.title",
-    category: "E-commerce • B2C • App • Desktop",
+    categories: ["E-commerce", "B2C", "App", "Desktop"],
     image: leroyMerlin,
     imageRu: leroyMerlin,
     meta: {
@@ -90,7 +90,7 @@ export const projects = [
   {
     id: 2,
     name: "commingSoon",
-    category: "App • Desktop",
+    categories: ["App", "Desktop"],
     image: commingSoon,
     imageRu: inDevelop,
     isStub: true,
@@ -98,7 +98,7 @@ export const projects = [
   {
     id: 3,
     name: "commingSoon",
-    category: "App • Desktop",
+    categories: ["App", "Desktop"],
     image: commingSoon,
     imageRu: inDevelop,
     isStub: true,
@@ -106,7 +106,7 @@ export const projects = [
   {
     id: 4,
     name: "commingSoon",
-    category: "App • Desktop",
+    categories: ["App", "Desktop"],
     image: commingSoon,
     imageRu: inDevelop,
     isStub: true,
@@ -114,7 +114,7 @@ export const projects = [
   {
     id: 5,
     name: "commingSoon",
-    category: "App • Desktop",
+    categories: ["App", "Desktop"],
     image: commingSoon,
     imageRu: inDevelop,
     isStub: true,
@@ -122,7 +122,7 @@ export const projects = [
   {
     id: 6,
     name: "commingSoon",
-    category: "App • Desktop",
+    categories: ["App", "Desktop"],
     image: commingSoon,
     imageRu: inDevelop,
     isStub: true,

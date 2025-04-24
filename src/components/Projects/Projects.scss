@@ -24,8 +24,6 @@
     text-align: left;
     flex: 1 1 calc(50% - 40px);
 
-  
-
     img {
       width: 100%;
       height: auto;
@@ -44,6 +42,28 @@
       line-height: 20px;
       color: #6e6e6e;
       margin-top: 4px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .category {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .project-tags {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  
+    .tag-item {
+      display: flex;
+      align-items: center;
+  
+      .tag-dot {
+        margin: 0 6px;
+      }
     }
   }
 

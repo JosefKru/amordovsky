@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { projects } from "../../assets/projects";
 import "./Case.scss";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 
 export const Case: React.FC = () => {
   const { t } = useTranslation();
@@ -17,10 +17,7 @@ export const Case: React.FC = () => {
     <div className="container">
       <h1 className="title">{t(project.name)}</h1>
 
-      <img
-        src={project.meta?.src}
-        className="main-pic"
-      />
+      <img src={project.meta?.src} className="main-pic" />
 
       {project.meta?.title &&
         project.meta?.title.map((meta, index) => (
@@ -31,7 +28,7 @@ export const Case: React.FC = () => {
 
             <div className="body">
               <Row row={t(meta[1] as string)} />
-              <span>{project.category}</span>
+              <span>{project.categories}</span>
             </div>
             <div />
           </div>
