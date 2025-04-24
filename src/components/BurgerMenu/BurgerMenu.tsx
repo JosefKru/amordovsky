@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { FC, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
@@ -7,81 +8,82 @@ import closeIcon from "../../assets/icons/closeIcon.svg";
 import { NavItem, getNavigation } from "../../config/navigationConfig";
 import { AnimatedWrapper } from "../AnimatedWrapper/AnimatedWrapper";
 import "./BurgerMenu.scss";
+import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 
-interface BurgerMenuProps {
+interface Props {
   currentLang: string;
   toggleLanguage: () => void;
 }
 
-const menuVariants = {
-  open: { x: "0%", opacity: 1, transition: { duration: 0.1 } },
-  closed: { x: "-100%", opacity: 1, transition: { duration: 0.1 } },
+const slideX = {
+  open: { x: "0%", transition: { duration: 0.25 } },
+  closed: { x: "-100%", transition: { duration: 0.25 } },
 };
 
-const BurgerMenu: FC<BurgerMenuProps> = ({
-  currentLang: language,
-  toggleLanguage,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const BurgerMenu: FC<Props> = ({ currentLang, toggleLanguage }) => {
+  const [open, setOpen] = useState(false);
   const { t } = useTranslation();
-  const navigation = getNavigation(t);
+  const nav = getNavigation(t);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  useLockBodyScroll(open);
 
-  const handleChangeLanguage = () => {
+  const switchLang = () => {
     toggleLanguage();
-    closeMenu();
+    setOpen(false);
   };
 
-  const renderMenuItem = (item: NavItem) => {
-    if (item.isLangSwitcher) {
-      return (
-        <li key={item.label}>
-          <Link to="#" onClick={handleChangeLanguage}>
-            {language === "en" ? "Rus" : "Eng"}
-          </Link>
-        </li>
-      );
-    }
-
-    return (
+  const renderItem = (item: NavItem) =>
+    item.isLangSwitcher ? (
+      <li key="lang">
+        <Link to="#" onClick={switchLang}>
+          {currentLang === "en" ? "Rus" : "Eng"}
+        </Link>
+      </li>
+    ) : (
       <li key={item.label}>
-        <Link to={item.to!} onClick={closeMenu}>
+        <Link to={item.to!} onClick={() => setOpen(false)}>
           {item.label}
         </Link>
       </li>
     );
-  };
 
   return (
-    <nav className="burger-menu">
+    <div className="burger-menu">
+
       <AnimatedWrapper>
-        <button
-          className="burger-icon"
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-        >
+        <button className="burger-icon" onClick={() => setOpen((o) => !o)}>
           <img
-            src={isOpen ? closeIcon : burgerIcon}
-            className={isOpen ? "closeMenu" : "openMenu"}
+            src={open ? closeIcon : burgerIcon}
+            className={open ? "closeMenu" : "openMenu"}
           />
         </button>
       </AnimatedWrapper>
 
-      <motion.div
-        className="menu"
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-        variants={menuVariants}
-      >
-        <AnimatedWrapper>
-          <ul>{navigation.map((item) => renderMenuItem(item))}</ul>
-        </AnimatedWrapper>
-      </motion.div>
-    </nav>
+      {createPortal(
+        <AnimatePresence>
+          {open && (
+            <motion.aside
+              className="burger-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <motion.nav
+                className="menu"
+                variants={slideX}
+                initial="closed"
+                animate="open"
+                exit="closed"
+              >
+                <ul>{nav.map(renderItem)}</ul>
+              </motion.nav>
+            </motion.aside>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
+    </div>
   );
 };
 

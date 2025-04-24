@@ -1,178 +1,153 @@
-  .no-scroll {
-    overflow: hidden;
-    height: 100vh;
-  }
+/* =====================  BurgerMenu  ===================== */
+
+.burger-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  background: transparent;
+  overflow: hidden; 
+  touch-action: none
+}
+
+.burger-overlay .menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* =====================  кнопка-гамбургер  ===================== */
 
 .burger-menu {
   position: fixed;
   top: 30px;
   right: 30px;
-  z-index: 100;
+  z-index: 999;
 
   .burger-icon {
-    outline: none;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     background: none;
     border: none;
+    outline: none;
     cursor: pointer;
-    z-index: 200;
     width: 40px;
     height: 40px;
-  }
 
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: transform 0.4s ease-in-out;
-    touch-action: none;
+    img {
+      width: 40px;
+      height: 40px;
+    }
 
-    ul {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 4px;
-      list-style: none;
-      padding: 0;
-      margin-top: 132px;
-
-      li {
-        a {
-          text-decoration: none;
-          font-weight: 300;
-          font-size: 40px;
-          line-height: 54px;
-          position: relative;
-          display: inline-block;
-          &::after {
-            content: none;
-          }
-
-          &::before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 2px;
-            width: 0;
-            background: transparent;
-            transition: width 0s ease, background 0.3s ease;
-          }
-
-          &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            height: 2px;
-            width: 0;
-            background: black;
-            transition: width 0.3s ease;
-          }
-
-          &:hover {
-            &::before {
-              width: 100%;
-              background: black;
-              transition: width 0.3s ease;
-            }
-            &::after {
-              width: 100%;
-              background: transparent;
-              transition: all 0s ease;
-            }
-          }
-        }
-      }
+    .closeMenu {
+      width: 28px;
+      height: 28px;
     }
   }
 
-  @media (min-width: 360px) and (max-width: 480px) {
-    .menu {
-      padding: 16px;
-      ul {
-        margin-top: 92px;
-
-        li {
-          a {
-            text-decoration: none;
-            font-weight: 300;
-            font-size: 32px;
-            line-height: 40px;
-          }
-        }
-      }
-    }
-  }
-
-  @media (max-width: 360px) {
-    .menu {
-      padding: 16px;
-      
-      ul {
-        margin-top: 96px;
-        
-        li {
-          a {
-            font-size: 28px;
-            line-height: 36px;
-          }
-        }
-      }
-    }
-  }
-
-  @media (max-width: 1000px) {
-    display: block;
-    top: 30px;
-    right: 24px;
-
-    .burger-icon {
-      .openMenu {
-        width: 40px;
-        height: 40px;
-      }
-
-      .closeMenu {
-        width: 28px;
-        height: 28px;
-      }
-    }
+  /* ============ адаптив для кнопки ============ */
+  @media (max-width: 480px) {
+    top: 20px;
+    right: 16px;
   }
 
   @media (min-width: 1001px) {
     display: none;
   }
+}
 
-  @media (max-width: 480px) {
-    top: 20px;
-    right: 16px;
+/* =====================  список ссылок  ===================== */
 
-    .burger-icon {
-      width: 40px;
-      height: 40px;
+.menu ul {
+  margin-top: 132px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 
-      .openMenu {
-        width: 40px;
-        height: 40px;
+  li a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 54px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      transition: width 0.3s ease;
+    }
+
+    &::before {
+      left: 0;
+      background: transparent;
+      transition: none;
+    }
+    &::after {
+      right: 0;
+      background: #000;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+        background: #000;
       }
-
-      .closeMenu {
-        width: 28px;
-        height: 28px;
+      &::after {
+        width: 100%;
+        background: transparent;
+        transition: none;
       }
     }
   }
 }
+
+/* =====================  адаптив для меню  ===================== */
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .menu {
+    padding: 16px;
+
+    ul {
+      margin-top: 92px;
+
+      li a {
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .menu {
+    padding: 16px;
+
+    ul {
+      margin-top: 96px;
+
+      li a {
+        font-size: 28px;
+        line-height: 36px;
+      }
+    }
+  }
+}
+
+
+
