@@ -28,7 +28,7 @@ export const Case: React.FC = () => {
 
             <div className="body">
               <Row row={t(meta[1] as string)} />
-              <span>{project.categories}</span>
+              <span>{project.category}</span>
             </div>
             <div />
           </div>
