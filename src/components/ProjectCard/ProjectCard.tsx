@@ -8,7 +8,7 @@ interface ProjectCardProps {
   project: {
     id: number;
     name: string;
-    categories: string[];
+    category: string;
     image: string;
     imageRu: string;
     isStub?: boolean;
@@ -21,8 +21,6 @@ const cardVariants = {
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const { name, imageRu, image, categories } = project;
-
   const {
     i18n: { language, t },
   } = useTranslation();
@@ -41,18 +39,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       animate={inView ? "visible" : "hidden"}
       transition={{ duration: 1, ease: "easeInOut" }}
     >
-      <img src={language === "ru" ? imageRu : image} alt={name} />
-      <h3>{t(name)}</h3>
-      <div className="project-tags">
-        {categories.map((tag, index) => (
-          <span key={tag} className="tag-item">
-            <span>{tag}</span>
-            {index < categories.length - 1 && (
-              <span className="tag-dot">•</span>
-            )}
-          </span>
-        ))}
-      </div>
+       <img
+        src={language === "ru" ? project.imageRu : project.image}
+        alt={project.name}
+      />
+      <h3>{t(project.name)}</h3>
+      <p>{project.category}</p>
     </motion.div>
   );
 };

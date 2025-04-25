@@ -51,22 +51,6 @@
       flex-direction: row;
     }
 
-    .project-tags {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      color: #6E6E6E;
-      margin-top: 4px;
-    }
-  
-    .tag-item {
-      display: flex;
-      align-items: center;
-  
-      .tag-dot {
-        margin: 0 4px;
-      }
-    }
   }
 
   @media (max-width: 1200px) {
