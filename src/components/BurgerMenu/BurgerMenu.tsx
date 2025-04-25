@@ -64,9 +64,9 @@ const BurgerMenu: FC<Props> = ({ currentLang, toggleLanguage }) => {
           {open && (
             <motion.aside
               className="burger-overlay"
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              exit={{ opacity: 1 }}
               transition={{ duration: 0.25 }}
             >
               <motion.nav
