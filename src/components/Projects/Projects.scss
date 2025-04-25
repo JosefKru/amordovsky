@@ -55,6 +55,8 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      color: #6E6E6E;
+      margin-top: 4px;
     }
   
     .tag-item {
@@ -62,7 +64,7 @@
       align-items: center;
   
       .tag-dot {
-        margin: 0 6px;
+        margin: 0 4px;
       }
     }
   }
