@@ -9,19 +9,20 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import "./Header.scss";
 
 const Header: React.FC = React.memo(() => {
-  const navigate = useNavigate();
-  const isVisible = useHeaderVisibility();
-  const { i18n, t } = useTranslation();
-  const firstLoad = useRef(true);
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
-  const navigation = getNavigation(t);
-
-  const currentLang = i18n.language;
-
-  const { startFade } = useFadeAnimation(0);
-
+  const [menuOpen, setMenuOpen] = useState(false); 
   const [shouldAnimateLogo, setShouldAnimateLogo] = useState(false);
+  const firstLoad = useRef(true);
+  
+  const isVisible = useHeaderVisibility({ disabled: menuOpen });
+  const { startFade } = useFadeAnimation(0);
+  
+  const navigate = useNavigate();
+  const { i18n, t } = useTranslation();
+  const location = useLocation();
+  const navigation = getNavigation(t);
+  
+  const isHomePage = location.pathname === "/";
+  const currentLang = i18n.language;
 
   const toggleLanguage = () => {
     setShouldAnimateLogo(true);
@@ -96,7 +97,11 @@ const Header: React.FC = React.memo(() => {
         </nav>
       </AnimatedWrapper>
 
-      <BurgerMenu currentLang={currentLang} toggleLanguage={toggleLanguage} />
+      <BurgerMenu
+        currentLang={currentLang}
+        toggleLanguage={toggleLanguage}
+        onToggle={(state) => setMenuOpen(state)}
+      />
     </header>
   );
 });

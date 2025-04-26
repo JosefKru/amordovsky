@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useFadeAnimation = (fadeDuration = 800) => {
+export default function useFadeAnimation(fadeDuration = 800) {
   const [isFading, setIsFading] = useState(false);
 
   const startFade = (callback?: () => void) => {
@@ -12,6 +12,4 @@ const useFadeAnimation = (fadeDuration = 800) => {
   };
 
   return { isFading, startFade };
-};
-
-export default useFadeAnimation;
+}

@@ -1,27 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export function useHeaderVisibility() {
+export function useHeaderVisibility({ disabled = false } = {}) {
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(window.scrollY);
+  const skipNext = useRef(false);
 
   useEffect(() => {
-    let ticking = false;
+    if (disabled) {
+      setIsVisible(true);
+      return;
+    }
 
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsVisible(scrollY < lastScrollY || scrollY < 50);
-          setLastScrollY(scrollY);
-          ticking = false;
-        });
-        ticking = true;
+    skipNext.current = true;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+
+      if (skipNext.current) {
+        lastScrollY.current = y;
+        skipNext.current = false;
+        return;
       }
+
+      setIsVisible(y < lastScrollY.current || y < 50);
+      lastScrollY.current = y;
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [disabled]);
 
   return isVisible;
 }
