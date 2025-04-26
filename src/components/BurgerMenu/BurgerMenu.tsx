@@ -33,27 +33,25 @@ const BurgerMenu: FC<Props> = ({ currentLang, toggleLanguage, onToggle }) => {
 
   const switchLang = () => {
     toggleLanguage();
-    startFade();
+    startFade(() => window.scrollTo(0, 0));
+    toggle(false);
   };
 
   const toggle = (next = !open) => {
     setOpen(next);
-    onToggle?.(next)
+    onToggle?.(next);
   };
 
   const renderItem = (item: NavItem) =>
     item.isLangSwitcher ? (
       <li key="lang">
-        <Link to="#" onClick={() => {
-          switchLang();
-          toggle(false);
-        }}>
+        <Link to="#" onClick={switchLang}>
           {currentLang === "en" ? "Rus" : "Eng"}
         </Link>
       </li>
     ) : (
       <li key={item.label}>
-          <Link to={item.to!} onClick={() => toggle(false)}>
+        <Link to={item.to!} onClick={() => toggle(false)}>
           {item.label}
         </Link>
       </li>
