@@ -4,6 +4,8 @@ export function useHeaderVisibility({ disabled = false } = {}) {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(window.scrollY);
   const skipNext = useRef(false);
+  // const lastScrollY = useRef(window.scrollY);
+  // const skipNext = useRef(false);
 
   useEffect(() => {
     if (disabled) {

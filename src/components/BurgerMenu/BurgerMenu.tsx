@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
 import { NavItem, getNavigation } from "../../config/navigationConfig";
+import useFadeAnimation from "../../hooks/useFadeAnimation";
 import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 import { AnimatedWrapper } from "../AnimatedWrapper/AnimatedWrapper";
 import "./BurgerMenu.scss";
