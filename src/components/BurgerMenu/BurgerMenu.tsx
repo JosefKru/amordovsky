@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 import burgerIcon from "../../assets/icons/burgerIcon.svg";
 import closeIcon from "../../assets/icons/closeIcon.svg";
 import { NavItem, getNavigation } from "../../config/navigationConfig";
+import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 import { AnimatedWrapper } from "../AnimatedWrapper/AnimatedWrapper";
 import "./BurgerMenu.scss";
-import useLockBodyScroll from "../../hooks/useLockBodyScroll";
 
 interface Props {
   currentLang: string;
   toggleLanguage: () => void;
+  setShouldAnimateLogo: (value: boolean) => void;
 }
 
 const slideX = {
@@ -20,17 +21,31 @@ const slideX = {
   closed: { x: "-100%", transition: { duration: 0.25 } },
 };
 
-const BurgerMenu: FC<Props> = ({ currentLang, toggleLanguage }) => {
+const BurgerMenu: FC<Props> = ({
+  currentLang,
+  toggleLanguage,
+  setShouldAnimateLogo,
+}) => {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
   const nav = getNavigation(t);
+
+  const toggle = (next = !open) => {
+    setOpen(next);
+  };
 
   useLockBodyScroll(open);
 
   const switchLang = () => {
     toggleLanguage();
     setOpen(false);
+    window.scrollTo(0, 0);
   };
+
+  const handleClick = () => {
+    setShouldAnimateLogo?.(false);
+    setOpen(false);
+  }
 
   const renderItem = (item: NavItem) =>
     item.isLangSwitcher ? (
@@ -41,7 +56,10 @@ const BurgerMenu: FC<Props> = ({ currentLang, toggleLanguage }) => {
       </li>
     ) : (
       <li key={item.label}>
-        <Link to={item.to!} onClick={() => setOpen(false)}>
+        <Link
+          to={item.to!}
+          onClick={handleClick}
+        >
           {item.label}
         </Link>
       </li>
@@ -49,9 +67,8 @@ const BurgerMenu: FC<Props> = ({ currentLang, toggleLanguage }) => {
 
   return (
     <div className="burger-menu">
-
       <AnimatedWrapper>
-        <button className="burger-icon" onClick={() => setOpen((o) => !o)}>
+        <button className="burger-icon" onClick={() => toggle()}>
           <img
             src={open ? closeIcon : burgerIcon}
             className={open ? "closeMenu" : "openMenu"}
