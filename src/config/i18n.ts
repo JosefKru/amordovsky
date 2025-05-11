@@ -38,6 +38,7 @@ i18n
           cases: {
             case1: {
               title: "Leroy Merlin. Search and catalog",
+              titleMobile: "Leroy Merlin.<br/>Search and catalog",
               metaTitle: "About the company",
               metaDescription:
                 "Leroy Merlin is an international retail chain specializing <br/> in products for construction, renovation, and home improvement. The company offers a wide range<br/>of goods for both the home and garden",

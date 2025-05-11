@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { projects } from "../../assets/projects";
+import { useMinViewportWidth } from "../../hooks/useMinViewportWidth";
 import "./Case.scss";
 
 export const Case: React.FC = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const project = projects.find((project) => project.id.toString() === id);
+  const isDesktop = useMinViewportWidth(480);
 
   if (!project) {
     return <div style={{ fontSize: "256px" }}>Project not found!</div>;
@@ -15,7 +17,15 @@ export const Case: React.FC = () => {
 
   return (
     <div className="container">
-      <h1 className="title">{t(project.name)}</h1>
+      {project.meta?.titleMobile && (
+        <h1 className="title">
+          {isDesktop ? (
+            t(project.name)
+          ) : (
+            <Trans i18nKey={project.meta.titleMobile} />
+          )}
+        </h1>
+      )}
 
       <img src={project.meta?.src} className="main-pic" />
 
