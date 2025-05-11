@@ -12,7 +12,7 @@ const Projects: React.FC = () => {
           project.isStub ? (
             <ProjectCard project={project} />
           ) : (
-            <Link key={project.id} to={`/project/${project.id}`}>
+            <Link key={project.slug} to={`/project/${project.slug}`}>
               <ProjectCard project={project} />
             </Link>
           )

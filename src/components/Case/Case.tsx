@@ -7,8 +7,8 @@ import "./Case.scss";
 
 export const Case: React.FC = () => {
   const { t } = useTranslation();
-  const { id } = useParams();
-  const project = projects.find((project) => project.id.toString() === id);
+  const { slug } = useParams();
+  const project = projects.find((project) => project.slug === slug);
   const isDesktop = useMinViewportWidth(480);
 
   if (!project) {

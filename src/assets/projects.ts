@@ -74,6 +74,7 @@ const metaProject1 = {
 export const projects = [
   {
     id: 1,
+    slug: "leroy-merlin",
     name: "cases.case1.title",
     category: "E-commerce • B2C • App • Desktop",
     image: leroyMerlin,
