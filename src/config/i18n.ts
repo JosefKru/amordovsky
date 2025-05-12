@@ -36,7 +36,7 @@ i18n
           telegram: "Write to telegram",
           tg: "Telegram",
           cases: {
-            case1: {
+            leroyMerlinSearch: {
               title: "Leroy Merlin. Search and catalog",
               titleMobile: "Leroy Merlin.<br/>Search and catalog",
               metaTitle: "About the company",
@@ -60,10 +60,8 @@ i18n
                 "Following the search improvements, users were able to find relevant products more quickly, leading to increased engagement. The time spent on search decreased, while the share of successful queries went up. Fewer users exited the site immediately after searching, indicating<br/>that the results were more relevant and helpful.<br/br/>The conversion rate from search to product detail views grew significantly, as users clicked more often on the suggested items. Additionally, the average number<br/>of products viewed after a search increased — <br/>pointing to greater trust in the search results<br/>and smoother navigation.",
               scoreHeadFeature4: "",
               score1Feature4: "increased search conversion to cards",
-              score2Feature4:
-                "increased average",
-                score2Feature4_2:
-                "order value",
+              score2Feature4: "increased average",
+              score2Feature4_2: "order value",
               score3Feature4: "lower bounce rate",
               score4Feature4: "growth in MAU",
               titleFeature5: "Catalog",
@@ -83,6 +81,9 @@ i18n
               score3Feature7: "fewer bounces",
               score4Feature7: "growth in MAU",
             },
+            leroyMerlinCard: {
+              // title: 'Leroy Merlin. Product Page and Checkout'
+            }
           },
           commingSoon: "Project name",
         },
@@ -90,15 +91,14 @@ i18n
       ru: {
         translation: {
           cases: {
-            case1: {
+            leroyMerlinSearch: {
               title: "Леруа Мерлен. Поиск и каталог",
               metaTitle: "О компании",
               metaDescription:
                 "Леруа Мерлен - международная розничная сеть, специализирующаяся на продаже товаров для строительства, ремонта и обустройства дома. Компания предлагает широкий ассортимент продукции для дома и сада.",
-
               metaSectionTitle: "Что делал",
               metaSectionDescription:
-                "Перед началом работы я провел детальный анализ пользовательских сценариев, изучили ключевые барьеры, с которыми сталкиваются покупатели,<br/>и собрал обратную связь через интервью.<br/>Это позволило глубже понять потребности<br/> различных групп клиентов — от частных <br/>покупателей, которые делают выбор на основе удобства и доступности, до профессионалов,<br/> для которых важны детализированные<br/> характеристики товаров и гибкость поиска. <br/br/> На основе полученных данных была разработана стратегия редизайна, направленная на повышение удобства поиска, оптимизацию структуры каталога <br/>и внедрение инструментов персонализации.",
+                "Перед началом работы я провел детальный анализ пользовательских сценариев, изучили ключевые барьеры, с которыми сталкиваются покупатели, и собрал обратную связь через интервью. Это позволило глубже понять потребности различных групп клиентов — от частных покупателей, которые делают выбор на основе удобства и доступности, до профессионалов, для которых важны детализированные характеристики товаров и гибкость поиска.<br/br/> На основе полученных данных была разработана стратегия редизайна, направленная на повышение удобства поиска, оптимизацию структуры каталога и внедрение инструментов персонализации.",
               titleFeature1: "Задачи",
               descFeature1:
                 "Основной целью редизайна стало упрощение процесса поиска и выбора товаров.<br/> Это особенно важно для большого ассортимента,<br/> где пользователям необходимо быстро находить нужные позиции и подбирать оптимальные<br/> условия покупки.<br/br/>Для частных клиентов ключевыми аспектами<br/>стали удобство выбора, возможность фильтрации<br/>по наличию в магазинах и скорости доставки. Профессиональным покупателям требовались расширенные параметры поиска, включая сортировку по техническим характеристикам и совместимости<br/>с другими товарами. Важно было создать интерфейс,<br/> который адаптируется под разные сценарии использования, обеспечивая удобный и логичный процесс взаимодействия.",
@@ -134,6 +134,14 @@ i18n
               score3Feature7: "уменьшились отказы",
               score4Feature7: "увеличился MAU",
             },
+            leroyMerlinCard: {
+              title: 'Леруа Мерлен. Карточка товара и чекаут',
+              metaTitle: "О компании",
+              metaDescription:
+                "Леруа Мерлен - международная розничная сеть, специализирующаяся на продаже товаров для строительства, ремонта и обустройства дома. Компания предлагает широкий ассортимент продукции для дома и сада.",
+                metaSectionTitle: "Что делал",
+            
+              }
           },
           welcome:
             "Ведущий продуктовый дизайнер, создающий эффективное взаимодействие компаний с аудиторией",

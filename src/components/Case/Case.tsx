@@ -4,30 +4,31 @@ import { useParams } from "react-router-dom";
 import { projects } from "../../assets/projects";
 import { useMinViewportWidth } from "../../hooks/useMinViewportWidth";
 import "./Case.scss";
+import { renderMedia } from "../../utils/utils";
+
+const MOBILE_BREAKPOINT = 480;
 
 export const Case: React.FC = () => {
   const { t } = useTranslation();
   const { slug } = useParams();
   const project = projects.find((project) => project.slug === slug);
-  const isDesktop = useMinViewportWidth(480);
+  const isDesktop = useMinViewportWidth(MOBILE_BREAKPOINT);
 
   if (!project) {
-    return <div style={{ fontSize: "256px" }}>Project not found!</div>;
+    return <div>Project not found!</div>;
   }
 
   return (
     <div className="container">
-      {project.meta?.titleMobile && (
-        <h1 className="title">
-          {isDesktop ? (
-            t(project.name)
-          ) : (
-            <Trans i18nKey={project.meta.titleMobile} />
-          )}
-        </h1>
-      )}
+      <h1 className="title">
+        {isDesktop ? (
+          <Trans i18nKey={project.name} />
+        ) : (
+          <Trans i18nKey={project?.meta?.titleMobile} />
+        )}
+      </h1>
 
-      <img src={project.meta?.src} className="main-pic" />
+      {project.meta?.src && renderMedia(project.meta.src)}
 
       {project.meta?.title &&
         project.meta?.title.map((meta, index) => (
@@ -176,7 +177,7 @@ function Paragraph({ feature }: { feature: (string | string[][])[][] }) {
 
   return (
     <>
-      {copy.map((row: string, index: number) =>
+      {copy.map((row, index) =>
         includes && copy.length - 1 > index ? (
           <div key={index}>
             <Row row={t(row)} />
