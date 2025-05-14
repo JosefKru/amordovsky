@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { projects } from "../../assets/projects";
 import { useMinViewportWidth } from "../../hooks/useMinViewportWidth";
-import "./Case.scss";
 import { renderMedia } from "../../utils/utils";
+import "./Case.scss";
 
 const MOBILE_BREAKPOINT = 480;
 
@@ -38,7 +38,7 @@ export const Case: React.FC = () => {
             </div>
 
             <div className="body">
-              <Row row={t(meta[1] as string)} />
+              {t(meta[1])}
               <span>{project.category}</span>
             </div>
             <div />
@@ -137,38 +137,6 @@ function Score({ score }: { score: (string | string[][])[][] }) {
   );
 }
 
-function Row({ row }: { row: string }) {
-  const [isLargeScreen, setIsLargeScreen] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth === 1440);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, [isLargeScreen]);
-
-  const processedRow = isLargeScreen
-    ? row.split("<br/>")
-    : [row.replace(/<br\/>/g, " ")];
-
-  return (
-    <>
-      {processedRow.map((text, index) => (
-        <div key={index}>
-          <p>
-            {text}
-            {isLargeScreen && index < processedRow.length - 1 && <br />}
-          </p>
-        </div>
-      ))}
-    </>
-  );
-}
-
 function Paragraph({ feature }: { feature: (string | string[][])[][] }) {
   const { t } = useTranslation();
 
@@ -179,12 +147,13 @@ function Paragraph({ feature }: { feature: (string | string[][])[][] }) {
     <>
       {copy.map((row, index) =>
         includes && copy.length - 1 > index ? (
-          <div key={index}>
-            <Row row={t(row)} />
+          <React.Fragment key={index}>
+            {t(row)}
             <br />
-          </div>
+            <br />
+          </React.Fragment>
         ) : (
-          <Row row={t(row)} key={index} />
+          t(row)
         )
       )}
     </>

@@ -131,11 +131,11 @@ const LEROY_MERLIN_CARD = {
       "cases.leroyMerlinCard.metaDescription",
     ],
   ],
-  titleMobile: "cases.leroyMerlinSearch.titleMobile",
+  titleMobile: "cases.leroyMerlinCard.titleMobile",
   meta: [
     [
-      "cases.leroyMerlinSearch.metaSectionTitle",
-      "cases.leroyMerlinSearch.metaSectionDescription",
+      "cases.leroyMerlinCard.metaSectionTitle",
+      "cases.leroyMerlinCard.metaSectionDescription",
     ],
   ],
   features: [
@@ -143,8 +143,8 @@ const LEROY_MERLIN_CARD = {
       p1_feature1,
       [
         [
-          "cases.leroyMerlinSearch.titleFeature1",
-          "cases.leroyMerlinSearch.descFeature1",
+          "cases.leroyMerlinCard.titleFeature1",
+          "cases.leroyMerlinCard.descFeature1",
         ],
       ],
     ],
@@ -152,8 +152,8 @@ const LEROY_MERLIN_CARD = {
       p1_feature2,
       [
         [
-          "cases.leroyMerlinSearch.titleFeature2",
-          "cases.leroyMerlinSearch.descFeature2",
+          "cases.leroyMerlinCard.titleFeature2",
+          "cases.leroyMerlinCard.descFeature2",
         ],
       ],
     ],
@@ -161,8 +161,8 @@ const LEROY_MERLIN_CARD = {
       p1_feature3,
       [
         [
-          "cases.leroyMerlinSearch.titleFeature3",
-          "cases.leroyMerlinSearch.descFeature3",
+          "cases.leroyMerlinCard.titleFeature3",
+          "cases.leroyMerlinCard.descFeature3",
         ],
       ],
     ],
@@ -170,20 +170,20 @@ const LEROY_MERLIN_CARD = {
       p1_feature4,
       [
         [
-          "cases.leroyMerlinSearch.titleFeature4",
-          "cases.leroyMerlinSearch.descFeature4",
+          "cases.leroyMerlinCard.titleFeature4",
+          "cases.leroyMerlinCard.descFeature4",
         ],
         [
           "",
           [
-            ["8%", "cases.leroyMerlinSearch.score1Feature4"],
+            ["8%", "cases.leroyMerlinCard.score1Feature4"],
             [
               "5%",
-              "cases.leroyMerlinSearch.score2Feature4",
-              "cases.leroyMerlinSearch.score2Feature4_2",
+              "cases.leroyMerlinCard.score2Feature4",
+              "cases.leroyMerlinCard.score2Feature4_2",
             ],
-            ["10%", "cases.leroyMerlinSearch.score3Feature4"],
-            ["6.5%", "cases.leroyMerlinSearch.score4Feature4"],
+            ["10%", "cases.leroyMerlinCard.score3Feature4"],
+            ["6.5%", "cases.leroyMerlinCard.score4Feature4"],
           ],
         ],
       ],
@@ -192,8 +192,8 @@ const LEROY_MERLIN_CARD = {
       p1_feature5,
       [
         [
-          "cases.leroyMerlinSearch.titleFeature5",
-          "cases.leroyMerlinSearch.descFeature5",
+          "cases.leroyMerlinCard.titleFeature5",
+          "cases.leroyMerlinCard.descFeature5",
         ],
       ],
     ],
@@ -201,8 +201,8 @@ const LEROY_MERLIN_CARD = {
       p1_feature6,
       [
         [
-          "cases.leroyMerlinSearch.titleFeature6",
-          "cases.leroyMerlinSearch.descFeature6",
+          "cases.leroyMerlinCard.titleFeature6",
+          "cases.leroyMerlinCard.descFeature6",
         ],
       ],
     ],
@@ -210,24 +210,24 @@ const LEROY_MERLIN_CARD = {
       p1_feature7,
       [
         [
-          "cases.leroyMerlinSearch.titleFeature7",
-          "cases.leroyMerlinSearch.descFeature7",
+          "cases.leroyMerlinCard.titleFeature7",
+          "cases.leroyMerlinCard.descFeature7",
         ],
         [
           "",
           [
             [
               "11%",
-              "cases.leroyMerlinSearch.score1Feature7",
-              "cases.leroyMerlinSearch.score1Feature7_2",
+              "cases.leroyMerlinCard.score1Feature7",
+              "cases.leroyMerlinCard.score1Feature7_2",
             ],
             [
               "15%",
-              "cases.leroyMerlinSearch.score2Feature7",
-              "cases.leroyMerlinSearch.score2Feature7_2",
+              "cases.leroyMerlinCard.score2Feature7",
+              "cases.leroyMerlinCard.score2Feature7_2",
             ],
-            ["12%", "cases.leroyMerlinSearch.score3Feature7"],
-            ["7%", "cases.leroyMerlinSearch.score4Feature7"],
+            ["12%", "cases.leroyMerlinCard.score3Feature7"],
+            ["7%", "cases.leroyMerlinCard.score4Feature7"],
           ],
         ],
       ],
