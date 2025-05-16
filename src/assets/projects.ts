@@ -2,6 +2,7 @@ import commingSoon from "./images/Comming_soon.png";
 import inDevelop from "./images/In_develop.png";
 import leroyMerlinSearch from "./images/Leroy-Merlin-search/Leroy_Merlin.png";
 import p2_video from "./images/Leroy-Merlin-card/1.mp4";
+import p2_img2 from "./images/Leroy-Merlin-card/2.png";
 import p1_feature1 from "./images/Leroy-Merlin-search/p1_feature1.png";
 import p1_feature2 from "./images/Leroy-Merlin-search/p1_feature2.png";
 import p1_feature3 from "./images/Leroy-Merlin-search/p1_feature3.png";
@@ -140,7 +141,7 @@ const LEROY_MERLIN_CARD = {
   ],
   features: [
     [
-      p1_feature1,
+      p2_img2,
       [
         [
           "cases.leroyMerlinCard.titleFeature1",

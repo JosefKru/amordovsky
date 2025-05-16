@@ -41,13 +41,13 @@ $lxx: 1920px;
       margin-top: 16.67vw;
       font-size: 6.67vw;
       line-height: 8.33vw;
-      padding: 7.92vw 5vw 4.17vw 5vw;
+      padding: 5.5vw 24px 4.17vw 24px;
     }
     @media (max-width: $xs) {
       margin-top: 22.22vw;
       font-size: 7.78vw;
       line-height: 10vw;
-      padding: 8.89vw 5.56vw 4.44vw 5.56vw;
+      padding: 8.89vw 20px 4.44vw 20px;
     }
   }
 
@@ -136,7 +136,7 @@ $lxx: 1920px;
       padding: 52px 48px 0px 48px;
     }
     @media (max-width: $md) {
-      padding: 4.8vw 2.4vw 0vw 2.4vw;
+      padding: 4.8vw 24px 0vw 24px;
 
       p,
       div {
@@ -155,7 +155,7 @@ $lxx: 1920px;
     }
     @media (max-width: $sm) {
       display: block;
-      padding: 6.67vw 5vw 0vw 5vw;
+      padding: 6.67vw 24px 0vw 24px;
 
       p,
       div {
@@ -174,7 +174,7 @@ $lxx: 1920px;
     }
     @media (max-width: $xs) {
       display: block;
-      padding: 6.67vw 5.56vw 0vw 5.56vw;
+      padding: 6.67vw 20px 0vw 20px;
 
       p,
       div {
@@ -391,7 +391,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $md) {
-      padding: 4.8vw 2.4vw 10vw 2.4vw;
+      padding: 4.8vw 24px 10vw 24px;
       gap: 11.2vw;
 
       p,
@@ -404,7 +404,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $sm) {
-      padding: 12.5vw 5vw 12.5vw 5vw;
+      padding: 12.5vw 24px 12.5vw 24px;
       gap: 12.5vw;
 
       p,
@@ -423,7 +423,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $xs) {
-      padding: 6.67vw 5.56vw 12.77vw 5.56vw;
+      padding: 6.67vw 20px 12.77vw 20px;
 
       p,
       div {
