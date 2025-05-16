@@ -38,7 +38,7 @@ i18n
           cases: {
             leroyMerlinSearch: {
               title: "Leroy Merlin. Search and catalog",
-              titleMobile: "Leroy Merlin. Search and catalog",
+              titleMobile: "Leroy Merlin.<br /> Search and catalog",
               metaTitle: "About the company",
               metaDescription:
                 "Leroy Merlin is an international retail chain specializing  in products for construction, renovation, and home improvement. The company offers a wide range of goods for both the home and garden",
@@ -92,6 +92,7 @@ i18n
           cases: {
             leroyMerlinSearch: {
               title: "Леруа Мерлен. Поиск и каталог",
+              titleMobile: "Леруа Мерлен.<br/> Поиск и каталог",
               metaTitle: "О компании",
               metaDescription:
                 "Леруа Мерлен - международная розничная сеть, специализирующаяся на продаже товаров для строительства, ремонта и обустройства дома. Компания предлагает широкий ассортимент продукции для дома и сада.",
@@ -134,7 +135,8 @@ i18n
               score4Feature7: "увеличился MAU",
             },
             leroyMerlinCard: {
-              title: "Леруа Мерлен. Карточка товара и чекаут",
+              title: "Леруа Мерлен. Карточка товара и чекаут",
+              titleMobile: "Леруа Мерлен.<br/>Карточка товара и чекаут",
               metaTitle: "О компании",
               metaDescription:
                 "Леруа Мерлен - международная розничная сеть, специализирующаяся на продаже товаров для строительства, ремонта и обустройства дома. Компания предлагает широкий ассортимент продукции для дома и сада.",
