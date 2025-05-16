@@ -3,7 +3,7 @@ import { Trans, useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { projects } from "../../assets/projects";
 import { useMinViewportWidth } from "../../hooks/useMinViewportWidth";
-import { renderMedia } from "../../utils/utils";
+import { isValidFeatureContent, renderMedia } from "../../utils/utils";
 import "./Case.scss";
 
 const MOBILE_BREAKPOINT = 480;
@@ -54,11 +54,7 @@ export const Case: React.FC = () => {
 
         {project.meta?.features.map((feature, index) => (
           <div key={index}>
-            <img
-              src={feature[0] as string}
-              alt="project.meta?.src"
-              className="feature-pic"
-            />
+            {renderMedia(feature[0] as string, "feature-pic", `${feature[1][0][2] ? feature[1][0][2]: ''}`)}
             {Array.isArray(feature) &&
               feature.map((item, index) => (
                 <Feature feature={item} key={index} />
@@ -70,7 +66,7 @@ export const Case: React.FC = () => {
   );
 };
 
-function Feature({ feature }: { feature: string | (string | string[][])[][] }) {
+function Feature({ feature }: { feature: string | string[] | (string | string[][])[][] }) {
   const { t } = useTranslation();
 
   if (typeof feature === "string") {
@@ -109,6 +105,9 @@ function Feature({ feature }: { feature: string | (string | string[][])[][] }) {
       </div>
     );
   }
+
+  if (!isValidFeatureContent(feature)) return null;
+
   return (
     <div className="feature">
       <div className="head">
@@ -122,22 +121,24 @@ function Feature({ feature }: { feature: string | (string | string[][])[][] }) {
 }
 
 function Score({ score }: { score: (string | string[][])[][] }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <>
       {score.map((item, index) => (
         <div className="number" key={index}>
           <span>{item[0]}</span>
 
-          <p>{t(item[1] as string)}</p>
-          {item[2] && <p>{t(item[2] as string)}</p>}
+          <p>{t(item[1] as string)}
+
+          {i18n.exists(item[2] as string) && <p>{t(item[2] as string)}</p>}
+          </p>
         </div>
       ))}
     </>
   );
 }
 
-function Paragraph({ feature }: { feature: (string | string[][])[][] }) {
+function Paragraph({ feature }: { feature: string | string[] | (string | string[][])[][] }) {
   const { t } = useTranslation();
 
   const includes = t(feature[0][1] as string).includes("<br/br/>");
