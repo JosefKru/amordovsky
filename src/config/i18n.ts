@@ -81,7 +81,39 @@ i18n
               score4Feature7: "growth in MAU",
             },
             leroyMerlinCard: {
-              // title: 'Leroy Merlin. Product Page and Checkout'
+              title: "Leroy Merlin. PDP and checkout",
+              titleMobile: "Leroy Merlin.<br/>PDP and checkout",
+              metaTitle: "About the company",
+              metaDescription:
+                "Leroy Merlin is an international retail chain specializing  in products for construction, renovation, and home improvement. The company offers a wide range of goods for both the home and garden",
+                metaSectionTitle: "What I Did",
+              metaSectionDescription:
+                "Before starting the work, I thoroughly studied how users interact with the product page and the checkout process to understand where exactly difficulties arise in the selection and purchase process. I conducted a series of interviews to gather real feedback and gain deeper insight into the motivations and expectations of different customer segments — from those who aim to buy quickly and with minimal steps to those who carefully compare specifications, services, and details before placing an order.<br/br/>Based on the collected data, I identified key metrics that helped accurately assess what needed improvement and which changes could enhance the overall shopping experience.",
+              titleFeature1: "Objectives",
+              descFeature1:
+                "The goal of the redesign was to improve the ease of decision-making on the product page and simplify the checkout process. The aim was to reduce the number of complex or inconvenient moments along the user journey — both during product selection and at the payment stage.<br/br/>For some users, it was important to have a fast and intuitive way to add a product to the cart, a clear information structure, and confidence that the product met their expectations. For others, the priority was the ability to compare specifications, add services, and choose delivery options with the desired conditions. In the checkout flow, special attention was given to users who got confused at the final steps: the task was to make the process as transparent and predictable as possible, eliminating unnecessary fields and unclear steps.",
+              titleFeature2: "Product Page",
+              descFeature2:
+                "On the product page, the key goal was to shorten the path from interest to purchase — to remove unnecessary effort and make the selection process intuitive. The main task was to help users quickly understand whether the product suits their needs, how much of it they need, and what else might be useful.<br/br/>The most significant improvement was the addition of a calculator: users can now enter, for example, the area of a room, and the system will automatically calculate the required number of packages. This greatly simplified the selection process in categories with complex calculation logic. The product page also now includes services tailored to the type of product. This allows users to immediately see available add-ons such as delivery, assembly, or consultation — helping them make purchasing decisions faster and more conveniently.",
+              titleFeature3: "Product Metrics",
+              descFeature3:
+                "After these changes, users navigated the catalog more efficiently and made purchase decisions faster, which was reflected in core engagement metrics. The time users spent choosing a product decreased, and the conversion rate from view to purchase increased. There was also a rise in the number of successful purchases, indicating greater trust in the product information and an improved selection process.",
+              scoreHeadFeature3: "",
+              score1Feature3: "Increased<br/> “Add to Cart” CTR",
+              score2Feature3: "Increased average time spent on the product page",
+              score3Feature3: "Higher conversion from product page to cart",
+              score4Feature3: "Deeper user interaction with the page",
+              titleFeature4: "Checkout",
+              descFeature4:
+                "During the checkout redesign, I focused on making the order process as clear, fast, and transparent as possible. To achieve this, I reworked core UX decisions, eliminating unnecessary steps and clarifying wording that had previously caused user confusion.<br/br/>Special attention was given to the map — one of the key elements in selecting a pickup location. Both the logic and visual presentation were updated: users can now immediately see how many items are available at each location, making it easier to choose a convenient store. Product weight is also now displayed — particularly useful for pickup orders or large items. All these changes made the checkout process more predictable and user-friendly, reducing the chances of errors and drop-offs at the final stage.",
+              titleFeature5: "Product Metrics",
+              descFeature5:
+                "After the checkout update, users moved from the cart to payment more quickly and confidently. The interface became simpler, more intuitive, and better suited to real purchase scenarios — from fast payments to choosing a convenient store. The changes had a particularly strong impact at key decision points: completing an order took less time, users were less likely to go back to previous steps, and the number of successfully completed orders increased. Improvements in how information and the map are displayed made the experience more transparent and reduced user stress at the final stages — directly contributing to increased trust in the service and overall purchase effectiveness.",
+              scoreHeadFeature5: "",
+              score1Feature5: "Increased conversion rate from cart to purchase",
+              score2Feature5: "Reduced time to<br/>complete checkout",
+              score3Feature5: "Increased monthly<br/>active users (MAU)",
+              score4Feature5: "Increased average<br/>order value (AOV)",
             },
           },
           commingSoon: "Project name",
