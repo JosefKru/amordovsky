@@ -82,7 +82,7 @@ const LEROY_MERLIN_SEARCH = {
               "cases.leroyMerlinSearch.score2Feature4_2",
             ],
             ["10%", "cases.leroyMerlinSearch.score3Feature4"],
-            ["6.5%", "cases.leroyMerlinSearch.score4Feature4"],
+            ["6,5%", "cases.leroyMerlinSearch.score4Feature4"],
           ],
         ],
       ],
