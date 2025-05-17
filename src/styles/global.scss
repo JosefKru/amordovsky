@@ -21,7 +21,12 @@ html {
   // scrollbar-gutter: stable; // подумать как применить правильно
 }
 
-
 body {
   font-family: "GoogleSans", sans-serif;
+}
+
+video {
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }

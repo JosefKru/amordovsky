@@ -41,13 +41,13 @@ $lxx: 1920px;
       margin-top: 16.67vw;
       font-size: 6.67vw;
       line-height: 8.33vw;
-      padding: 5.5vw 24px 4.17vw 24px;
+      padding: 5.5vw 16px 4.17vw 16px;
     }
     @media (max-width: $xs) {
       margin-top: 22.22vw;
       font-size: 7.78vw;
       line-height: 10vw;
-      padding: 8.89vw 20px 4.44vw 20px;
+      padding: 8.89vw 16px 4.44vw 16px;
     }
   }
 
@@ -155,7 +155,7 @@ $lxx: 1920px;
     }
     @media (max-width: $sm) {
       display: block;
-      padding: 6.67vw 24px 0vw 24px;
+      padding: 6.67vw 16px 0vw 16px;
 
       p,
       div {
@@ -174,7 +174,7 @@ $lxx: 1920px;
     }
     @media (max-width: $xs) {
       display: block;
-      padding: 6.67vw 20px 0vw 20px;
+      padding: 6.67vw 16px 0vw 16px;
 
       p,
       div {
@@ -194,7 +194,7 @@ $lxx: 1920px;
   }
 
   .case-description {
-    padding: 72px 48px 298px 48px;
+    padding: 72px 48px 296px 48px;
     display: flex;
     flex-direction: column;
     gap: 160px;
@@ -209,8 +209,6 @@ $lxx: 1920px;
 
     .feature-pic {
       margin-bottom: 72px;
-      width: 100%;
-      height: 100%;
       object-fit: cover;
 
       @media (max-width: $lx) {
@@ -237,9 +235,6 @@ $lxx: 1920px;
       }
       @media (max-width: $sm) {
         gap: 6.67vw;
-      }
-      @media (max-width: $xs) {
-        // gap: 16.66vw;
       }
     }
 
@@ -381,7 +376,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $lx) {
-      padding: 60px 48px 130px 48px;
+      padding: 60px 48px 260px 48px;
       gap: 140px;
     }
 
@@ -391,7 +386,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $md) {
-      padding: 4.8vw 24px 10vw 24px;
+      padding: 4.8vw 24px 20vw 24px;
       gap: 11.2vw;
 
       p,
@@ -404,7 +399,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $sm) {
-      padding: 12.5vw 24px 12.5vw 24px;
+      padding: 12.5vw 16px  25vw 16px;
       gap: 12.5vw;
 
       p,
@@ -423,7 +418,7 @@ $lxx: 1920px;
     }
 
     @media (max-width: $xs) {
-      padding: 6.67vw 20px 12.77vw 20px;
+      padding: 6.67vw 16px 20vw 16px;
 
       p,
       div {
@@ -440,6 +435,97 @@ $lxx: 1920px;
       }
 
       gap: 11.11vw;
+    }
+  }
+
+  .footer {
+    padding: 0 48px 0 48px;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: color 0.3s ease;
+      font-weight: 400;
+      font-size: 60px;
+      line-height: 80px;
+
+      .link-container {
+        display: flex;
+        width: 100%;
+        margin-bottom: 36px;
+
+        @media (max-width: $lx) {
+          font-size: 54px;
+          line-height: 68px;
+          margin: 0 48px 40px 48px;
+        }
+
+        @media (max-width: $lg) {
+          font-size: 50px;
+          line-height: 64px;
+          margin: 0 48px 28px 48px;
+        }
+
+        @media (max-width: $md) {
+          margin-top: 100px;
+          font-size: 4vw;
+          line-height: 5.4vw;
+          margin: 0 24px 2.4vw 24px;
+        }
+
+        @media (max-width: $sm) {
+          margin-top: 16.67vw;
+          font-size: 6.67vw;
+          line-height: 8.33vw;
+          margin: 5.5vw 24px 4.17vw 24px;
+        }
+        @media (max-width: $xs) {
+          margin-top: 22.22vw;
+          font-size: 7.78vw;
+          line-height: 10vw;
+          margin: 8.89vw 20px 4.44vw 20px;
+        }
+      }
+    }
+
+    .icon {
+      transition: transform 0.3s ease;
+
+      @media (max-width: $lx) {
+        width: 68px;
+      }
+
+      @media (max-width: $lg) {
+        width: 64px;
+      }
+
+      @media (max-width: $md) {
+        width: 5.4vw;
+      }
+
+      @media (max-width: $sm) {
+        width: 8.33vw;
+      }
+      @media (max-width: $xs) {
+        width: 10vw;
+      }
+    }
+
+    a:hover .icon {
+      transform: translateX(6px);
+    }
+
+    .next-project-image {
+      width: 100%;
+    }
+
+    @media (max-width: $md) {
+      padding: 0 24px 0 24px;
+    }
+
+    @media (max-width: $sm) {
+      padding: 0 16px 0 16px;
     }
   }
 }

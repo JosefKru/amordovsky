@@ -1,6 +1,7 @@
 import React from "react";
 import { Trans, useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import goToProjectIcon from "../../assets/icons/goToProjectBlackIcon.svg";
 import { projects } from "../../assets/projects";
 import { useMinViewportWidth } from "../../hooks/useMinViewportWidth";
 import { isValidFeatureContent, renderMedia } from "../../utils/utils";
@@ -17,6 +18,7 @@ export const Case: React.FC = () => {
   if (!project) {
     return <div>Project not found!</div>;
   }
+  const nextProject = projects.find((p) => p.id === project?.id + 1);
 
   return (
     <div className="container">
@@ -54,7 +56,11 @@ export const Case: React.FC = () => {
 
         {project.meta?.features.map((feature, index) => (
           <div key={index}>
-            {renderMedia(feature[0] as string, "feature-pic", `${feature[1][0][2] ? feature[1][0][2]: ''}`)}
+            {renderMedia(
+              feature[0] as string,
+              "feature-pic",
+              `${feature[1][0][2] ? feature[1][0][2] : ""}`
+            )}
             {Array.isArray(feature) &&
               feature.map((item, index) => (
                 <Feature feature={item} key={index} />
@@ -62,11 +68,36 @@ export const Case: React.FC = () => {
           </div>
         ))}
       </div>
+
+      <footer className="footer">
+        <Link
+          to={`/project/${
+            nextProject?.isStub ? projects[0].slug : nextProject?.slug
+          }`}
+        >
+          <div className="link-container">
+            <span>
+              {t(
+                nextProject?.isStub ? projects[0].name : nextProject?.name || ""
+              )}
+            </span>
+            <img src={goToProjectIcon} className="icon" />
+          </div>
+          <img
+          className="next-project-image"
+            src={nextProject?.isStub ? projects[0].image : nextProject?.image}
+          />
+        </Link>
+      </footer>
     </div>
   );
 };
 
-function Feature({ feature }: { feature: string | string[] | (string | string[][])[][] }) {
+function Feature({
+  feature,
+}: {
+  feature: string | string[] | (string | string[][])[][];
+}) {
   const { t } = useTranslation();
 
   if (typeof feature === "string") {
@@ -121,24 +152,32 @@ function Feature({ feature }: { feature: string | string[] | (string | string[][
 }
 
 function Score({ score }: { score: (string | string[][])[][] }) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   return (
     <>
       {score.map((item, index) => (
         <div className="number" key={index}>
           <span>{item[0]}</span>
 
-          <p>{t(item[1] as string)}
-
-          {i18n.exists(item[2] as string) && <p>{t(item[2] as string)}</p>}
+          <p>
+            <Trans i18nKey={item[1] as string} />
           </p>
+          {i18n.exists(item[2] as string) && (
+            <p>
+              <Trans i18nKey={item[2] as string} />
+            </p>
+          )}
         </div>
       ))}
     </>
   );
 }
 
-function Paragraph({ feature }: { feature: string | string[] | (string | string[][])[][] }) {
+function Paragraph({
+  feature,
+}: {
+  feature: string | string[] | (string | string[][])[][];
+}) {
   const { t } = useTranslation();
 
   const includes = t(feature[0][1] as string).includes("<br/br/>");

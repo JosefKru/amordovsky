@@ -1,15 +1,17 @@
 import commingSoon from "./images/Comming_soon.png";
 import inDevelop from "./images/In_develop.png";
-import leroyMerlinSearch from "./images/Leroy-Merlin-search/Leroy_Merlin.png";
-import leroyMerlinCard from "./images/Leroy-Merlin-card/Leroy-Merlin-card_test.png";
 import p2_video1 from "./images/Leroy-Merlin-card/1.mp4";
 import p2_feature1 from "./images/Leroy-Merlin-card/2.png";
-import p2_feature3 from "./images/Leroy-Merlin-card/4.png";
 import p2_video_3_1 from "./images/Leroy-Merlin-card/3.1.mp4";
 import p2_video_3_2 from "./images/Leroy-Merlin-card/3.2.mp4";
+import p2_feature3 from "./images/Leroy-Merlin-card/4.png";
 import p2_video_5_1 from "./images/Leroy-Merlin-card/5.1.mp4";
 import p2_video_5_2 from "./images/Leroy-Merlin-card/5.2.mp4";
+import p2_feature6 from "./images/Leroy-Merlin-card/6.png";
+import leroyMerlinCard from "./images/Leroy-Merlin-card/Leroy-Merlin-card_preview.png";
+import p2_next_project from "./images/Leroy-Merlin-card/next_project.png";
 
+import leroyMerlinSearch from "./images/Leroy-Merlin-search/Leroy_Merlin.png";
 import p1_feature1 from "./images/Leroy-Merlin-search/p1_feature1.png";
 import p1_feature2 from "./images/Leroy-Merlin-search/p1_feature2.png";
 import p1_feature3 from "./images/Leroy-Merlin-search/p1_feature3.png";
@@ -18,6 +20,7 @@ import p1_feature5 from "./images/Leroy-Merlin-search/p1_feature5.png";
 import p1_feature6 from "./images/Leroy-Merlin-search/p1_feature6.png";
 import p1_feature7 from "./images/Leroy-Merlin-search/p1_feature7.png";
 import p1_main_pic from "./images/Leroy-Merlin-search/p1_main_pic.png";
+import p1_next_project from "./images/Leroy-Merlin-search/next_project.png";
 
 const LEROY_MERLIN_SEARCH = {
   src: p1_main_pic,
@@ -162,10 +165,10 @@ const LEROY_MERLIN_CARD = {
         [
           "cases.leroyMerlinCard.titleFeature2",
           "cases.leroyMerlinCard.descFeature2",
-          "video-video" 
+          "video-video",
         ],
       ],
-    ],  
+    ],
     [
       p2_feature3,
       [
@@ -176,13 +179,21 @@ const LEROY_MERLIN_CARD = {
         [
           "",
           [
-            ["6%", "cases.leroyMerlinCard.score1Feature3", "cases.leroyMerlinCard.score1Feature3_2"],
+            [
+              "6%",
+              "cases.leroyMerlinCard.score1Feature3",
+              "cases.leroyMerlinCard.score1Feature3_2",
+            ],
             [
               "3%",
               "cases.leroyMerlinCard.score2Feature3",
               "cases.leroyMerlinCard.score2Feature3_2",
             ],
-            ["7%", "cases.leroyMerlinCard.score3Feature3", "cases.leroyMerlinCard.score3Feature3_2"],
+            [
+              "7%",
+              "cases.leroyMerlinCard.score3Feature3",
+              "cases.leroyMerlinCard.score3Feature3_2",
+            ],
             ["8%", "cases.leroyMerlinCard.score4Feature3"],
           ],
         ],
@@ -192,34 +203,34 @@ const LEROY_MERLIN_CARD = {
       [p2_video_5_1, p2_video_5_2],
       [
         [
-          "cases.leroyMerlinCard.titleFeature5",
-          "cases.leroyMerlinCard.descFeature5",
-          "video-video" 
+          "cases.leroyMerlinCard.titleFeature4",
+          "cases.leroyMerlinCard.descFeature4",
+          "video-video",
         ],
       ],
     ],
     [
-      p1_feature7,
+      p2_feature6,
       [
         [
-          "cases.leroyMerlinCard.titleFeature7",
-          "cases.leroyMerlinCard.descFeature7",
+          "cases.leroyMerlinCard.titleFeature5",
+          "cases.leroyMerlinCard.descFeature5",
         ],
         [
           "",
           [
             [
-              "11%",
-              "cases.leroyMerlinCard.score1Feature7",
-              "cases.leroyMerlinCard.score1Feature7_2",
+              "4%",
+              "cases.leroyMerlinCard.score1Feature5",
+              "cases.leroyMerlinCard.score1Feature5_2",
             ],
             [
-              "15%",
-              "cases.leroyMerlinCard.score2Feature7",
-              "cases.leroyMerlinCard.score2Feature7_2",
+              "7%",
+              "cases.leroyMerlinCard.score2Feature5",
+              "cases.leroyMerlinCard.score2Feature5_2",
             ],
-            ["12%", "cases.leroyMerlinCard.score3Feature7"],
-            ["7%", "cases.leroyMerlinCard.score4Feature7"],
+            ["5%", "cases.leroyMerlinCard.score3Feature5"],
+            ["4%", "cases.leroyMerlinCard.score4Feature5"],
           ],
         ],
       ],
@@ -235,15 +246,17 @@ export const projects = [
     category: "E-commerce • B2C • App • Desktop",
     image: leroyMerlinSearch,
     imageRu: leroyMerlinSearch,
+    nextProjectImg: p1_next_project,
     meta: LEROY_MERLIN_SEARCH,
   },
   {
     id: 2,
     slug: "Leroy-Merlin-product-page-and-checkout",
     name: "cases.leroyMerlinCard.title",
-    category: "App • Desktop",
+    category: "E-commerce • B2C • App • Desktop",
     image: leroyMerlinCard,
     imageRu: leroyMerlinCard,
+    nextProjectImg: p2_next_project,
     meta: LEROY_MERLIN_CARD,
   },
   {
