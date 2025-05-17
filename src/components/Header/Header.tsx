@@ -10,6 +10,8 @@ import "./Header.scss";
 
 const Header: React.FC = React.memo(() => {
   const [shouldAnimateLogo, setShouldAnimateLogo] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const firstLoad = useRef(true);
   const { i18n, t } = useTranslation();
 
@@ -18,13 +20,11 @@ const Header: React.FC = React.memo(() => {
 
   const isVisible = useHeaderVisibility();
   const { startFade } = useFadeAnimation(0);
-  
+
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  
+
   const currentLang = i18n.language;
-
-
 
   const toggleLanguage = () => {
     setShouldAnimateLogo(true);
@@ -66,10 +66,21 @@ const Header: React.FC = React.memo(() => {
     }
   }, []);
 
+  const handleLogoClick = () => {
+    setShouldAnimateLogo(false);
+    setMenuOpen(false);
+
+    if (!isHomePage) {
+      startFade(() => {
+        navigate("/");
+      });
+    }
+  };
+
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
       <AnimatedWrapper>
-        <Link to={"/"} className="logo-link">
+        <Link to="/" onClick={handleLogoClick} className="logo-link">
           {isHomePage ? (
             <div
               className={`logo ${
@@ -103,6 +114,8 @@ const Header: React.FC = React.memo(() => {
         currentLang={currentLang}
         toggleLanguage={toggleLanguage}
         setShouldAnimateLogo={setShouldAnimateLogo}
+        open={menuOpen}
+        setOpen={setMenuOpen}
       />
     </header>
   );

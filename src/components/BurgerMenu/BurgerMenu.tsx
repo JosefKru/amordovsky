@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -14,6 +14,8 @@ interface Props {
   currentLang: string;
   toggleLanguage: () => void;
   setShouldAnimateLogo: (value: boolean) => void;
+  open: boolean;
+  setOpen: (value: boolean) => void;
 }
 
 const slideX = {
@@ -25,8 +27,9 @@ const BurgerMenu: FC<Props> = ({
   currentLang,
   toggleLanguage,
   setShouldAnimateLogo,
+  open,
+  setOpen,
 }) => {
-  const [open, setOpen] = useState(false);
   const { t } = useTranslation();
   const nav = getNavigation(t);
 
@@ -45,7 +48,7 @@ const BurgerMenu: FC<Props> = ({
   const handleClick = () => {
     setShouldAnimateLogo?.(false);
     setOpen(false);
-  }
+  };
 
   const renderItem = (item: NavItem) =>
     item.isLangSwitcher ? (
@@ -56,10 +59,7 @@ const BurgerMenu: FC<Props> = ({
       </li>
     ) : (
       <li key={item.label}>
-        <Link
-          to={item.to!}
-          onClick={handleClick}
-        >
+        <Link to={item.to!} onClick={handleClick}>
           {item.label}
         </Link>
       </li>
