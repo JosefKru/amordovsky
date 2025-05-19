@@ -95,7 +95,7 @@ i18n
               titleFeature2: "Product Page",
               descFeature2:
                 "On the product page, the key goal was to shorten the path from interest to purchase — to remove unnecessary effort and make the selection process intuitive. The main task was to help users quickly understand whether the product suits their needs, how much of it they need, and what else might be useful.<br/br/>The most significant improvement was the addition of a calculator: users can now enter, for example, the area of a room, and the system will automatically calculate the required number of packages. This greatly simplified the selection process in categories with complex calculation logic. The product page also now includes services tailored to the type of product. This allows users to immediately see available add-ons such as delivery, assembly, or consultation — helping them make purchasing decisions faster and more conveniently.",
-              titleFeature3: "Product Metrics",
+              titleFeature3: "Metrics",
               descFeature3:
                 "After these changes, users navigated the catalog more efficiently and made purchase decisions faster, which was reflected in core engagement metrics. The time users spent choosing a product decreased, and the conversion rate from view to purchase increased. There was also a rise in the number of successful purchases, indicating greater trust in the product information and an improved selection process.",
               scoreHeadFeature3: "",
@@ -106,7 +106,7 @@ i18n
               titleFeature4: "Checkout",
               descFeature4:
                 "During the checkout redesign, I focused on making the order process as clear, fast, and transparent as possible. To achieve this, I reworked core UX decisions, eliminating unnecessary steps and clarifying wording that had previously caused user confusion.<br/br/>Special attention was given to the map — one of the key elements in selecting a pickup location. Both the logic and visual presentation were updated: users can now immediately see how many items are available at each location, making it easier to choose a convenient store. Product weight is also now displayed — particularly useful for pickup orders or large items. All these changes made the checkout process more predictable and user-friendly, reducing the chances of errors and drop-offs at the final stage.",
-              titleFeature5: "Product Metrics",
+              titleFeature5: "Metrics",
               descFeature5:
                 "After the checkout update, users moved from the cart to payment more quickly and confidently. The interface became simpler, more intuitive, and better suited to real purchase scenarios — from fast payments to choosing a convenient store. The changes had a particularly strong impact at key decision points: completing an order took less time, users were less likely to go back to previous steps, and the number of successfully completed orders increased. Improvements in how information and the map are displayed made the experience more transparent and reduced user stress at the final stages — directly contributing to increased trust in the service and overall purchase effectiveness.",
               scoreHeadFeature5: "",
@@ -181,7 +181,7 @@ i18n
               titleFeature2: "Карточка товара",
               descFeature2:
                 "В карточке товара важно было сократить путь от интереса к покупке — убрать лишние усилия и сделать процесс выбора интуитивным. Основная задача состояла в том, чтобы помочь пользователю быстро понять, подходит ли товар, сколько его нужно и что ещё может пригодиться.<br/br/>Ключевым улучшением стал калькулятор: теперь пользователь может ввести, например, площадь помещения — и система автоматически рассчитает нужное количество упаковок. Это особенно упростило выбор в категориях с непростой логикой расчёта. Также на карточке товара были добавлены услуги, адаптированные под тип товара. Это позволяет пользователю сразу увидеть доступные дополнительные опции, такие как доставка, сборка или консультация, что помогает быстрее и удобнее принимать решение о покупке.",
-              titleFeature3: "Продуктовые метрики",
+              titleFeature3: "Метрики",
               descFeature3:
                 "После изменений в карточке товара пользователи стали быстрее ориентироваться в ассортименте и принимать решение о покупке, что отразилось на ключевых показателях вовлеченности. Время, которое пользователи тратят на выборе товара, снизилось, а конверсия из просмотра в покупку возросла. Дополнительно увеличилось количество успешных покупок, что говорит о высоком уровне доверия к информации на карточке товара и улучшении процесса выбора.",
               scoreHeadFeature3: "",
@@ -197,7 +197,7 @@ i18n
               titleFeature6: "",
               descFeature6:
                 "Важным изменением стало внедрение индивидуальных фильтров для разных типов товаров. Теперь для строительных материалов можно выбрать параметры, связанные с их устойчивостью и назначением, а для отделочных покрытий учитывать совместимость с конкретными поверхностями. ",
-              titleFeature5: "Продуктовые метрики",
+              titleFeature5: "Метрики",
               descFeature5:
                 "После обновления чекаута пользователи стали быстрее и увереннее проходить путь от корзины до оплаты. Интерфейс стал проще, понятнее и лучше подстраиваться под реальные сценарии покупки — от быстрой оплаты до выбора подходящего магазина. Изменения особенно хорошо сказались на ключевых точках принятия решений: оформление заказа стало занимать меньше времени, пользователи реже возвращались к предыдущим шагам, а количество успешно завершённых заказов выросло. Улучшения в логике отображения информации и карте повысили прозрачность и помогли снизить уровень напряжения на финальных этапах, что напрямую сказалось на росте доверия к сервису и общей эффективности процесса покупки.",
               scoreHeadFeature5: "",
